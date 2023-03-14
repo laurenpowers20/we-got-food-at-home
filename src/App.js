@@ -1,6 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import SignIn from "./Pages/SignIn/SignIn";
+
 
 function App() {
   
@@ -26,6 +30,7 @@ function App() {
   };
 
   return (
+  <div>
     <div className="form">
       <form onSubmit={handleSubmit}>
         <input
@@ -36,6 +41,13 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       <p>{response}</p>
+    </div>
+    
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+      </Routes>
+     
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.signin-logo {
+  height: 200px;
+}
+
+.sign-in-form {
+  display: block;
+}
+
+input {
+  height: 32px;
+  width: 252px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #bfbfbf;
+  border: 1px solid #bfbfbf;
+  background-color: #ffffff;
+  margin: 10px;
+  padding: 2px;
+}
