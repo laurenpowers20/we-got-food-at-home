@@ -19,10 +19,16 @@
 
 .set-goal-divs {
   height: 40px;
-  width: 200px;
-  background-color: #bfbfbf;
+  width: 300px;
+  background-color: #fbe0b8;
   margin: 10px;
   border-radius: 30px;
   vertical-align: middle;
   padding-top: 15px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
+  cursor: pointer;
+}
+
+.set-goal-divs:hover {
+  background-color: #f09133;
 }
