@@ -1,9 +1,24 @@
+.sign-in-button {
+  height: 38px;
+  width: 204px;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+}
+
 .signin-logo {
   height: 200px;
 }
 
-.sign-in-form {
-  display: block;
+.sign-in-form-container {
+  display: flex;
+  width: 440px;
+  margin: auto;
+  text-align: center;
 }
 
 input {
