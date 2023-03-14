@@ -66,7 +66,7 @@ const logout = () => {
 };
 
 
-export default {
+export {
   auth,
   db,
   signInWithGoogle,
