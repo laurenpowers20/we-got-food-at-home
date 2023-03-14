@@ -28,33 +28,12 @@ function App() {
 
   return (
     <div>
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={prompttest}
-            onChange={(e) => setPrompt(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{response}</p>
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={prompttest}
-            onChange={(e) => setPrompt(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{response}</p>
-      </div>
+
     </div>
   );
 }
