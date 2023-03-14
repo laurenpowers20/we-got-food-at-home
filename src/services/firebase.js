@@ -1,18 +1,22 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import firebase from 'firebase/compat/app';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
-import 'firebase/compat/auth';
-import{GoogleAuthProvider, 
-        getAuth, 
-        signInWithPopup,
-        signOut} from "firebase/auth";
-import {getFirestore,
-        query, 
-        getDocs, 
-        collection, 
-        where, 
-        addDoc,} from "firebase/firestore";
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+} from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,7 +30,7 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -57,15 +61,15 @@ const signInWithGoogle = async () => {
   }
 };
 
-//Logout function
+//logout function
 const logout = () => {
-    signOut(auth);
-  };
+  signOut(auth);
+};
 
 
-export{
-    auth,
-    db,
-    signInWithGoogle,
-    logout,
-}
+export {
+  auth,
+  db,
+  signInWithGoogle,
+  logout,
+};
