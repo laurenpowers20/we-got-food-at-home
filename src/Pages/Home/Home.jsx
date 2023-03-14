@@ -3,10 +3,9 @@ import logo from "../../images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth } from "../../services/firebase";
 // import { useEffect } from "react";
-import {useAuthState} from "react-firebase-hooks/auth"
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Home() {
-
   const [user, loading, error] = useAuthState(auth);
   // const navigate = useNavigate();
   // useEffect(() => {
@@ -16,20 +15,20 @@ function Home() {
   //   }
   //   if (user) navigate("/");
   // }, [user, loading]);
-  const pfp = user.photoURL
+  const pfp = user.photoURL;
   return (
-    
-      <>
-      <h1 className="home-heading">Welcome</h1>
-      <button className="logout-button" onClick={logout}>logout</button>
-      
-          <Link to="/sign-in">
-            <img src={pfp} alt="logo" className="home-logo" />
-          </Link>
-        
-        <h1 className="home-heading">Powered by AI</h1>
-      </>
- 
+    <>
+      <h1 className="home-heading">Welcome, Name</h1>
+
+      <Link to="/sign-in">
+        <img src={pfp} alt="google-photo" className="google-photo" />
+      </Link>
+      <div>
+        <button className="home-logout-button" onClick={logout}>
+          Logout
+        </button>
+      </div>
+    </>
   );
 }
 
