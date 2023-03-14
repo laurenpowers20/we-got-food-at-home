@@ -3,7 +3,7 @@ import logo from "../../images/logo.png";
 
 function SignIn() {
   return (
-    <>
+    <div>
       <img src={logo} alt="logo" className="signin-logo" />
       <p>---------- Create An Account ----------</p>
 
@@ -13,7 +13,7 @@ function SignIn() {
         <input type="text" name="password" placeholder="Your e-mail" />
         <input type="checkbox" />
       </form>
-    </>
+    </div>
   );
 }
 
