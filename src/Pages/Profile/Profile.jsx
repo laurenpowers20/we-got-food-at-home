@@ -1,5 +1,6 @@
 import { IoMdTrophy } from "react-icons/io";
 import { IoTrophyOutline } from "react-icons/io5";
+import { AiFillHeart } from "react-icons/ai";
 import "./Profile.css";
 
 function Profile() {
@@ -9,9 +10,12 @@ function Profile() {
       <div className="profile-top">
         <div className="profile-photo">Photo</div>
         <div className="profile-level container">
-        <div className="profile-level-bar one"></div>
-          <div className="profile-level-bar two"></div>
+          <div className="profile-level-bar one"> </div>
+          <div>
+            {" "}
+            <div className="profile-level-bar two"></div>
           </div>
+        </div>
       </div>
       <p>Your points: 40</p>
       <p>Your collection</p>

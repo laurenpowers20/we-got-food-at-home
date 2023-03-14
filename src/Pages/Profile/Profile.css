@@ -6,7 +6,7 @@
 }
 
 .profile-top {
-  margin: 10px;
+  margin: 15px;
   display: flex;
 }
 
@@ -14,15 +14,7 @@
   margin: 20px;
   height: 20px;
   width: 200px;
-  background-color: grey;
-}
-
-.profile-level-bar.one {
-  color: blue;
-}
-
-.profile-level-bar.two {
-  color: red;
+  background-color: #bfbfbf;
 }
 
 .profile-button {
