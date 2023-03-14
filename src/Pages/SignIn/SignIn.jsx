@@ -14,6 +14,7 @@ function SignIn() {
       return;
     }
     if (user) navigate("/home");
+    console.log(user)
   }, [user, loading]);
   return (
     <div>
