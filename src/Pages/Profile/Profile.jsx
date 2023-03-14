@@ -20,9 +20,15 @@ function Profile() {
       <p>Your points: 40</p>
       <p>Your collection</p>
       <div>
-        <IoMdTrophy /> <IoMdTrophy /> <IoMdTrophy /> <IoMdTrophy />{" "}
+        Chicken Alfredo <IoMdTrophy /> <IoMdTrophy /> <IoMdTrophy />{" "}
+        <IoMdTrophy /> <IoTrophyOutline /> <IoTrophyOutline />{" "}
+        <IoTrophyOutline />
+      </div>
+      <div>
+        Veggie Curry <IoMdTrophy /> <IoMdTrophy /> <IoMdTrophy /> <IoMdTrophy />{" "}
         <IoTrophyOutline /> <IoTrophyOutline /> <IoTrophyOutline />
       </div>
+
       <button className="profile-button">Ready to cook?</button>
     </div>
   );
