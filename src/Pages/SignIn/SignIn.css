@@ -11,14 +11,14 @@
 }
 
 .signin-logo {
-  height: 200px;
+  height: 450px;
 }
 
 .sign-in-form-container {
   display: flex;
-  width: 440px;
   margin: auto;
   text-align: center;
+  justify-content: center;
 }
 
 input {
@@ -31,4 +31,11 @@ input {
   background-color: #ffffff;
   margin: 10px;
   padding: 2px;
+}
+
+@media only screen and (max-width: 700px) {
+  .signin-logo {
+    height: 300px;
+    margin: auto;
+  }
 }
