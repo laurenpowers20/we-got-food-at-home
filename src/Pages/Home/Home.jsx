@@ -89,7 +89,7 @@ function Home() {
               key={index}
               item={item}
               selectItem={selectItem}
-              deleteItem={deleteDoc}
+              deleteItem={deleteItem}
             />
           ))}
         </ul>
