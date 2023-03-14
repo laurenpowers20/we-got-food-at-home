@@ -4,11 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import SignIn from "./Pages/SignIn/SignIn";
-<<<<<<< HEAD
 import SignUp from "./Pages/SignUp/SignUp";
-=======
-
->>>>>>> 661187eeed4820a4b8a114be013ae02034b49dc7
 
 function App() {
   const [prompttest, setPrompt] = useState("");
@@ -31,14 +27,8 @@ function App() {
   };
 
   return (
-    <div className="form">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
-<<<<<<< HEAD
-      <div>
+    <div>
+      <div className="form">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -49,11 +39,13 @@ function App() {
         </form>
         <p>{response}</p>
       </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-in" element={<SignUp />} />
+      </Routes>
     </div>
-=======
-     
-    </>
->>>>>>> 661187eeed4820a4b8a114be013ae02034b49dc7
   );
 }
 
