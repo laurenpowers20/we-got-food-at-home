@@ -1,0 +1,17 @@
+.set-goal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  flex-wrap: wrap;
+}
+
+.set-goal-divs {
+  height: 40px;
+  width: 200px;
+  background-color: #bfbfbf;
+  margin: 10px;
+  border-radius: 30px;
+  vertical-align: middle;
+  padding-top: 15px;
+}
