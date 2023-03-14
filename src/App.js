@@ -3,9 +3,13 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [prompt, setPrompt] = useState("");
+  
+  const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-
+  const prompt = `give me a recipe using ${prompttest}`
+  
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,7 +30,7 @@ function App() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={prompt}
+          value={prompttest}
           onChange={(e) => setPrompt(e.target.value)}
         />
         <button type="submit">Submit</button>
