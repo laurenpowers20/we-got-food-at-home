@@ -4,7 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import SignIn from "./Pages/SignIn/SignIn";
-import SignUp from "./Pages/SignUp/SignUp";
+
 
 function App() {
   const [prompttest, setPrompt] = useState("");
@@ -40,9 +40,8 @@ function App() {
         <p>{response}</p>
       </div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/" element={<SignIn />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
       <div>
         <form onSubmit={handleSubmit}>
