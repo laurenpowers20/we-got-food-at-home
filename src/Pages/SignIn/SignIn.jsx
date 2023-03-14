@@ -1,9 +1,12 @@
 import "./SignIn.css";
 import logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { auth, signInWithGoogle } from "../../services/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function SignIn() {
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
   return (
     <>
       <img src={logo} alt="logo" className="signin-logo" />
