@@ -6,15 +6,10 @@ import Home from "./Pages/Home/Home";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
 
-
 function App() {
-
-  
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using ${prompttest}`
-  
-  
+  const prompt = `give me a recipe using ${prompttest}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,18 +27,18 @@ function App() {
   };
 
   return (
-        <>
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={prompttest}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <p>{response}</p>
-    </div>
+    <div>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={prompttest}
+            onChange={(e) => setPrompt(e.target.value)}
+          />
+          <button type="submit">Submit</button>
+        </form>
+        <p>{response}</p>
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
@@ -61,8 +56,6 @@ function App() {
         <p>{response}</p>
       </div>
     </div>
-     
-    </>
   );
 }
 
