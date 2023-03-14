@@ -1,0 +1,38 @@
+.profile-photo {
+  height: 100px;
+  width: 100px;
+  border: solid 1px black;
+  border-radius: 10%;
+}
+
+.profile-top {
+  margin: 10px;
+  display: flex;
+}
+
+.profile-level-bar {
+  margin: 20px;
+  height: 20px;
+  width: 200px;
+  background-color: grey;
+}
+
+.profile-level-bar.one {
+  color: blue;
+}
+
+.profile-level-bar.two {
+  color: red;
+}
+
+.profile-button {
+  height: 38px;
+  width: 204px;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+}
