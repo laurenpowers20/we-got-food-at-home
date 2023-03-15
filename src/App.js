@@ -4,7 +4,6 @@ import AddIngredients from "./Pages/AddIngredients/AddIngredients";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import SetGoal from "./Pages/SetGoal/SetGoal";
-
 import SignIn from "./Pages/SignIn/SignIn";
 
 function App() {

@@ -11,12 +11,32 @@
   align-items: center;
   justify-content: center;
 }
+.profile-bar-div {
+  display: flex;
+  align-items: center;
+}
+
+.profile-bar-div.top {
+  color: #eb4335;
+}
+
+.profile-bar-div.bottom {
+  color: #e9c650;
+}
 
 .profile-level-bar {
-  margin: 20px;
+  margin: 10px;
   height: 20px;
   width: 500px;
-  background-color: #bfbfbf;
+  display: flex;
+}
+
+.profile-level-bar.one {
+  background-color: #eb4335;
+}
+
+.profile-level-bar.two {
+  background-color: #e9c650;
 }
 
 .profile-button {
