@@ -91,6 +91,7 @@ function AddIngredients() {
           <a href="/ingredients">ingredients</a>
           <form onSubmit={addItem}>
             <input
+              className="custom-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
@@ -115,6 +116,7 @@ function AddIngredients() {
         <div className="form">
           <form onSubmit={handleSubmit}>
             <input
+              className="custom-input"
               type="text"
               value={prompttest}
               onChange={(e) => setPrompt(e.target.value)}
