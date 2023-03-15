@@ -1,7 +1,7 @@
 import React from "react";
 import "../Pages/AddIngredients/AddIngredients.css";
 
-const ItemList = ({ item, selectItem, deleteItem}) => {
+const ItemList = ({ item, selectItem, deleteItem }) => {
   return (
     <div>
       {/* <h3>Enter Ingredients</h3>
@@ -15,22 +15,24 @@ const ItemList = ({ item, selectItem, deleteItem}) => {
             />
             <button>Add</button>
           </form> */}
-     <div
-      className="ingredients-list-items">
+      <div className="ingredients-list-items">
+        <div className="checkbox-container">
+          <input
+            className="checkbox"
+            onChange={() => selectItem(item)}
+            type="checkbox"
+            checked={item.selected ? "checked" : ""}
+          />
+        </div>
 
-      <input
-        className="checkbox"
-        onChange={() => selectItem(item)}
-        type="checkbox"
-        checked={item.selected ? "checked" : ""}
-      />
-      
-      <li>
-        <p onClick={() => selectItem(item)}>{item.text}</p>
-      </li>
-      <button className="x-button" onClick={() => deleteItem(item.id)}>
-        x
-      </button>
+        <li>
+          <p className="list-item-text" onClick={() => selectItem(item)}>{item.text}</p>
+        </li>
+        <div className="x-button-container">
+          <button className="x-button" onClick={() => deleteItem(item.id)}>
+            x
+          </button>
+        </div>
       </div>
     </div>
   );

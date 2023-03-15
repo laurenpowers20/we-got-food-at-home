@@ -94,14 +94,10 @@ function AddIngredients() {
 
   return (
     <>
-
-      
+      <div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
       <div>
-        {/* <Link to="/ingredients/recipes">Recipes</Link> */}
-      </div>
-      <div>
-        <div>
-          <h3>Enter Ingredients</h3>
+        <div className="ingredients-div">
+          <h1>Enter Ingredients</h1>
           <form onSubmit={addItem}>
             <input
               className="custom-input add-items"
@@ -110,9 +106,9 @@ function AddIngredients() {
               type="text"
               placeholder="Add Item"
             />
-            <button>Add</button>
+            <button className="add-btn">Add</button>
           </form>
-          <ul>
+          <ul className="ingredients-div">
             {items.map((item, index) => (
               <ItemList
                 key={index}
@@ -129,15 +125,14 @@ function AddIngredients() {
       </div>
       <div>
         {/* Submits the prompt with the selected items */}
-        <div className="form">
+      
           <form onSubmit={handleSubmit}>
-            
-            <button type="submit">Submit</button>
-            
-          </form>
+            <button className="home-logout-button"type="submit">Submit</button>
+        </form>
+        <div className="form">
           {/* <p>{response}</p> */}
-          <div id='Recipe'>
-          <Recipes  response={response} />
+          <div id="Recipe">
+            <Recipes response={response} />
           </div>
         </div>
       </div>
