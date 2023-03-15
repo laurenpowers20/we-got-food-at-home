@@ -17,13 +17,11 @@ import {
 
 function Home() {
   const [user, loading, error] = useAuthState(auth);
-
+  const pfp = user.photoURL;
   return (
     <>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
-      <Profile />
-
-      {/* <img src={logo} alt="google-photo" className="google-photo" /> */}
+      <Profile pfp={pfp} />
 
       <div>
         <Link to="/ingredients">
