@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemList from "../../Components/ItemList";
+import Recipes from "../../Components/Recipes";
 
 import {
   query,
@@ -21,8 +22,8 @@ function AddIngredients() {
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
-  const [selectedItems, setSelectedItems] = useState([])
-  const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
+  const [selectedItems, setSelectedItems] = useState([]);
+  const prompt = `give me a recipe using only ${selectedItems.toString(" ")}`;
 
   // Create ItemList
   const addItem = async (e) => {
@@ -50,27 +51,23 @@ function AddIngredients() {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
-      let newArr = []
+      let newArr = [];
       for (let i = 0; i < itemsArr.length; i++) {
         if (itemsArr[i].selected === true) {
-          newArr.push(itemsArr[i].text)
+          newArr.push(itemsArr[i].text);
         }
       }
-      setSelectedItems(newArr)
+      setSelectedItems(newArr);
     });
     return () => unsubscribe();
   }, []);
-  console.log(selectedItems.toString(' '))
-  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
-  
   // Items in firebase
   const selectItem = async (item) => {
     await updateDoc(doc(db, "items", item.id), {
       selected: !item.selected,
     });
   };
-
 
   // Delete item
   const deleteItem = async (id) => {
@@ -97,6 +94,9 @@ function AddIngredients() {
   return (
     <>
       <div>
+        {/* <Link to="/ingredients/recipes">Recipes</Link> */}
+      </div>
+      <div>
         <div>
           <h3>Enter Ingredients</h3>
           <form onSubmit={addItem}>
@@ -119,22 +119,19 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
-          {selectedItems.length < 1 ? null : <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>}
+          {selectedItems.length < 1 ? null : (
+            <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
+          )}
         </div>
       </div>
       <div>
+        {/* Submits the prompt with the selected items */}
         <div className="form">
           <form onSubmit={handleSubmit}>
-            <input
-              className="custom-input"
-              type="text"
-              value={prompttest}
-              onChange={(e) => setPrompt(e.target.value)}
-            />
             <button type="submit">Submit</button>
           </form>
-          <p>{response}</p>
+          {/* <p>{response}</p> */}
+          <Recipes response={response} />
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import "./Home.css";
 import logo from "../../images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
@@ -20,6 +20,9 @@ function Home() {
 
   return (
     <>
+      <div>
+        <Link to="/ingredients"></Link>
+      </div>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
 
       <img src={logo} alt="google-photo" className="google-photo" />
