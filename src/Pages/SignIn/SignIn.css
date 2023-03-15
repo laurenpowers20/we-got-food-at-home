@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-input {
+.custom-input {
   height: 32px;
   width: 252px;
   border-radius: 8px;
