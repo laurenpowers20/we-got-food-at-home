@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
-
 import {
   query,
   collection,
@@ -15,6 +14,7 @@ import {
   deleteDoc,
   where,
 } from "firebase/firestore";
+
 function Home() {
   const [user, loading, error] = useAuthState(auth);
 
@@ -29,9 +29,7 @@ function Home() {
           <button className="home-ingredients-button">Find Recipe</button>
         </Link>
       </div>
-      <div>
-        <button className="home-ingredients-button">Enter Ingredients</button>
-      </div>
+    
       <div>
         <button className="home-logout-button" onClick={logout}>
           Logout

@@ -1,11 +1,11 @@
 import "./SignIn.css";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import React from "react";
+import google from "../../images/google.png";
 import logo from "../../images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 
 function SignIn() {
   const [user, loading, error] = useAuthState(auth);
@@ -20,12 +20,18 @@ function SignIn() {
   }, [user, loading]);
   return (
     <div>
+      <h1>Welcome</h1>
       <img src={logo} alt="logo" className="signin-logo" />
-
+      <h1>Powered by AI</h1>
       <div className="sign-in-form-container">
         {/* sign in using the google pop up */}
-        <button className="sign-in-button" onClick={signInWithGoogle}>
-          Login With Google
+        <button className="google-button" onClick={signInWithGoogle}>
+          <img
+            src={google}
+            className="google-logo"
+            style={{ height: "25px" }}
+          />
+          Continue with Google
         </button>
       </div>
     </div>
