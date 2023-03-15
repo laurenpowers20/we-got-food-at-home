@@ -1,3 +1,7 @@
+body {
+  margin: auto;
+}
+
 .ingredients-list-items {
   display: flex;
   align-items: center;
@@ -7,10 +11,11 @@
   width: 500px;
 }
 
-
 ul {
   list-style: none;
   margin: auto;
+  width: 100px;
+  text-align: left;
 }
 
 p {
