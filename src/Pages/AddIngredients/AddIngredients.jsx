@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
+import { Hearts } from "react-loading-icons";
 
 import {
   query,
@@ -20,10 +21,12 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [loading, setLoading] = useState(false);
+  const [user, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
+  const [visible, setVisible] = useState(false);
   const prompt = `give me a recipe using only ${selectedItems.toString(" ")}`;
 
   // Create ItemList
@@ -77,19 +80,24 @@ function AddIngredients() {
 
   // ////////////////////////////////////////
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const gptData = await // Send a request to the server with the prompt
+    axios.post("http://localhost:8080/chat", { prompt });
+    try {
+      const res = await axios.post("http://localhost:8080/chat", { prompt });
+      setLoading(false);
+      setResponse(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+    // Update the response state with the server's response
+  };
 
-    // Send a request to the server with the prompt
-    axios
-      .post("http://localhost:8080/chat", { prompt })
-      .then((res) => {
-        // Update the response state with the server's response
-        setResponse(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+  const handleClick = () => {
+    // setLoading(true)
+    setVisible(true);
   };
 
   return (
@@ -124,17 +132,31 @@ function AddIngredients() {
         </div>
       </div>
       <div>
-        {/* Submits the prompt with the selected items */}
-      
+        <div>
+          {/* Submits the prompt with the selected items */}
+
           <form onSubmit={handleSubmit}>
-            <button className="home-logout-button"type="submit">Submit</button>
-        </form>
-        <div className="form">
+            <button onClick={handleClick} type="submit">
+              Submit
+            </button>
+          </form>
+          {loading ? (
+            <Hearts
+              stroke="#f09133"
+              fill="#ed7f12"
+              strokeOpacity={0.1}
+              fillOpacity={1}
+              speed={0.75}
+            />
+          ) : (
+            " "
+          )}
           {/* <p>{response}</p> */}
           <div id="Recipe">
             <Recipes response={response} />
           </div>
         </div>
+        <div>{visible ? <button>I Cooked this Recipe!</button> : ""}</div>
       </div>
     </>
   );
