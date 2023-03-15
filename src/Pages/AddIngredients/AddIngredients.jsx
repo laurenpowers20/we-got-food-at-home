@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
+import { Hearts } from "react-loading-icons";
 
 import {
   query,
@@ -139,7 +140,7 @@ function AddIngredients() {
               Submit
             </button>
           </form>
-          {loading ? "Loading..." : " "}
+          {loading ? <Hearts /> : " "}
           {/* <p>{response}</p> */}
           <div id="Recipe">
             <Recipes response={response} />
