@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
+import "../AddIngredients/AddIngredients.css";
 
 import {
   query,

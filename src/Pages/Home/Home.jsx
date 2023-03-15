@@ -1,6 +1,7 @@
 import "./Home.css";
 import logo from "../../images/logo.png";
 import { Link, useNavigate, Outlet } from "react-router-dom";
+import Profile from "../Profile/Profile";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
@@ -17,22 +18,21 @@ import {
 
 function Home() {
   const [user, loading, error] = useAuthState(auth);
-
+  const pfp = user.photoURL;
   return (
     <>
       <div>
         <Link to="/ingredients"></Link>
       </div>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
-
-      <img src={logo} alt="google-photo" className="google-photo" />
+      <Profile pfp={pfp} />
 
       <div>
         <Link to="/ingredients">
           <button className="home-ingredients-button">Find Recipe</button>
         </Link>
       </div>
-    
+
       <div>
         <button className="home-logout-button" onClick={logout}>
           Logout
