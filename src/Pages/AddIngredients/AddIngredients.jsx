@@ -34,6 +34,7 @@ function AddIngredients() {
       return;
     }
     await addDoc(collection(db, 'items'), {
+      user: user.uid,
       text: input,
       selected: false,
     });
@@ -42,8 +43,8 @@ function AddIngredients() {
 
   // Read item from firebase
   useEffect(() => {
-    const q = collection(db, 'items');
-    // const q = query(collectionRef, where ("user","==",user.uid))
+    const collectionRef= collection(db, 'items');
+    const q = query(collectionRef, where ("user","==",user.uid))
 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let itemsArr = [];

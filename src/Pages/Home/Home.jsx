@@ -6,22 +6,14 @@ import {useAuthState} from "react-firebase-hooks/auth"
 import React, { useState, useEffect } from 'react';
 
 
-import {
-  query,
-  collection,
-  onSnapshot,
-  updateDoc,
-  doc,
-  addDoc,
-  deleteDoc,
-  where
-} from 'firebase/firestore';
+
 function Home() {
   const [user, loading, error] = useAuthState(auth);
  
   
   return (
     <>
+    <a href="/Ingredients">BUTTON</a>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
       
       <Link to="/sign-in">
