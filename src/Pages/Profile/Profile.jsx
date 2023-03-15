@@ -1,4 +1,5 @@
 import { AiFillHeart } from "react-icons/ai";
+import { GiLightningShield } from "react-icons/gi";
 
 import "./Profile.css";
 
@@ -11,15 +12,15 @@ function Profile() {
 
         <div className="profile-level container">
           <div>
-            <div className="profile-bar-div">
-          <div className="profile-level-bar one"> </div>
-          
-            {" "}
-             
+            <div className="profile-bar-div top">
+              <AiFillHeart />
+              <div className="profile-level-bar one"> </div>{" "}
             </div>
-            
-            
-            <div className="profile-level-bar two"></div>
+
+            <div className="profile-bar-div bottom">
+              <GiLightningShield />
+              <div className="profile-level-bar two"></div>
+            </div>
           </div>
         </div>
       </div>
