@@ -10,7 +10,6 @@ function Profile(props) {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [progressBar, setProgressBar] = useState(0);
 
-
   const levelImages = [
     { level: 1, src: `${bronze}`, status: "bronze" },
     { level: 2, src: `${bronze}`, status: "bronze" },
@@ -21,7 +20,7 @@ function Profile(props) {
     { level: 7, src: `${gold}`, status: "gold" },
   ];
   const currentImage = levelImages.find(
-    (image) => (image.level) === currentLevel
+    (image) => image.level === currentLevel
   ).src;
 
   const handleLevelUp = () => {
@@ -41,17 +40,14 @@ function Profile(props) {
         <div className="profile-level container">
           <div>
             <div className="profile-bar-div top">
-              <AiFillHeart />
-              <div className="profile-level-bar one">
-                {" "}
-                <div>
-                  <progress value={progressBar} max="100"></progress>
-                </div>
-              </div>{" "}
+              <AiFillHeart style={{ padding: "10px" }} />{" "}
+              <div>
+                <progress value={progressBar} max="100"></progress>
+              </div>
             </div>
 
             <div className="profile-bar-div bottom">
-              <GiLightningShield />
+              <GiLightningShield style={{ padding: "10px" }} />
               <div className="profile-level-bar two">
                 <div></div>
               </div>

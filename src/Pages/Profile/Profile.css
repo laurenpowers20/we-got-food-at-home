@@ -1,7 +1,7 @@
-.progress-bar{
-  width: 400px;
-  height: 20px;
-  background-color: red;
+progress {
+  accent-color: #eb4335;
+  width: 500px;
+  height: 50px;
 }
 
 .profile-photo {
@@ -58,7 +58,6 @@
   margin-top: 20px;
   background-color: #aac4cf;
 }
-
 
 .profile-btn:hover {
   background-color: #568a9f;
