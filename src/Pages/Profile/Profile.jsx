@@ -6,7 +6,7 @@ import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
 
-function Profile(props) {
+function Profile() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [progressBar, setProgressBar] = useState(0);
 
@@ -66,11 +66,19 @@ function Profile(props) {
             <h3>{`You're a ${currentLevel}-level cook!`}</h3>
           </div>
         </div>
-        <button className="profile-btn" onClick={handleLevelUp}>
+        <button
+          className="profile-btn"
+          disabled={currentLevel === 7}
+          onClick={handleLevelUp}
+        >
           I cooked at home today!
         </button>
-        <button className="profile-btn" onClick={handleLevelDown}>
-          Oops no I didn't!
+        <button
+          className="profile-btn"
+          disabled={currentLevel === 1}
+          onClick={handleLevelDown}
+        >
+          Oops, no I didn't!
         </button>
       </div>
     </div>
