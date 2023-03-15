@@ -93,6 +93,8 @@ function AddIngredients() {
 
   return (
     <>
+
+      
       <div>
         {/* <Link to="/ingredients/recipes">Recipes</Link> */}
       </div>
@@ -128,10 +130,14 @@ function AddIngredients() {
         {/* Submits the prompt with the selected items */}
         <div className="form">
           <form onSubmit={handleSubmit}>
+            
             <button type="submit">Submit</button>
+            
           </form>
           {/* <p>{response}</p> */}
-          <Recipes response={response} />
+          <div id='Recipe'>
+          <Recipes  response={response} />
+          </div>
         </div>
       </div>
     </>
