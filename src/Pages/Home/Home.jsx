@@ -22,11 +22,12 @@ function Home() {
     <>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
 
-      <Link to="/sign-in">
-        <img src={logo} alt="google-photo" className="google-photo" />
-      </Link>
+      <img src={logo} alt="google-photo" className="google-photo" />
+
       <div>
-        <button className="home-ingredients-button">Find Recipe</button>
+        <Link to="/ingredients">
+          <button className="home-ingredients-button">Find Recipe</button>
+        </Link>
       </div>
       <div>
         <button className="home-ingredients-button">Enter Ingredients</button>
