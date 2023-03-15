@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -18,11 +19,10 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using only ${selectedItems}`;
+  const prompt = `give me a recipe using ${prompttest}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
-  const [selectedItems, setSelectedItems] = useState([])
 
   // Create ItemList
   const addItem = async (e) => {
@@ -50,24 +50,16 @@ function AddIngredients() {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
-      let newArr = []
-      for (let i = 0; i < itemsArr.length; i++) {
-        if (itemsArr[i].selected === true) {
-          newArr.push(itemsArr[i].text)
-        }
-      }
-      setSelectedItems(newArr)
     });
     return () => unsubscribe();
   }, []);
-  
-  // Items in firebase
+
+  // Update todo in firebase
   const selectItem = async (item) => {
     await updateDoc(doc(db, "items", item.id), {
       selected: !item.selected,
     });
   };
-
 
   // Delete item
   const deleteItem = async (id) => {
@@ -99,6 +91,7 @@ function AddIngredients() {
           <a href="/ingredients">ingredients</a>
           <form onSubmit={addItem}>
             <input
+              className="custom-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
@@ -123,6 +116,7 @@ function AddIngredients() {
         <div className="form">
           <form onSubmit={handleSubmit}>
             <input
+              className="custom-input"
               type="text"
               value={prompttest}
               onChange={(e) => setPrompt(e.target.value)}

@@ -20,7 +20,6 @@ function Home() {
 
   return (
     <>
-    <a href="/Ingredients">BUTTON</a>
       <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
 
       <img src={logo} alt="google-photo" className="google-photo" />
