@@ -140,7 +140,17 @@ function AddIngredients() {
               Submit
             </button>
           </form>
-          {loading ? <Hearts /> : " "}
+          {loading ? (
+            <Hearts
+              stroke="#f09133"
+              fill="#ed7f12"
+              strokeOpacity={0.1}
+              fillOpacity={1}
+              speed={0.75}
+            />
+          ) : (
+            " "
+          )}
           {/* <p>{response}</p> */}
           <div id="Recipe">
             <Recipes response={response} />
