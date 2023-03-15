@@ -18,7 +18,7 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using only ${selectedItems}`;
+  // const prompt = `give me a recipe using only ${selectedItems}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
@@ -60,6 +60,8 @@ function AddIngredients() {
     });
     return () => unsubscribe();
   }, []);
+  const prompt = `give me a recipe using only ${selectedItems}`;
+
   
   // Items in firebase
   const selectItem = async (item) => {
