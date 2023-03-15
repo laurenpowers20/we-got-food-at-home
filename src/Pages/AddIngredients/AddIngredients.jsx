@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -87,11 +86,10 @@ function AddIngredients() {
     <>
       <div>
         <div>
-          <h3>Add Food Items</h3>
-          <a href="/ingredients">ingredients</a>
+          <h3>Enter Ingredients</h3>
           <form onSubmit={addItem}>
             <input
-              className="custom-input"
+              className="custom-input add-items"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
