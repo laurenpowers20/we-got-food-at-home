@@ -60,8 +60,8 @@ function AddIngredients() {
     });
     return () => unsubscribe();
   }, []);
-  console.log(selectedItems.toString(' '))
-  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
+
+
 
   
   // Items in firebase
@@ -119,19 +119,13 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
           {selectedItems.length < 1 ? null : <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>}
         </div>
       </div>
       <div>
+        {/* Submits the prompt with the selected items */}
         <div className="form">
           <form onSubmit={handleSubmit}>
-            <input
-              className="custom-input"
-              type="text"
-              value={prompttest}
-              onChange={(e) => setPrompt(e.target.value)}
-            />
             <button type="submit">Submit</button>
           </form>
           <p>{response}</p>
