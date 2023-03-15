@@ -18,7 +18,7 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using only ${prompttest}`;
+  const prompt = `give me a recipe using only ${selectedItems}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
@@ -50,33 +50,22 @@ function AddIngredients() {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
-      // console.log(itemsArr[1].text)
       let newArr = []
       for (let i = 0; i < itemsArr.length; i++) {
         if (itemsArr[i].selected === true) {
           newArr.push(itemsArr[i].text)
-          // console.log(itemsArr[i].text, i)
         }
       }
-      console.log(newArr)
+      setSelectedItems(newArr)
     });
     return () => unsubscribe();
   }, []);
   
-  
-  // Update todo in firebase
+  // Items in firebase
   const selectItem = async (item) => {
     await updateDoc(doc(db, "items", item.id), {
       selected: !item.selected,
     });
-    // console.log(!item.selected)
-    // if (!item.selected === true) {
-    //   let selectedItemsArr = []
-    //   selectedItemsArr.push(item.text)
-    //   setSelectedItems(selectedItemsArr => [...selectedItemsArr, item.text])
-    //   console.log(selectedItemsArr)
-    //   // console.log(item.text)
-    // }
   };
 
 
