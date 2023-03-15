@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemList from "../../Components/ItemList";
+import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
 
 import {
@@ -61,8 +62,6 @@ function AddIngredients() {
     });
     return () => unsubscribe();
   }, []);
-  console.log(selectedItems.toString(" "));
-  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
   // Items in firebase
   const selectItem = async (item) => {
@@ -95,6 +94,11 @@ function AddIngredients() {
 
   return (
     <>
+
+      
+      <div>
+        {/* <Link to="/ingredients/recipes">Recipes</Link> */}
+      </div>
       <div>
         <div>
           <h3>Enter Ingredients</h3>
@@ -118,24 +122,23 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
           {selectedItems.length < 1 ? null : (
             <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
           )}
         </div>
       </div>
       <div>
+        {/* Submits the prompt with the selected items */}
         <div className="form">
           <form onSubmit={handleSubmit}>
-            <input
-              className="custom-input"
-              type="text"
-              value={prompttest}
-              onChange={(e) => setPrompt(e.target.value)}
-            />
+            
             <button type="submit">Submit</button>
+            
           </form>
-          <p>{response}</p>
+          {/* <p>{response}</p> */}
+          <div id='Recipe'>
+          <Recipes  response={response} />
+          </div>
         </div>
       </div>
     </>
