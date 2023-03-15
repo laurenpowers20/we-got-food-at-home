@@ -22,10 +22,10 @@ function Home() {
   
   return (
     <>
-      <h1 className="home-heading">Welcome, Name</h1>
-
+      <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
+      
       <Link to="/sign-in">
-        <img src={pfp} alt="google-photo" className="google-photo" />
+        <img src={logo} alt="google-photo" className="google-photo" />
       </Link>
       <div>
         <button className="home-logout-button" onClick={logout}>
