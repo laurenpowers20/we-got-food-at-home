@@ -6,9 +6,11 @@ import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
 
-function Profile() {
+function Profile(props) {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [progressBar, setProgressBar] = useState(0);
+
+
   const levelImages = [
     { level: 1, src: `${bronze}`, status: "bronze" },
     { level: 2, src: `${bronze}`, status: "bronze" },
@@ -19,12 +21,17 @@ function Profile() {
     { level: 7, src: `${gold}`, status: "gold" },
   ];
   const currentImage = levelImages.find(
-    (image) => image.level === currentLevel
+    (image) => (image.level) === currentLevel
   ).src;
 
   const handleLevelUp = () => {
     setCurrentLevel(currentLevel + 1);
     setProgressBar(progressBar + 10);
+  };
+
+  const handleLevelDown = () => {
+    setCurrentLevel(currentLevel - 1);
+    setProgressBar(progressBar - 10);
   };
   return (
     <div>
@@ -62,8 +69,13 @@ function Profile() {
 
             <h3>{`You're a ${currentLevel}-level cook!`}</h3>
           </div>
-          <button onClick={handleLevelUp}>I cooked at home today!</button>
         </div>
+        <button className="profile-btn" onClick={handleLevelUp}>
+          I cooked at home today!
+        </button>
+        <button className="profile-btn" onClick={handleLevelDown}>
+          Oops no I didn't!
+        </button>
       </div>
     </div>
   );
