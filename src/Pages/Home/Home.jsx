@@ -17,32 +17,21 @@ import {
   where
 } from 'firebase/firestore';
 function Home() {
-
   const [user, loading, error] = useAuthState(auth);
  
-
+  
   return (
-    
     <>
+      <h1 className="home-heading">Welcome, Name</h1>
 
-
-
-
-
-
-     
-{/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */}
-      <h1 className="home-heading">Welcome</h1>
-      <button className="logout-button" onClick={logout}>logout</button>
-      
-          <Link to="/sign-in">
-            <img src={logo} alt="logo" className="home-logo" />
-          </Link>
-        
-        <h1 className="home-heading">Powered by AI</h1>
-
-
-
+      <Link to="/sign-in">
+        <img src={pfp} alt="google-photo" className="google-photo" />
+      </Link>
+      <div>
+        <button className="home-logout-button" onClick={logout}>
+          Logout
+        </button>
+      </div>
     </>
   );
 }

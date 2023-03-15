@@ -2,6 +2,25 @@ body {
   text-align: center;
 }
 
-.home-logo {
-  height: 400px;
+.google-photo {
+  height: 200px;
+  border-radius: 50%;
+}
+.home-logout-button {
+  height: 38px;
+  width: 204px;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 30px;
+  border: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .google-photo {
+    height: 200px;
+    margin: auto;
+  }
 }

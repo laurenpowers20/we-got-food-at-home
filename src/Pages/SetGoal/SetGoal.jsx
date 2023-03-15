@@ -1,9 +1,15 @@
 import "./SetGoal.css";
 
+import { SlArrowLeft } from "react-icons/sl";
+
 function SetGoal() {
   return (
-    <div>
-      <h1>Set Goal</h1>
+    <div className="set-goal-component">
+      <div className="set-goal-back-icon">
+        <SlArrowLeft />
+        </div>
+        <h1>Set Goal</h1>
+    
       <p>I'd like to cook...</p>
       <div className="set-goal">
         <div className="set-goal-divs">1-2 x week</div>
