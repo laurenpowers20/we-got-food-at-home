@@ -20,10 +20,9 @@ function SignIn() {
   }, [user, loading]);
   return (
     <div>
-      
       <h1>Welcome</h1>
       <img src={logo} alt="logo" className="signin-logo" />
-      <h1>Powered by AI</h1>
+
       <div className="sign-in-form-container">
         {/* sign in using the google pop up */}
         <button className="google-button" onClick={signInWithGoogle}>
