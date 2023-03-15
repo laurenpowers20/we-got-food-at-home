@@ -6,7 +6,8 @@ body {
   height: 200px;
   border-radius: 50%;
 }
-.home-logout-button {
+.home-logout-button,
+.home-ingredients-button {
   height: 38px;
   width: 204px;
   border-radius: 100px;
@@ -16,6 +17,16 @@ body {
   cursor: pointer;
   margin: 30px;
   border: none;
+  background-color: #fbe0b8;
+}
+
+.home-logout-button:hover,
+.home-ingredients-button:hover {
+  background-color: #f09133;
+}
+
+.home-ingredients-button {
+  width: 250px;
 }
 
 @media only screen and (max-width: 700px) {
