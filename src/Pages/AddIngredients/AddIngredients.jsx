@@ -136,7 +136,11 @@ function AddIngredients() {
           {/* Submits the prompt with the selected items */}
 
           <form onSubmit={handleSubmit}>
-            <button onClick={handleClick} type="submit">
+            <button
+              className="home-logout-button"
+              onClick={handleClick}
+              type="submit"
+            >
               Submit
             </button>
           </form>
@@ -151,12 +155,19 @@ function AddIngredients() {
           ) : (
             " "
           )}
-          {/* <p>{response}</p> */}
-          <div id="Recipe">
+          <div className="recipe">
             <Recipes response={response} />
           </div>
         </div>
-        <div>{visible ? <button>I Cooked this Recipe!</button> : ""}</div>
+        <div>
+          {visible ? (
+            <button className="home-logout-button">
+              I Cooked this Recipe!
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </>
   );
