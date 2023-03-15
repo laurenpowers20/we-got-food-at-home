@@ -17,27 +17,49 @@ import {
 
 function Home() {
   const [user, loading, error] = useAuthState(auth);
+	const [displayName, setDisplayName] = useState('');
+	const [photoURL, setPhotoURL] = useState('');
 
-  return (
-    <>
-      <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
-      <Profile />
+	const navigate = useNavigate();
+	console.log(user);
+	console.log(auth);
+	console.log(loading);
+	useEffect(() => {
+		if (loading) {
+			// loading screen
+			return;
+		}
+		if (user) {
+			setDisplayName(user.displayName);
+			setPhotoURL(user.photoURL);
+		}
+		console.log(user);
+	}, [user, loading]);
 
-      {/* <img src={logo} alt="google-photo" className="google-photo" /> */}
+	if (loading) {
+		return <h1>Loading...</h1>;
+	} else if (!user) {
+		navigate('/');
+	}
 
-      <div>
-        <Link to="/ingredients">
-          <button className="home-ingredients-button">Find Recipe</button>
-        </Link>
-      </div>
+	return (
+		<>
+			<h1 className='home-heading'>{`Welcome, ${displayName}! `}</h1>
+			<Profile />
 
-      <div>
-        <button className="home-logout-button" onClick={logout}>
-          Logout
-        </button>
-      </div>
-    </>
-  );
+			<div>
+				<Link to='/ingredients'>
+					<button className='home-ingredients-button'>Find Recipe</button>
+				</Link>
+			</div>
+
+			<div>
+				<button className='home-logout-button' onClick={logout}>
+					Logout
+				</button>
+			</div>
+		</>
+	);
 }
 
 export default Home;
