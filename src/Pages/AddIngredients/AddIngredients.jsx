@@ -18,10 +18,11 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using ${prompttest}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
+  const [selectedItems, setSelectedItems] = useState([])
+  const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
   // Create ItemList
   const addItem = async (e) => {
@@ -49,16 +50,27 @@ function AddIngredients() {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
+      let newArr = []
+      for (let i = 0; i < itemsArr.length; i++) {
+        if (itemsArr[i].selected === true) {
+          newArr.push(itemsArr[i].text)
+        }
+      }
+      setSelectedItems(newArr)
     });
     return () => unsubscribe();
   }, []);
+  console.log(selectedItems.toString(' '))
+  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
-  // Update todo in firebase
+  
+  // Items in firebase
   const selectItem = async (item) => {
     await updateDoc(doc(db, "items", item.id), {
       selected: !item.selected,
     });
   };
+
 
   // Delete item
   const deleteItem = async (id) => {
@@ -107,7 +119,8 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {items.length < 1 ? null : <p>{`You have ${items.length} items`}</p>}
+          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
+          {selectedItems.length < 1 ? null : <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>}
         </div>
       </div>
       <div>
