@@ -50,13 +50,19 @@ function AddIngredients() {
         itemsArr.push({ ...doc.data(), id: doc.id });
       });
       setItems(itemsArr);
+      // console.log(itemsArr[1].text)
+      let newArr = []
+      for (let i = 0; i < itemsArr.length; i++) {
+        if (itemsArr[i].selected === true) {
+          newArr.push(itemsArr[i].text)
+          // console.log(itemsArr[i].text, i)
+        }
+      }
+      console.log(newArr)
     });
     return () => unsubscribe();
   }, []);
-
-
-  // Create empty array for selected items
-  let selectedItemsArr = []
+  
   
   // Update todo in firebase
   const selectItem = async (item) => {
@@ -64,14 +70,15 @@ function AddIngredients() {
       selected: !item.selected,
     });
     // console.log(!item.selected)
-    if (!item.selected === true) {
-      console.log(item.text)
-    }
+    // if (!item.selected === true) {
+    //   let selectedItemsArr = []
+    //   selectedItemsArr.push(item.text)
+    //   setSelectedItems(selectedItemsArr => [...selectedItemsArr, item.text])
+    //   console.log(selectedItemsArr)
+    //   // console.log(item.text)
+    // }
   };
 
-  // const selectedItem (item) => {
-  //   doc(db, "items", item.id)
-  // }
 
   // Delete item
   const deleteItem = async (id) => {
