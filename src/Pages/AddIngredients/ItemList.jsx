@@ -1,16 +1,19 @@
-import React from 'react';
+import React from "react";
+import "./AddIngredients.css";
 
 const ItemList = ({ item, selectItem, deleteItem }) => {
   return (
-    <li >
+    <div>
       <div>
-        <input onChange={() => selectItem(item)} type='checkbox' checked={item.selected ? 'checked' : ''} />
-        <p onClick={() => selectItem(item)}>
-          {item.text}
-        </p>
+        <input
+          onChange={() => selectItem(item)}
+          type="checkbox"
+          checked={item.selected ? "checked" : ""}
+        />
+        <p onClick={() => selectItem(item)}>{item.text}</p>
       </div>
-      <button onClick={() => deleteItem(item.id)}>X</button>
-    </li>
+      <button onClick={() => deleteItem(item.id)}>x</button>
+    </div>
   );
 };
 
