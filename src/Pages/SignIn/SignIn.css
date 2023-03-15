@@ -10,8 +10,27 @@
   border: none;
 }
 
+.google-logo {
+
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.google-button {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+ font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+
 .signin-logo {
-  height: 450px;
+  height: 340px;
 }
 
 .sign-in-form-container {
