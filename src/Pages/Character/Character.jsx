@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import './DressUpGame.css';
 
-const CharacterCustomizer = () => {
-	const [selectedAvatar, setSelectedAvatar] = useState('/avatars/avatar1.png');
-	const [selectedSkin, setSelectedSkin] = useState('/skins/skin1.png');
-	const [selectedHair, setSelectedHair] = useState('/hair/hair1.png');
+function CharacterCustomizer() {
+	const [selectedAvatar, setSelectedAvatar] = useState(
+		'/../../images/CharacterAssets/models/avatarskintone1.png',
+	);
+	const [selectedSkin, setSelectedSkin] = useState(
+		'/../../images/CharacterAssets/skintones/skintone1.png',
+	);
+	const [selectedHair, setSelectedHair] = useState(
+		'../../images/CharacterAssets/hair/shortblackhair.png',
+	);
 	const [selectedShirt, setSelectedShirt] = useState('/clothes/shirt1.png');
 	const [selectedPants, setSelectedPants] = useState('/clothes/pants1.png');
 	const [selectedShoes, setSelectedShoes] = useState('/shoes/shoes1.png');
@@ -209,6 +215,6 @@ const CharacterCustomizer = () => {
 			</div>
 		</div>
 	);
-};
+}
 
-export default CharacterCustomizer;
+export default CharacterCustomizer();
