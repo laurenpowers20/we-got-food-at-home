@@ -29,9 +29,7 @@ function Home() {
           <button className="home-ingredients-button">Find Recipe</button>
         </Link>
       </div>
-      <div>
-        <button className="home-ingredients-button">Enter Ingredients</button>
-      </div>
+    
       <div>
         <button className="home-logout-button" onClick={logout}>
           Logout

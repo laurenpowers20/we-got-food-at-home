@@ -7,8 +7,10 @@
   width: 500px;
 }
 
+
 ul {
   list-style: none;
+  margin: auto;
 }
 
 p {
@@ -21,15 +23,12 @@ p {
 }
 
 .x-button {
-  border-radius: 10px;
   width: 25px;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   cursor: pointer;
   margin: 30px;
-  border: none;
-  background-color: #fbe0b8;
 }
 
 .x-button:hover {
