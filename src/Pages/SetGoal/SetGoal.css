@@ -24,11 +24,22 @@
   margin: 10px;
   border-radius: 30px;
   vertical-align: middle;
-  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   cursor: pointer;
 }
-
+.set-goal-level {
+  font-size: 12px;
+  vertical-align: middle;
+  background-color: #f1af71;
+  width: 40px;
+  border-radius: 10px;
+  margin: auto;
+}
+.set-goal-level.intermediate {
+  width: 100px;
+}
 .set-goal-divs:hover {
   background-color: #f09133;
 }
