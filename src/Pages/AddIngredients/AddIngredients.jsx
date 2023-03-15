@@ -22,6 +22,7 @@ function AddIngredients() {
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
+  const [selectedItems, setSelectedItems] = useState([])
 
   // Create ItemList
   const addItem = async (e) => {
@@ -53,12 +54,24 @@ function AddIngredients() {
     return () => unsubscribe();
   }, []);
 
+
+  // Create empty array for selected items
+  let selectedItemsArr = []
+  
   // Update todo in firebase
   const selectItem = async (item) => {
     await updateDoc(doc(db, "items", item.id), {
       selected: !item.selected,
     });
+    // console.log(!item.selected)
+    if (!item.selected === true) {
+      console.log(item.text)
+    }
   };
+
+  // const selectedItem (item) => {
+  //   doc(db, "items", item.id)
+  // }
 
   // Delete item
   const deleteItem = async (id) => {
