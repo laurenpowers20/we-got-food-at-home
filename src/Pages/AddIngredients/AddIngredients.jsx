@@ -18,11 +18,11 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  // const prompt = `give me a recipe using only ${selectedItems}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
   const [selectedItems, setSelectedItems] = useState([])
+  const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
   // Create ItemList
   const addItem = async (e) => {
@@ -60,7 +60,8 @@ function AddIngredients() {
     });
     return () => unsubscribe();
   }, []);
-  const prompt = `give me a recipe using only ${selectedItems}`;
+  console.log(selectedItems.toString(' '))
+  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
   
   // Items in firebase
@@ -119,7 +120,8 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {items.length < 1 ? null : <p>{`You have ${items.length} items`}</p>}
+          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
+          {selectedItems.length < 1 ? null : <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>}
         </div>
       </div>
       <div>
