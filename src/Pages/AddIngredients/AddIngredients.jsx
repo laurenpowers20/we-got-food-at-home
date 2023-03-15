@@ -1,7 +1,4 @@
 import axios from "axios";
-import { addDoc, collection } from "firebase/firestore";
-import { auth, db } from "../../services/firebase";
-
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -21,7 +18,7 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const prompt = `give me a recipe using ${prompttest}`;
+  const prompt = `give me a recipe using only ${prompttest}`;
   const [user, loading, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
