@@ -1,6 +1,6 @@
 .profile-photo {
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
   border: solid 1px black;
   border-radius: 10%;
 }
@@ -14,6 +14,7 @@
 .profile-bar-div {
   display: flex;
   align-items: center;
+  margin-left: 20px;
 }
 
 .profile-bar-div.top {
@@ -49,6 +50,21 @@
   cursor: pointer;
   margin: 40px;
   border: none;
+}
+
+.profile-bottom {
+  border: solid 1px black;
+  width: 350px;
+  height: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.achievement-image {
+  width: 200px;
+  height: 200px;
+  border: solid 1px black;
+  margin: auto;
 }
 
 @media only screen and (max-width: 700px) {
