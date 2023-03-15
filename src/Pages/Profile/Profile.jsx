@@ -1,16 +1,17 @@
 import { AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
-import { GiLightningShield } from "react-icons/gi";
+// import { GiLightningShield } from "react-icons/gi";
 import "./Profile.css";
 import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
 
-function Profile() {
-  const [currentLevel, setCurrentLevel] = useState(1);
+function Profile(props) {
+  const [currentLevel, setCurrentLevel] = useState(0);
   const [progressBar, setProgressBar] = useState(0);
 
   const levelImages = [
+    { level: 0, src: `${bronze}`, status: "bronze" },
     { level: 1, src: `${bronze}`, status: "bronze" },
     { level: 2, src: `${bronze}`, status: "bronze" },
     { level: 3, src: `${bronze}`, status: "bronze" },
@@ -35,22 +36,22 @@ function Profile() {
   return (
     <div>
       <div className="profile-top">
-        <div className="profile-photo">Photo</div>
+        <div>
+          <img src={props.pfp} className="profile-photo" />
+        </div>
 
         <div className="profile-level container">
           <div>
             <div className="profile-bar-div top">
               <AiFillHeart style={{ padding: "10px" }} />{" "}
               <div>
-                <progress value={progressBar} max="100"></progress>
+                <progress value={progressBar} max="64"></progress>
               </div>
             </div>
 
             <div className="profile-bar-div bottom">
-              <GiLightningShield style={{ padding: "10px" }} />
-              <div className="profile-level-bar two">
-                <div></div>
-              </div>
+              {/* <GiLightningShield style={{ padding: "10px" }} />
+              <div className="profile-level-bar two"></div> */}
             </div>
           </div>
         </div>
@@ -75,7 +76,7 @@ function Profile() {
         </button>
         <button
           className="profile-btn"
-          disabled={currentLevel === 1}
+          disabled={currentLevel === 0}
           onClick={handleLevelDown}
         >
           Oops, no I didn't!
