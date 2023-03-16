@@ -61,21 +61,21 @@ function Profile() {
           />
         </div>
 
-        <div className="profile-level container">
-          <div>
-            <div className="profile-bar-div top">
-              <GiForkKnifeSpoon
-                style={{
-                  paddingRight: "10px",
-                  paddingLeft: "0",
-                  color: "#f09133",
-                  fontSize: "large",
-                }}
-              />{" "}
-              <div>
-                <progress value={progressBar} max="64"></progress>
-              </div>
-            </div>
+				<div className='profile-level container'>
+					<div>
+						<div className='profile-bar-div top'>
+							<GiForkKnifeSpoon
+								style={{
+									paddingRight: '10px',
+									paddingLeft: '0',
+									color: '#f09133',
+									fontSize: 'large',
+								}}
+							/>{' '}
+							<div>
+								<progress value={progressBar} max='60'></progress>
+							</div>
+						</div>
 
             <div className="profile-bar-div bottom"></div>
           </div>
