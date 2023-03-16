@@ -35,7 +35,8 @@ progress {
 .profile-bar-div {
   align-items: center;
   display: flex;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 58px;
 }
 
 .profile-bar-div.top {
@@ -92,6 +93,10 @@ progress {
   width: 200px;
 }
 
+.help-me {
+  margin-top: 25px;
+}
+
 @media only screen and (max-width: 700px) {
   progress {
     accent-color: #f09133;
@@ -123,25 +128,22 @@ progress {
     background-color: rgb(10, 107, 193);
     justify-content: center;
     
+    width: 250px;
   }
 
-  width: 250px;
+  .displayname {
+    display: flex;
+   justify-content: center;
+
+   font-weight: bold;
+   font-size: 20px;
+   height: 50px;
+  }
+
   .displayname {
     font-size: 20px;
-    display: flex;
-    height: 50px;
-  justify-content:flex-end;
-    align-items: center;
-   font-weight: bold;
-   font-size: 30px;
-  }
-
-  /* .displayname {
-    font-size: 20px;
-    height: 50px;
     justify-content: center;
-    width: 250px;
-  } */
+  }
 
   .profile-level-bar {
     background-color: #bfbfbf;
@@ -156,11 +158,4 @@ button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
-}
-
-.home-heading {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 10px;
 }
