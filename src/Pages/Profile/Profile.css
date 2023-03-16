@@ -7,6 +7,7 @@
 }
 
 
+/* .profile-photo {
 .google-photo {
   height: 150px;
   width: 150px;
@@ -140,13 +141,8 @@
     background-color: #bfbfbf;
   }
 
-  button:disabled:hover {
-    background-color: #aac4cf;
-    cursor: default;
-  }
-}
 
-/* button:disabled:hover
+button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
