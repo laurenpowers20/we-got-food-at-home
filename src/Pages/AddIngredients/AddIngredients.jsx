@@ -128,13 +128,13 @@ function AddIngredients() {
 			{recipe ? (
 				true
 			) : (
-				<>
+				<div className='ingredients-div'>
 					<div>
-						<div className='ingredients-div'>
+						<div >
 							<h1>Enter Ingredients</h1>
 							<form onSubmit={addItem}>
 								<input
-									className='custom-input add-items'
+									className='custom-input'
 									value={input}
 									onChange={(e) => setInput(e.target.value)}
 									type='text'
@@ -166,12 +166,12 @@ function AddIngredients() {
 									className='home-logout-button'
 									onClick={handleClick}
 									type='submit'>
-									Submit
+									Create a recipe
 								</button>
 							</form>
 						</div>
 					</div>
-				</>
+				</div>
 			)}
 
 			{load ? (
