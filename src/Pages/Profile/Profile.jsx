@@ -5,20 +5,11 @@ import "./Profile.css";
 import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
-<<<<<<<<< Temporary merge branch 1
 import { auth } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-
-function Profile(props) {
-  const [user, loading, error] = useAuthState(auth);
-  const [currentLevel, setCurrentLevel] = useState(0);
-  const [progressBar, setProgressBar] = useState(0);
-=========
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../services/firebase';
 import { useEffect } from 'react';
 
-function Profile() {
+function Profile(props) {
 	const [currentLevel, setCurrentLevel] = useState(1);
 	const [progressBar, setProgressBar] = useState(0);
 	const [user, loading, error] = useAuthState(auth);
@@ -34,7 +25,6 @@ function Profile() {
 			setPhotoURL(user.photoURL);
 		}
 	}, [user, loading]);
->>>>>>>>> Temporary merge branch 2
 
   const levelImages = [
     { level: 0, src: `${bronze}`, status: "bronze" },
