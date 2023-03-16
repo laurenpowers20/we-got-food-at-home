@@ -55,7 +55,7 @@ function Profile() {
 				<div className='profile-photo'>
 					<img
 						src={photoURL}
-						alt='google-photo'
+						alt='google photo'
 						className='google-photo'
 						referrerPolicy='no-referrer'
 					/>
