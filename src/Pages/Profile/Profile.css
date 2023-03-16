@@ -1,0 +1,156 @@
+.wrapper {
+  /* background-color: red; */
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+  width: 95%;
+}
+progress {
+  accent-color: #f09133;
+  height: 50px;
+  width: 300px;
+}
+
+.google-photo {
+  border-radius: 10%;
+  border: solid 1px black;
+  height: 145px;
+  width: 145px;
+}
+
+.displayname {
+  font-size: 25px;
+}
+
+.profile-top {
+  align-items: left;
+  display: flex;
+  height: 100px;
+  margin-bottom: 50px;
+  width: 350px;
+}
+.profile-bar-div {
+  align-items: center;
+  display: flex;
+  margin-left: 5px;
+  margin-top: 58px;
+}
+
+.profile-bar-div.top {
+  color: #eb4335;
+}
+
+.profile-bar-div.bottom {
+  color: #e9c650;
+}
+
+.profile-level-bar {
+  display: flex;
+  height: 20px;
+  margin: 10px;
+  width: 500px;
+}
+
+.profile-level-bar.one {
+  background-color: #eb4335;
+}
+
+.profile-level-bar.two {
+  background-color: #e9c650;
+}
+
+.profile-btn {
+  align-items: center;
+  background-color: #aac4cf;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  height: 38px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 204px;
+}
+
+.profile-btn:hover {
+  background-color: #568a9f;
+}
+
+.profile-bottom {
+  border-radius: 10px;
+  border: solid 1px black;
+  height: 400px;
+  margin: auto;
+  width: 350px;
+}
+
+.achievement-image {
+  height: 200px;
+  margin: auto;
+  width: 200px;
+}
+
+.help-me {
+  margin-top: 25px;
+}
+
+@media only screen and (max-width: 700px) {
+  progress {
+    accent-color: #f09133;
+    height: 50px;
+    width: 168px;
+  }
+  .profile-photo {
+    border-radius: 10%;
+    height: 145px;
+    width: 145px;
+    margin-left: 19px;
+  }
+
+  .profile-top {
+    display: flex;
+    height: 103px;
+    width: 350px;
+  }
+
+  .pfpdiv {
+    border-radius: 10px;
+    border: 1px black solid;
+    height: 100px;
+    justify-content: flex-end;
+    width: 100px;
+  }
+
+  .progressBar {
+    background-color: rgb(10, 107, 193);
+    justify-content: center;
+
+    width: 250px;
+  }
+
+  .displayname {
+    display: flex;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+  }
+
+  .displayname {
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  .profile-level-bar {
+    background-color: #bfbfbf;
+    height: 20px;
+    margin: 20px;
+    width: 200px;
+  }
+
+  button:disabled:hover {
+    background-color: #aac4cf;
+    cursor: default;
+  }
+}

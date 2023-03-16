@@ -1,0 +1,9 @@
+$items: ("accessories": 3, "hair": 4, "models": 4, "pants": 3, "shirt": 4, "shoes": 3, "skintone": 4);
+
+@each $item, $total in $items {
+    @for $i from 1 through $total {
+        .#{$item}#{$i} {
+            background-image: url(../CharacterAssets#{$item}/#{$item}#{$i}.png);
+        }
+    }
+}
