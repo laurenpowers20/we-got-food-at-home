@@ -6,6 +6,10 @@
   width: 95%;
 }
 
+h3 {
+  margin-bottom: 0;
+}
+
 progress {
   accent-color: #f09133;
   height: 50px;
@@ -70,7 +74,7 @@ progress {
   font-size: 14px;
   height: 38px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 12px;
   width: 204px;
 }
 
@@ -81,7 +85,7 @@ progress {
 .profile-bottom {
   border-radius: 8px;
   border: solid 1px black;
-  height: 380px;
+  height: 355px;
   margin: auto;
   width: 320px;
 }
@@ -125,7 +129,6 @@ progress {
   .progressBar {
     background-color: rgb(10, 107, 193);
     justify-content: center;
-
     width: 250px;
   }
 
