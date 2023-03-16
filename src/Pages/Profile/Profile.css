@@ -1,5 +1,4 @@
-
-.wrapper{
+.wrapper {
   /* background-color: red; */
   min-width: 350px;
   max-width: 500px;
@@ -125,7 +124,7 @@ progress {
   .progressBar {
     background-color: rgb(10, 107, 193);
     justify-content: center;
-    
+
     width: 250px;
   }
 
@@ -143,10 +142,15 @@ progress {
     margin: 20px;
     width: 200px;
   }
+
+  button:disabled:hover {
+    background-color: #aac4cf;
+    cursor: default;
+  }
 }
 
-button:disabled:hover
+/* button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
-}
+} */
