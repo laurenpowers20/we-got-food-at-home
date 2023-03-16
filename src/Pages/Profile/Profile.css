@@ -153,10 +153,17 @@ progress {
     margin: 20px;
     width: 200px;
   }
-}
 
+<<<<<<< HEAD
 button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
 }
+=======
+button:disabled:hover {
+  background-color: #aac4cf;
+  cursor: default;
+}
+
+>>>>>>> 5b3c317f2a17109637a93a624a1a1a137069c5bb
