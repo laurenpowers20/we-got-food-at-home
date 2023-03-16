@@ -54,7 +54,7 @@ function Profile() {
       
       <div className="profile-top">
         
-          <img src={props.pfp} className="pfpdiv" />
+          <img src={user.photoURL} className="pfpdiv" />
         
         <div className="leftcontainer">
         <div className="displayname">{`Chef ${user.displayName}`}</div>

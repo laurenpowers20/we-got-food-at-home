@@ -125,10 +125,14 @@
     
   }
   .displayname{
+    display: flex;
     height: 50px;
     width: 250px;
+    justify-content:flex-end;
+    align-items: center;
    
-    justify-content: center;
+   font-size: 30px;
+    
   }
   .profile-level-bar {
     margin: 20px;
