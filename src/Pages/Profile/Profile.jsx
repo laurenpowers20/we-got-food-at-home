@@ -5,9 +5,9 @@ import "./Profile.css";
 import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../services/firebase";
-import { useEffect } from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../services/firebase';
+import { useEffect } from 'react';
 
 function Profile() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -50,18 +50,19 @@ function Profile() {
     setProgressBar(progressBar - 10);
   };
   return (
-    <div>
-      <div className="profile-top">
-        <div className="profile-photo">
-          <img
-            src={photoURL}
-            alt="google photo"
-            className="google-photo"
-            referrerPolicy="no-referrer"
-          />
-        </div>
+		<div class='help-me'>
+			<div className='profile-top'>
+				<div className='profile-photo'>
+					<img
+						src={photoURL}
+						alt='google photo'
+						className='google-photo'
+						referrerPolicy='no-referrer'
+					/>
+				</div>
 
 				<div className='profile-level container'>
+					<div className='displayname'>{`Chef ${user.displayName}`}</div>
 					<div>
 						<div className='profile-bar-div top'>
 							<GiForkKnifeSpoon
@@ -69,7 +70,7 @@ function Profile() {
 									paddingRight: '10px',
 									paddingLeft: '0',
 									color: '#f09133',
-									fontSize: 'large',
+									fontSize: '25px',
 								}}
 							/>{' '}
 							<div>
@@ -77,38 +78,35 @@ function Profile() {
 							</div>
 						</div>
 
-            <div className="profile-bar-div bottom"></div>
-          </div>
-        </div>
-      </div>
-      <div className="profile-bottom">
-        {" "}
-        <h2>Your Achievement</h2>
-        <div className="achievement-image">
-          {" "}
-          <div>
-            <img src={currentImage} alt={`Level ${currentLevel}`} />
-
-            <h3>{`You cooked ${currentLevel} days this week!`}</h3>
-          </div>
-        </div>
-        <button
-          className="profile-btn"
-          disabled={currentLevel === 7}
-          onClick={handleLevelUp}
-        >
-          I cooked at home today!
-        </button>
-        <button
-          className="profile-btn"
-          disabled={currentLevel === 1}
-          onClick={handleLevelDown}
-        >
-          Oops, no I didn't!
-        </button>
-      </div>
-    </div>
-  );
+						<div className='profile-bar-div bottom'></div>
+					</div>
+				</div>
+			</div>
+			<div className='profile-bottom'>
+				{' '}
+				<h2>Your Achievement</h2>
+				<div className='achievement-image'>
+					{' '}
+					<div>
+						<img src={currentImage} alt={`Level ${currentLevel}`} />
+						<h3>{`You're a ${currentLevel}-level cook!`}</h3>
+					</div>
+				</div>
+				<button
+					className='profile-btn'
+					disabled={currentLevel === 7}
+					onClick={handleLevelUp}>
+					I cooked at home today!
+				</button>
+				<button
+					className='profile-btn'
+					disabled={currentLevel === 1}
+					onClick={handleLevelDown}>
+					Oops, no I didn't!
+				</button>
+			</div>
+		</div>
+	);
 }
 
 export default Profile;
