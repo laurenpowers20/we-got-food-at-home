@@ -48,7 +48,7 @@ function Profile(props) {
         
         <div className="profile-bar-div top">
               
-              <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"large" }} />{" "}
+              <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"25px" }} />{" "}
               <div>
                 <progress value={progressBar} max="64"></progress>
               </div>

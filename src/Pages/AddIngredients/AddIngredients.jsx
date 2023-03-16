@@ -80,23 +80,24 @@ function AddIngredients() {
 
   // ////////////////////////////////////////
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    const gptData = await // Send a request to the server with the prompt
-    axios.post("http://localhost:8080/chat", { prompt });
-    try {
-      const res = await axios.post("http://localhost:8080/chat", { prompt });
-      setLoading(false);
-      setResponse(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-    // Update the response state with the server's response
+
+    // Send a request to the server with the prompt
+    axios
+      .post("http://localhost:8080/chat", { prompt })
+      .then((res) => {
+        // Update the response state with the server's response
+        setResponse(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
+
   const handleClick = () => {
-    // setLoading(true)
+   
     setVisible(true);
   };
 
