@@ -50,35 +50,37 @@ function Profile() {
     setProgressBar(progressBar - 10);
   };
   return (
-		<div class='help-me'>
-			<div className='profile-top'>
-				<div className='profile-photo'>
-					<img
-						src={photoURL}
-						alt='google photo'
-						className='google-photo'
-						referrerPolicy='no-referrer'
-					/>
-				</div>
+		<>
+			<div class='help-me'>
+				<div className='profile-top'>
+					<div className='profile-photo'>
+						<img
+							src={photoURL}
+							alt='google photo'
+							className='google-photo'
+							referrerPolicy='no-referrer'
+						/>
+					</div>
 
-				<div className='profile-level container'>
-					<div className='displayname'>{`Chef ${user.displayName}`}</div>
-					<div>
-						<div className='profile-bar-div top'>
-							<GiForkKnifeSpoon
-								style={{
-									paddingRight: '10px',
-									paddingLeft: '0',
-									color: '#f09133',
-									fontSize: '25px',
-								}}
-							/>{' '}
-							<div>
-								<progress value={progressBar} max='60'></progress>
+					<div className='profile-level container'>
+						<div className='displayname'>{`Chef ${user.displayName}`}</div>
+						<div>
+							<div className='profile-bar-div top'>
+								<GiForkKnifeSpoon
+									style={{
+										paddingRight: '10px',
+										paddingLeft: '0',
+										color: '#f09133',
+										fontSize: '25px',
+									}}
+								/>{' '}
+								<div>
+									<progress value={progressBar} max='60'></progress>
+								</div>
 							</div>
-						</div>
 
-						<div className='profile-bar-div bottom'></div>
+							<div className='profile-bar-div bottom'></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -105,7 +107,7 @@ function Profile() {
 					Oops, no I didn't!
 				</button>
 			</div>
-		</div>
+		</>
 	);
 }
 
