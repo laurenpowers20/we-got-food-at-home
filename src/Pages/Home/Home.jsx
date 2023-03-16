@@ -45,7 +45,7 @@ function Home() {
 
 	return (
 		<>
-			<h1 className='home-heading'>{`Welcome, ${displayName}! `}</h1>
+			
 			<Profile />
 
       <div>
@@ -53,7 +53,6 @@ function Home() {
           <button className="home-ingredients-button">I am ready to cook</button>
         </Link>
       </div>
-
 			<div>
 				<button className='home-logout-button' onClick={logout}>
 					Logout
