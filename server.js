@@ -26,16 +26,17 @@ app.use(cors());
 
 // Set up the ChatGPT endpoint
 app.post("/chat", async (req, res) => {
-  // Get the prompt from the request
-  const { prompt } = req.body;
+	// Get the prompt from the request
+	const { prompt } = req.body;
 
-  // Generate a response with ChatGPT
-  const completion = await openai.createCompletion({
-    model: "text-davinci-002",
-    prompt: prompt,
-    max_tokens: 2048,
-  });
-  res.send(completion.data.choices[0].text);
+	// Generate a response with ChatGPT
+	const completion = await openai.createCompletion({
+		model: 'text-davinci-002',
+		prompt: prompt,
+		max_tokens: 2048,
+	});
+
+	res.send(completion.data.choices[0].text);
 });
 
 // Start the server
