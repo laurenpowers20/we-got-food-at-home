@@ -220,7 +220,7 @@ function AddIngredients() {
 					)}
 				</div> */}
 
-				{response}
+				<div className="recipe">{response}</div>
 
 				<div>
 					{recipe ? (
