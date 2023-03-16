@@ -8,6 +8,7 @@
 
 
 /* .profile-photo {
+.google-photo {
   height: 150px;
   width: 150px;
   border: solid 1px black;
@@ -135,4 +136,12 @@
     width: 200px;
     background-color: #bfbfbf;
   }
-/* } */
+
+
+button:disabled:hover
+ {
+  background-color: #aac4cf;
+  cursor: default;
+ 
+  
+}

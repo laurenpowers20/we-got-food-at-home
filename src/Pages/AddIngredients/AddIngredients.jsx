@@ -8,159 +8,235 @@ import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
 import { Hearts } from "react-loading-icons";
 
+
 import {
-  query,
-  collection,
-  onSnapshot,
-  updateDoc,
-  doc,
-  addDoc,
-  deleteDoc,
-  where,
-} from "firebase/firestore";
+	query,
+	collection,
+	onSnapshot,
+	updateDoc,
+	doc,
+	addDoc,
+	deleteDoc,
+	where,
+} from 'firebase/firestore';
 function AddIngredients() {
-  const [prompttest, setPrompt] = useState("");
-  const [response, setResponse] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [user, error] = useAuthState(auth);
-  const [items, setItems] = useState([]);
-  const [input, setInput] = useState("");
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [visible, setVisible] = useState(false);
-  const prompt = `give me a recipe using only ${selectedItems.toString(" ")}`;
+	const [prompttest, setPrompt] = useState('');
+	const [response, setResponse] = useState('');
+	const [load, setLoad] = useState(false);
+	const [user, loading, error] = useAuthState(auth);
+	const [items, setItems] = useState([]);
+	const [input, setInput] = useState('');
+	const [selectedItems, setSelectedItems] = useState([]);
+	const [visible, setVisible] = useState(false);
+	const [uId, setUId] = useState('');
+	const [recipe, setRecipe] = useState(false);
+	const prompt = `give me a recipe only using ${selectedItems.toString(
+		' ',
+	)} return your answer as a json object`;
+	const navigate = useNavigate();
 
-  // Create ItemList
-  const addItem = async (e) => {
-    e.preventDefault(e);
-    if (input === "") {
-      alert("Please enter a valid food item");
-      return;
-    }
-    await addDoc(collection(db, "items"), {
-      user: user.uid,
-      text: input,
-      selected: false,
-    });
-    setInput("");
-  };
+	// Create ItemList
+	useEffect(() => {
+		if (!loading) {
+			setUId(user.uid);
+		}
+	}, [loading, user]);
 
-  // Read item from firebase
-  useEffect(() => {
-    const collectionRef = collection(db, "items");
-    const q = query(collectionRef, where("user", "==", user.uid));
+	const addItem = async (e) => {
+		e.preventDefault(e);
+		if (input === '') {
+			alert('Please enter a valid food item');
+			return;
+		}
+		await addDoc(collection(db, 'items'), {
+			user: uId,
+			text: input,
+			selected: false,
+		});
+		setInput('');
+	};
 
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let itemsArr = [];
-      querySnapshot.forEach((doc) => {
-        itemsArr.push({ ...doc.data(), id: doc.id });
-      });
-      setItems(itemsArr);
-      let newArr = [];
-      for (let i = 0; i < itemsArr.length; i++) {
-        if (itemsArr[i].selected === true) {
-          newArr.push(itemsArr[i].text);
-        }
-      }
-      setSelectedItems(newArr);
-    });
-    return () => unsubscribe();
-  }, []);
+	// Read item from firebase
 
-  // Items in firebase
-  const selectItem = async (item) => {
-    await updateDoc(doc(db, "items", item.id), {
-      selected: !item.selected,
-    });
-  };
+	useEffect(() => {
+		const collectionRef = collection(db, 'items');
+		const q = query(collectionRef, where('user', '==', uId));
 
-  // Delete item
-  const deleteItem = async (id) => {
-    await deleteDoc(doc(db, "items", id));
-  };
+		const unsubscribe = onSnapshot(q, (querySnapshot) => {
+			let itemsArr = [];
 
-  // ////////////////////////////////////////
+			querySnapshot.forEach((doc) => {
+				itemsArr.push({ ...doc.data(), id: doc.id });
+			});
+			console.log(itemsArr);
+			setItems(itemsArr);
+			let newArr = [];
+			for (let i = 0; i < itemsArr.length; i++) {
+				if (itemsArr[i].selected === true) {
+					newArr.push(itemsArr[i].text);
+				}
+			}
+			setSelectedItems(newArr);
+		});
+		return () => unsubscribe();
+	}, [uId, loading]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+	// Items in firebase
+	const selectItem = async (item) => {
+		await updateDoc(doc(db, 'items', item.id), {
+			selected: !item.selected,
+		});
+	};
 
-    // Send a request to the server with the prompt
-    axios
-      .post("http://localhost:8080/chat", { prompt })
-      .then((res) => {
-        // Update the response state with the server's response
-        setResponse(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+	// Delete item
+	const deleteItem = async (id) => {
+		await deleteDoc(doc(db, 'items', id));
+	};
 
+	// ////////////////////////////////////////
+	const handleNewPrompt = async (e) => {
+		e.preventDefault();
+		setResponse('');
+		setRecipe(false);
+	};
 
-  const handleClick = () => {
-   
-    setVisible(true);
-  };
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setLoad(true);
+		const gptData = await // Send a request to the server with the prompt
+		axios.post('http://localhost:8080/chat', { prompt });
+		try {
+			const res = await axios.post('http://localhost:8080/chat', { prompt });
+			setLoad(false);
+			setRecipe(true);
+			console.log(res.data);
+			setResponse(res.data);
+		} catch (error) {
+			console.error(error);
+		}
+		// Update the response state with the server's response
+	};
 
-  return (
-    <>
-      <div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
-      <div>
-        <div className="ingredients-div">
-          <h1>Enter Ingredients</h1>
-          <form onSubmit={addItem}>
-            <input
-              className="custom-input add-items"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              type="text"
-              placeholder="Add Item"
-            />
-            <button className="add-btn">Add</button>
-          </form>
-          <ul className="ingredients-div">
-            {items.map((item, index) => (
-              <ItemList
-                key={index}
-                item={item}
-                selectItem={selectItem}
-                deleteItem={deleteItem}
-              />
-            ))}
-          </ul>
-          {selectedItems.length < 1 ? null : (
-            <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
-          )}
-        </div>
-      </div>
-      <div>
-        <div>
-          {/* Submits the prompt with the selected items */}
+	const handleClick = () => {
+		// setLoading(true)
+		setVisible(true);
+	};
 
-          <form onSubmit={handleSubmit}>
-            <button onClick={handleClick} type="submit">
-              Submit
-            </button>
-          </form>
-          {loading ? (
-            <Hearts
-              stroke="#f09133"
-              fill="#ed7f12"
-              strokeOpacity={0.1}
-              fillOpacity={1}
-              speed={0.75}
-            />
-          ) : (
-            " "
-          )}
-          {/* <p>{response}</p> */}
-          <div id="Recipe">
-            <Recipes response={response} />
-          </div>
-        </div>
-        <div>{visible ? <button>I Cooked this Recipe!</button> : ""}</div>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
+			{recipe ? (
+				true
+			) : (
+				<>
+					<div>
+						<div className='ingredients-div'>
+							<h1>Enter Ingredients</h1>
+							<form onSubmit={addItem}>
+								<input
+									className='custom-input add-items'
+									value={input}
+									onChange={(e) => setInput(e.target.value)}
+									type='text'
+									placeholder='Add Item'
+								/>
+								<button className='add-btn'>Add</button>
+							</form>
+							<ul className='ingredients-div'>
+								{items.map((item, index) => (
+									<ItemList
+										key={index}
+										item={item}
+										selectItem={selectItem}
+										deleteItem={deleteItem}
+									/>
+								))}
+							</ul>
+							{selectedItems.length < 1 ? null : (
+								<p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
+							)}
+						</div>
+					</div>
+					<div>
+						<div>
+							{/* Submits the prompt with the selected items */}
+
+							<form onSubmit={handleSubmit}>
+								<button
+									className='home-logout-button'
+									onClick={handleClick}
+									type='submit'>
+									Submit
+								</button>
+							</form>
+						</div>
+					</div>
+				</>
+			)}
+
+			{load ? (
+				<Hearts
+					stroke='#f09133'
+					fill='#ed7f12'
+					strokeOpacity={0.1}
+					fillOpacity={1}
+					speed={0.75}
+				/>
+			) : (
+				' '
+			)}
+
+			<div>
+				<div>
+					{recipe ? (
+						<div className='recipe'>
+							<h1>{response.name}</h1>
+
+							<div>
+								<h2>Ingredients</h2>
+								<ol>
+									{response.ingredients.map((ingredient, index) => (
+										<li key={index}>{ingredient}</li>
+									))}
+								</ol>
+							</div>
+							<div>
+								<h2>Instructions</h2>
+								<ol>
+                  {
+                    
+                    
+                    response.instructions.map((instruction, index) => (
+                    <li key={index}>{instruction}
+                    
+                    
+                    </li>
+									))}
+								</ol>
+							</div>
+						</div>
+					) : (
+						''
+					)}
+				</div>
+
+				<div>
+					{recipe ? (
+						<>
+							<button className='home-logout-button'>
+								I Cooked this Recipe!
+							</button>
+							<button className='home-logout-button' onClick={handleNewPrompt}>
+								Make a new recipe!{' '}
+							</button>
+						</>
+					) : (
+						''
+					)}
+				</div>
+			</div>
+		</>
+	);
 }
 
 export default AddIngredients;

@@ -11,19 +11,18 @@ function SignIn() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
-    if (loading) {
-      // loading screen
-      return;
-    }
-    if (user) navigate("/home");
-    console.log(user);
-  }, [user, loading]);
+		if (loading) {
+			// loading screen
+			return;
+		}
+		if (user) navigate('/home');
+		console.log(user);
+	}, [user, loading]);
   return (
     <div>
-      
       <h1>Welcome</h1>
       <img src={logo} alt="logo" className="signin-logo" />
-      <h1>Powered by AI</h1>
+
       <div className="sign-in-form-container">
         {/* sign in using the google pop up */}
         <button className="google-button" onClick={signInWithGoogle}>
