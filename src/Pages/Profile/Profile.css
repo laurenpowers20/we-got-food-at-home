@@ -1,3 +1,9 @@
+.wrapper{
+  /* background-color: red; */
+  width: 95%;
+  margin: auto;
+  
+}
 progress {
   accent-color: #eb4335;
   width: 500px;
@@ -12,12 +18,13 @@ progress {
   align-items: center;
 }
 
-.profile-top {
-  margin: 25px;
-  display: flex;
+/* .profile-top {
+  
+ 
+  
   align-items: center;
   justify-content: center;
-}
+} */
 .profile-bar-div {
   display: flex;
   align-items: center;
@@ -90,13 +97,41 @@ progress {
     width: 100px;
     border: solid 1px black;
     border-radius: 10%;
+    margin-left: 5%;
   }
 
   .profile-top {
-    margin: 15px;
+    width: 350px;
     display: flex;
+    height:100px;
+    
+    margin: auto;
+    margin-top:50px;
+    margin-bottom:50px ;
+    
+    
   }
 
+  .pfpdiv{
+    justify-content:flex-end;
+    border: 1px black solid;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+  }
+  .progressBar{
+    height: 50px;
+    width: 250px;
+    background-color: rgb(10, 107, 193);
+    justify-content: center;
+    
+  }
+  .displayname{
+    height: 50px;
+    width: 250px;
+   
+    justify-content: center;
+  }
   .profile-level-bar {
     margin: 20px;
     height: 20px;
