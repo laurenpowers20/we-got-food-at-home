@@ -12,11 +12,6 @@ ul {
   text-align: right;
 }
 
-  
-
-
-
-
 .add-btn {
   height: 38px;
   width: 75px;
@@ -117,8 +112,7 @@ ul {
 }
 
 .ingredients-div{
-  margin: auto;
-  width: 400px;
+  padding: 0;
   height: auto;
   /* background-color: #f09133; */
   display: flex;
