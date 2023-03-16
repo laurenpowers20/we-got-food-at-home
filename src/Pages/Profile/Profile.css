@@ -5,6 +5,7 @@
   margin: auto;
   width: 95%;
 }
+
 progress {
   accent-color: #f09133;
   height: 50px;
@@ -17,7 +18,7 @@ progress {
   height: 128px;
   width: 128px;
   margin-left: 19px;
-}  
+}
 
 .displayname {
   font-size: 25px;
@@ -129,11 +130,11 @@ progress {
   }
 
   .displayname {
-   display: flex;
-   justify-content: center;
-   margin-left: 25px;
-   font-weight: bold;
-   font-size: 22px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 22px;
   }
 
   .profile-level-bar {
