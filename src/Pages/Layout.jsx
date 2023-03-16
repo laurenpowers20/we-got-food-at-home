@@ -8,12 +8,7 @@ function Layout() {
 
         <Outlet /> 
         
-        <Link to="/home">
-          Home
-        </Link> 
-        <Link to="/ingredients">
-          Ingredients
-        </Link> 
+      
       </>
     </div>
   )
