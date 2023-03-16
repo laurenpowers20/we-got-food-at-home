@@ -1,20 +1,25 @@
-.wrapper {
+
+.wrapper{
+  /* background-color: red; */
+  min-width: 350px;
+  max-width: 500px;
   margin: auto;
   width: 95%;
 }
-
 progress {
   accent-color: #f09133;
   height: 50px;
   width: 300px;
 }
 
+
+
 .google-photo {
   border-radius: 10%;
   border: solid 1px black;
   height: 145px;
   width: 145px;
-}
+}  
 
 .displayname {
   font-size: 25px;
@@ -27,7 +32,6 @@ progress {
   margin-bottom: 50px;
   width: 350px;
 }
-
 .profile-bar-div {
   align-items: center;
   display: flex;
@@ -89,7 +93,6 @@ progress {
 }
 
 @media only screen and (max-width: 700px) {
-  
   progress {
     accent-color: #f09133;
     height: 50px;
@@ -118,17 +121,27 @@ progress {
 
   .progressBar {
     background-color: rgb(10, 107, 193);
-    height: 50px;
     justify-content: center;
-    width: 250px;
+    
   }
 
+  width: 250px;
   .displayname {
+    font-size: 20px;
+    display: flex;
+    height: 50px;
+  justify-content:flex-end;
+    align-items: center;
+   font-weight: bold;
+   font-size: 30px;
+  }
+
+  /* .displayname {
     font-size: 20px;
     height: 50px;
     justify-content: center;
     width: 250px;
-  }
+  } */
 
   .profile-level-bar {
     background-color: #bfbfbf;
@@ -137,6 +150,7 @@ progress {
     width: 200px;
   }
 }
+
 
 button:disabled:hover
  {

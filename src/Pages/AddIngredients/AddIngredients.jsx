@@ -30,9 +30,9 @@ function AddIngredients() {
 	const [visible, setVisible] = useState(false);
 	const [uId, setUId] = useState('');
 	const [recipe, setRecipe] = useState(false);
-	const prompt = `give me a recipe only using ${selectedItems.toString(
+	const prompt = `give me a recipe that can be made using only ${selectedItems.toString(
 		' ',
-	)} return your answer as a json object`;
+	)} respond your answer in a clean format`;
 	const navigate = useNavigate();
 
 	// Create ItemList
@@ -128,13 +128,13 @@ function AddIngredients() {
 			{recipe ? (
 				true
 			) : (
-				<>
+				<div className='ingredients-div'>
 					<div>
-						<div className='ingredients-div'>
+						<div >
 							<h1>Enter Ingredients</h1>
 							<form onSubmit={addItem}>
 								<input
-									className='custom-input add-items'
+									className='custom-input'
 									value={input}
 									onChange={(e) => setInput(e.target.value)}
 									type='text'
@@ -166,12 +166,12 @@ function AddIngredients() {
 									className='home-logout-button'
 									onClick={handleClick}
 									type='submit'>
-									Submit
+									Create a recipe
 								</button>
 							</form>
 						</div>
 					</div>
-				</>
+				</div>
 			)}
 
 			{load ? (
@@ -187,7 +187,7 @@ function AddIngredients() {
 			)}
 
 			<div>
-				<div>
+				{/* <div>
 					{recipe ? (
 						<div className='recipe'>
 							<h1>{response.name}</h1>
@@ -218,15 +218,20 @@ function AddIngredients() {
 					) : (
 						''
 					)}
-				</div>
+				</div> */}
+				
+
+				
 
 				<div>
 					{recipe ? (
-						<>
-							<button className='home-logout-button'>
+						<><div className="recipe">
+					<h1>Recipe</h1>
+					{response}</div>
+							<button className='recipe-button'>
 								I Cooked this Recipe!
 							</button>
-							<button className='home-logout-button' onClick={handleNewPrompt}>
+							<button className='recipe-button' onClick={handleNewPrompt}>
 								Make a new recipe!{' '}
 							</button>
 						</>

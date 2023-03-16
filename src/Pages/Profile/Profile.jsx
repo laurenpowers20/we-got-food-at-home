@@ -5,9 +5,9 @@ import "./Profile.css";
 import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../services/firebase";
-import { useEffect } from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../services/firebase';
+import { useEffect } from 'react';
 
 function Profile() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -69,7 +69,7 @@ function Profile() {
 									paddingRight: '10px',
 									paddingLeft: '0',
 									color: '#f09133',
-									fontSize: 'large',
+									fontSize: '25px',
 								}}
 							/>{' '}
 							<div>
@@ -88,27 +88,66 @@ function Profile() {
           {" "}
           <div>
             <img src={currentImage} alt={`Level ${currentLevel}`} />
+=========
+	const handleLevelDown = () => {
+		setCurrentLevel(currentLevel - 1);
+		setProgressBar(progressBar - 10);
+	};
+	return (
+		<div>
+			<div className='profile-top'>
+				<div className='profile-photo'>
+					<img
+						src={photoURL}
+						alt='google photo'
+						className='google-photo'
+						referrerPolicy='no-referrer'
+					/>
+				</div>
 
-            <h3>{`You cooked ${currentLevel} days this week!`}</h3>
-          </div>
-        </div>
-        <button
-          className="profile-btn"
-          disabled={currentLevel === 7}
-          onClick={handleLevelUp}
-        >
-          I cooked at home today!
-        </button>
-        <button
-          className="profile-btn"
-          disabled={currentLevel === 1}
-          onClick={handleLevelDown}
-        >
-          Oops, no I didn't!
-        </button>
-      </div>
-    </div>
-  );
+				<div className='profile-level container'>
+					<div>
+						<div className='profile-bar-div top'>
+							<AiFillHeart style={{ padding: '10px' }} />{' '}
+							<div>
+								<progress value={progressBar} max='64'></progress>
+							</div>
+						</div>
+
+						<div className='profile-bar-div bottom'>
+							{/* <GiLightningShield style={{ padding: '10px' }} />
+							<div className='profile-level-bar two'>
+								<div></div>
+							</div> */}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='profile-bottom'>
+				{' '}
+				<h2>Your Achievement</h2>
+				<div className='achievement-image'>
+					{' '}
+					<div>
+						<img src={currentImage} alt={`Level ${currentLevel}`} />
+						<h3>{`You're a ${currentLevel}-level cook!`}</h3>
+					</div>
+				</div>
+				<button
+					className='profile-btn'
+					disabled={currentLevel === 7}
+					onClick={handleLevelUp}>
+					I cooked at home today!
+				</button>
+				<button
+					className='profile-btn'
+					disabled={currentLevel === 1}
+					onClick={handleLevelDown}>
+					Oops, no I didn't!
+				</button>
+			</div>
+		</div>
+	);
 }
 
 export default Profile;
