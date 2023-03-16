@@ -73,7 +73,7 @@ function Profile() {
 								}}
 							/>{' '}
 							<div>
-								<progress value={progressBar} max='70'></progress>
+								<progress value={progressBar} max='60'></progress>
 							</div>
 						</div>
 
