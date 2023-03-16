@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   /* background-color: red; */
   min-width: 350px;
   max-width: 500px;
@@ -12,31 +12,30 @@ progress {
   width: 300px;
 }
 
-
-/* .profile-photo {
 .google-photo {
   border-radius: 10%;
   border: solid 1px black;
-  height: 145px;
-  width: 145px;
-}
+  height: 128px;
+  width: 128px;
+  margin-left: 19px;
+}  
 
 .displayname {
   font-size: 25px;
 }
 
 .profile-top {
-  align-items: left;
+  /* align-items: left; */
   display: flex;
   height: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   width: 350px;
 }
-
 .profile-bar-div {
   align-items: center;
   display: flex;
-  margin-left: 10px;
+  margin-left: 13px;
+  margin-top: 58px;
 }
 
 .profile-bar-div.top {
@@ -80,32 +79,34 @@ progress {
 }
 
 .profile-bottom {
-  border-radius: 10px;
+  border-radius: 8px;
   border: solid 1px black;
-  height: 400px;
+  height: 380px;
   margin: auto;
-  width: 350px;
+  width: 320px;
 }
 
 .achievement-image {
-  height: 200px;
   margin: auto;
   width: 200px;
 }
 
+.help-me {
+  margin-top: 16px;
+}
+
 @media only screen and (max-width: 700px) {
-  
   progress {
     accent-color: #f09133;
     height: 50px;
-    width: 168px;
+    width: 160px;
   }
-  .profile-photo {
+  /* .profile-photo {
     border-radius: 10%;
     height: 145px;
     width: 145px;
     margin-left: 19px;
-  }
+  } */
 
   .profile-top {
     display: flex;
@@ -124,27 +125,15 @@ progress {
   .progressBar {
     background-color: rgb(10, 107, 193);
     justify-content: center;
-    
-  }
-  .displayname{
-    display: flex;
-    height: 50px;
-    width: 250px;
-    justify-content:flex-end;
-    align-items: center;
-   font-weight: bold;
-   font-size: 30px;
-    
-    height: 50px;
-    justify-content: center;
     width: 250px;
   }
 
   .displayname {
-    font-size: 20px;
-    height: 50px;
-    justify-content: center;
-    width: 250px;
+   display: flex;
+   justify-content: center;
+   margin-left: 25px;
+   font-weight: bold;
+   font-size: 22px;
   }
 
   .profile-level-bar {
@@ -154,16 +143,14 @@ progress {
     width: 200px;
   }
 
+  button:disabled:hover {
+    background-color: #aac4cf;
+    cursor: default;
+  }
+}
 
-button:disabled:hover
+/* button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
-}
-
-.home-heading {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 10px;
-}
+} */

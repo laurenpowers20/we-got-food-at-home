@@ -53,7 +53,6 @@ function Home() {
           <button className="home-ingredients-button">I am ready to cook</button>
         </Link>
       </div>
-
 			<div>
 				<button className='home-logout-button' onClick={logout}>
 					Logout
