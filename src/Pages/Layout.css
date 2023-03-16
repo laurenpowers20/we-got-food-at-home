@@ -21,3 +21,11 @@ a {
 a:hover {
   color: #f09133;
 }
+
+
+@media only screen and (max-width: 700px) {
+  .nav-container {
+    height: 50px;
+  }
+}
+  
