@@ -64,8 +64,16 @@ function Profile() {
 				<div className='profile-level container'>
 					<div>
 						<div className='profile-bar-div top'>
-            <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"large" }} />{" "}							<div>
-								<progress value={progressBar} max='64'></progress>
+							<GiForkKnifeSpoon
+								style={{
+									paddingRight: '10px',
+									paddingLeft: '0',
+									color: '#f09133',
+									fontSize: 'large',
+								}}
+							/>{' '}
+							<div>
+								<progress value={progressBar} max='70'></progress>
 							</div>
 						</div>
 
