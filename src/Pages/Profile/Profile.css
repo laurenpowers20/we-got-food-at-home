@@ -1,44 +1,32 @@
-.wrapper {
+.wrapper{
   /* background-color: red; */
   min-width: 350px;
   max-width: 500px;
   margin: auto;
-  width: 95%;
+  
 }
 
-h3 {
-  margin-bottom: 0;
-}
-progress {
-  accent-color: #f09133;
-  height: 50px;
-  width: 300px;
-}
 
+/* .profile-photo {
 .google-photo {
-  border-radius: 10%;
+  height: 150px;
+  width: 150px;
   border: solid 1px black;
-  height: 128px;
-  width: 128px;
-  margin-left: 19px;
-}  
-
-.displayname {
-  font-size: 25px;
-}
-
-.profile-top {
-  /* align-items: left; */
-  display: flex;
-  height: 100px;
-  margin-bottom: 40px;
-  width: 350px;
-}
-.profile-bar-div {
+  border-radius: 10%;
   align-items: center;
+} */
+
+/* .profile-top {
+  
+ 
+  
+  align-items: center;
+  justify-content: center;
+} */
+.profile-bar-div {
   display: flex;
-  margin-left: 13px;
-  margin-top: 58px;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .profile-bar-div.top {
@@ -50,10 +38,10 @@ progress {
 }
 
 .profile-level-bar {
-  display: flex;
-  height: 20px;
   margin: 10px;
+  height: 20px;
   width: 500px;
+  display: flex;
 }
 
 .profile-level-bar.one {
@@ -65,16 +53,16 @@ progress {
 }
 
 .profile-btn {
-  align-items: center;
-  background-color: #aac4cf;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
   height: 38px;
-  justify-content: center;
-  margin-top: 12px;
   width: 204px;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+  background-color: #aac4cf;
 }
 
 .profile-btn:hover {
@@ -82,78 +70,82 @@ progress {
 }
 
 .profile-bottom {
-  border-radius: 8px;
   border: solid 1px black;
-  height: 355px;
+  width: 350px;
+  height: 400px;
   margin: auto;
-  width: 320px;
+  border-radius: 10px;
 }
 
 .achievement-image {
-  margin: auto;
   width: 200px;
+  height: 200px;
+  margin: auto;
 }
 
-.help-me {
-  margin-top: 16px;
-}
-
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) { */
   progress {
-    accent-color: #f09133;
+    accent-color: #eb4335;
+    width: 200px;
     height: 50px;
-    width: 160px;
+    margin-right: 20px;
   }
-  /* .profile-photo {
+  .profile-photo {
+    height: 100px;
+    width: 100px;
+    border: solid 1px black;
     border-radius: 10%;
-    height: 145px;
-    width: 145px;
-    margin-left: 19px;
-  } */
+    margin-left: 5%;
+  }
 
   .profile-top {
-    display: flex;
-    height: 103px;
     width: 350px;
+    display: flex;
+    height:100px;
+    
+    margin: auto;
+    margin-top:50px;
+    margin-bottom:50px ;
+    
+    
   }
 
-  .pfpdiv {
-    border-radius: 10px;
+  .pfpdiv{
+    justify-content:flex-end;
     border: 1px black solid;
+    border-radius: 10px;
     height: 100px;
-    justify-content: flex-end;
     width: 100px;
   }
-
-  .progressBar {
+  .progressBar{
+    height: 50px;
+    width: 250px;
     background-color: rgb(10, 107, 193);
     justify-content: center;
+    
+  }
+  .displayname{
+    display: flex;
+    height: 50px;
     width: 250px;
-  }
-
-  .displayname {
-   display: flex;
-   justify-content: center;
-   margin-left: 25px;
+    justify-content:flex-end;
+    align-items: center;
    font-weight: bold;
-   font-size: 22px;
+   font-size: 30px;
+    
   }
-
   .profile-level-bar {
-    background-color: #bfbfbf;
-    height: 20px;
     margin: 20px;
+    height: 20px;
     width: 200px;
+    background-color: #bfbfbf;
   }
 
-  button:disabled:hover {
-    background-color: #aac4cf;
-    cursor: default;
-  }
-}
 
-/* button:disabled:hover
+button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
-} */
+ 
+  
+}

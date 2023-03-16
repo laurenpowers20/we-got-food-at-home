@@ -1,24 +1,17 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
-import "./Layout.css";
+import React from 'react'
+import {Outlet, Link} from "react-router-dom"
 
 function Layout() {
   return (
     <div>
       <>
-        <Outlet />
-        <div className="nav-container">
-          <div className="nav-list-item">
-            <Link to="/home">Home</Link>{" "}
-          </div>
-          <div className="nav-list-item">
-            {" "}
-            <Link to="/ingredients">Ingredients</Link>{" "}
-          </div>
-        </div>
+
+        <Outlet /> 
+        
+      
       </>
     </div>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
