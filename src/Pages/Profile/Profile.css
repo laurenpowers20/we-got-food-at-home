@@ -1,13 +1,20 @@
-.wrapper{
-  /* background-color: red; */
+.wrapper {
   width: 95%;
   margin: auto;
-  
 }
+
 progress {
-  accent-color: #eb4335;
-  width: 500px;
+  accent-color: #f09133;
+  width: 300px;
   height: 50px;
+}
+
+.pfpdiv {
+  justify-content: flex-end;
+  border: 1px black solid;
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
 }
 
 .profile-photo {
@@ -18,13 +25,20 @@ progress {
   align-items: center;
 }
 
-/* .profile-top {
-  
- 
-  
-  align-items: center;
-  justify-content: center;
-} */
+.displayname {
+  font-size: 25px;
+}
+
+.profile-top {
+  width: 350px;
+  display: flex;
+  height: 100px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: left;
+}
+
 .profile-bar-div {
   display: flex;
   align-items: center;
@@ -87,7 +101,7 @@ progress {
 
 @media only screen and (max-width: 700px) {
   progress {
-    accent-color: #eb4335;
+    accent-color: #f09133;
     width: 200px;
     height: 50px;
     margin-right: 20px;
@@ -103,35 +117,35 @@ progress {
   .profile-top {
     width: 350px;
     display: flex;
-    height:100px;
-    
+    height: 100px;
+
     margin: auto;
-    margin-top:50px;
-    margin-bottom:50px ;
-    
-    
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
-  .pfpdiv{
-    justify-content:flex-end;
+  .pfpdiv {
+    justify-content: flex-end;
     border: 1px black solid;
     border-radius: 10px;
     height: 100px;
     width: 100px;
   }
-  .progressBar{
+
+  .progressBar {
     height: 50px;
     width: 250px;
     background-color: rgb(10, 107, 193);
     justify-content: center;
-    
   }
-  .displayname{
+
+  .displayname {
     height: 50px;
     width: 250px;
-   
+   font-size: 20px;
     justify-content: center;
   }
+
   .profile-level-bar {
     margin: 20px;
     height: 20px;
