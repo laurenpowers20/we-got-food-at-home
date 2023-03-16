@@ -219,16 +219,19 @@ function AddIngredients() {
 						''
 					)}
 				</div> */}
+				
 
-				<div className="recipe">{response}</div>
+				
 
 				<div>
 					{recipe ? (
-						<>
-							<button className='home-logout-button'>
+						<><div className="recipe">
+					<h1>Recipe</h1>
+					{response}</div>
+							<button className='recipe-button'>
 								I Cooked this Recipe!
 							</button>
-							<button className='home-logout-button' onClick={handleNewPrompt}>
+							<button className='recipe-button' onClick={handleNewPrompt}>
 								Make a new recipe!{' '}
 							</button>
 						</>
