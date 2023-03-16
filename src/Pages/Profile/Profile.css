@@ -3,30 +3,40 @@
   min-width: 350px;
   max-width: 500px;
   margin: auto;
-  
+  width: 95%;
+}
+
+progress {
+  accent-color: #f09133;
+  height: 50px;
+  width: 300px;
 }
 
 
 /* .profile-photo {
 .google-photo {
-  height: 150px;
-  width: 150px;
-  border: solid 1px black;
   border-radius: 10%;
-  align-items: center;
-} */
+  border: solid 1px black;
+  height: 145px;
+  width: 145px;
+}
 
-/* .profile-top {
-  
- 
-  
-  align-items: center;
-  justify-content: center;
-} */
-.profile-bar-div {
+.displayname {
+  font-size: 25px;
+}
+
+.profile-top {
+  align-items: left;
   display: flex;
+  height: 100px;
+  margin-bottom: 50px;
+  width: 350px;
+}
+
+.profile-bar-div {
   align-items: center;
-  margin-left: 20px;
+  display: flex;
+  margin-left: 10px;
 }
 
 .profile-bar-div.top {
@@ -38,10 +48,10 @@
 }
 
 .profile-level-bar {
-  margin: 10px;
-  height: 20px;
-  width: 500px;
   display: flex;
+  height: 20px;
+  margin: 10px;
+  width: 500px;
 }
 
 .profile-level-bar.one {
@@ -53,16 +63,16 @@
 }
 
 .profile-btn {
-  height: 38px;
-  width: 204px;
-  border-radius: 100px;
-  justify-content: center;
   align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  margin-top: 20px;
   background-color: #aac4cf;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  height: 38px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 204px;
 }
 
 .profile-btn:hover {
@@ -70,56 +80,48 @@
 }
 
 .profile-bottom {
+  border-radius: 10px;
   border: solid 1px black;
-  width: 350px;
   height: 400px;
   margin: auto;
-  border-radius: 10px;
+  width: 350px;
 }
 
 .achievement-image {
-  width: 200px;
   height: 200px;
   margin: auto;
+  width: 200px;
 }
 
-/* @media only screen and (max-width: 700px) { */
+@media only screen and (max-width: 700px) {
+  
   progress {
-    accent-color: #eb4335;
-    width: 200px;
+    accent-color: #f09133;
     height: 50px;
-    margin-right: 20px;
+    width: 168px;
   }
   .profile-photo {
-    height: 100px;
-    width: 100px;
-    border: solid 1px black;
     border-radius: 10%;
-    margin-left: 5%;
+    height: 145px;
+    width: 145px;
+    margin-left: 19px;
   }
 
   .profile-top {
-    width: 350px;
     display: flex;
-    height:100px;
-    
-    margin: auto;
-    margin-top:50px;
-    margin-bottom:50px ;
-    
-    
+    height: 103px;
+    width: 350px;
   }
 
-  .pfpdiv{
-    justify-content:flex-end;
-    border: 1px black solid;
+  .pfpdiv {
     border-radius: 10px;
+    border: 1px black solid;
     height: 100px;
+    justify-content: flex-end;
     width: 100px;
   }
-  .progressBar{
-    height: 50px;
-    width: 250px;
+
+  .progressBar {
     background-color: rgb(10, 107, 193);
     justify-content: center;
     
@@ -133,12 +135,23 @@
    font-weight: bold;
    font-size: 30px;
     
+    height: 50px;
+    justify-content: center;
+    width: 250px;
   }
+
+  .displayname {
+    font-size: 20px;
+    height: 50px;
+    justify-content: center;
+    width: 250px;
+  }
+
   .profile-level-bar {
-    margin: 20px;
-    height: 20px;
-    width: 200px;
     background-color: #bfbfbf;
+    height: 20px;
+    margin: 20px;
+    width: 200px;
   }
 
 
@@ -146,6 +159,11 @@ button:disabled:hover
  {
   background-color: #aac4cf;
   cursor: default;
- 
-  
+}
+
+.home-heading {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }

@@ -48,11 +48,11 @@ function Home() {
 			
 			<Profile />
 
-			<div>
-				<Link to='/ingredients'>
-					<button className='home-ingredients-button'>I am ready to cook</button>
-				</Link>
-			</div>
+      <div>
+        <Link to="/ingredients">
+          <button className="home-ingredients-button">I am ready to cook</button>
+        </Link>
+      </div>
 
 			<div>
 				<button className='home-logout-button' onClick={logout}>
