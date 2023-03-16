@@ -8,7 +8,7 @@ const ItemList = ({ item, selectItem, deleteItem }) => {
     <div>
    
       <div className="ingredients-list-items">
-      <label class="container">
+      <label className="container">
           <input
             className="container"
             onChange={() => selectItem(item)}

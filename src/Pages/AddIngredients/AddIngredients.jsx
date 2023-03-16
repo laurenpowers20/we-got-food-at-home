@@ -30,9 +30,9 @@ function AddIngredients() {
 	const [visible, setVisible] = useState(false);
 	const [uId, setUId] = useState('');
 	const [recipe, setRecipe] = useState(false);
-	const prompt = `give me a recipe only using ${selectedItems.toString(
+	const prompt = `give me a recipe that can be made using only ${selectedItems.toString(
 		' ',
-	)} return your answer as a json object`;
+	)} respond your answer in a clean format`;
 	const navigate = useNavigate();
 
 	// Create ItemList
@@ -187,7 +187,7 @@ function AddIngredients() {
 			)}
 
 			<div>
-				<div>
+				{/* <div>
 					{recipe ? (
 						<div className='recipe'>
 							<h1>{response.name}</h1>
@@ -218,7 +218,9 @@ function AddIngredients() {
 					) : (
 						''
 					)}
-				</div>
+				</div> */}
+
+				{response}
 
 				<div>
 					{recipe ? (
