@@ -45,12 +45,12 @@ function Home() {
 
 	return (
 		<>
-			<h1 className='home-heading'>{`Welcome, ${displayName}! `}</h1>
+			
 			<Profile />
 
 			<div>
 				<Link to='/ingredients'>
-					<button className='home-ingredients-button'>Find Recipe</button>
+					<button className='home-ingredients-button'>I am ready to cook</button>
 				</Link>
 			</div>
 

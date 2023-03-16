@@ -1,4 +1,4 @@
-import { AiFillHeart } from "react-icons/ai";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { useState } from "react";
 // import { GiLightningShield } from "react-icons/gi";
 import "./Profile.css";
@@ -45,47 +45,39 @@ function Profile() {
 		setProgressBar(progressBar + 10);
 	};
 
-	const handleLevelDown = () => {
-		setCurrentLevel(currentLevel - 1);
-		setProgressBar(progressBar - 10);
-	};
-	return (
-		<div>
-			<div className='profile-top'>
-				<div className='profile-photo'>
-					<img
-						src={photoURL}
-						alt='google photo'
-						className='google-photo'
-						referrerPolicy='no-referrer'
-					/>
-				</div>
+  const handleLevelDown = () => {
+    setCurrentLevel(currentLevel - 1);
+    setProgressBar(progressBar - 10);
+  };
+  return (
+    <div className="wrapper" >
+      
+      <div className="profile-top">
+        
+          <img src={user.photoURL} className="pfpdiv" />
+        
+        <div className="leftcontainer">
+        <div className="displayname">{`Chef ${user.displayName}`}</div>
+        
+        <div className="profile-bar-div top">
+              
+              <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"25px" }} />{" "}
+              <div>
+                <progress value={progressBar} max="64"></progress>
+              </div>
+            </div></div>
+      </div>
+          
+        
 
-				<div className='profile-level container'>
-					<div>
-						<div className='profile-bar-div top'>
-							<AiFillHeart style={{ padding: '10px' }} />{' '}
-							<div>
-								<progress value={progressBar} max='64'></progress>
-							</div>
-						</div>
-
-						<div className='profile-bar-div bottom'>
-							{/* <GiLightningShield style={{ padding: '10px' }} />
-							<div className='profile-level-bar two'>
-								<div></div>
-							</div> */}
-						</div>
-					</div>
-				</div>
-			</div>
-			<div className='profile-bottom'>
-				{' '}
-				<h2>Your Achievement</h2>
-				<div className='achievement-image'>
-					{' '}
-					<div>
-						<img src={currentImage} alt={`Level ${currentLevel}`} />
+       
+      <div className="profile-bottom">
+        {" "}
+        <h2>Your Achievement</h2>
+        <div className="achievement-image">
+          {" "}
+          <div>
+            <img src={currentImage} alt={`Level ${currentLevel}`} />
 
 						<h3>{`You're a ${currentLevel}-level cook!`}</h3>
 					</div>

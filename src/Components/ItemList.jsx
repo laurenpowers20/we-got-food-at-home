@@ -1,37 +1,31 @@
 import React from "react";
+import { BsTrashFill } from "react-icons/bs";
+
 import "../Pages/AddIngredients/AddIngredients.css";
 
 const ItemList = ({ item, selectItem, deleteItem }) => {
   return (
     <div>
-      {/* <h3>Enter Ingredients</h3>
-          <form onSubmit={addItem}>
-            <input
-              className="custom-input add-items"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              type="text"
-              placeholder="Add Item"
-            />
-            <button>Add</button>
-          </form> */}
+   
       <div className="ingredients-list-items">
-        <div className="checkbox-container">
+      <label class="container">
           <input
-            className="checkbox"
+            className="container"
             onChange={() => selectItem(item)}
             type="checkbox"
             checked={item.selected ? "checked" : ""}
           />
-        </div>
+          <span className="checkmark"></span>
+          </label>
+        
 
         <li>
           <p className="list-item-text" onClick={() => selectItem(item)}>{item.text}</p>
         </li>
         <div className="x-button-container">
-          <button className="x-button" onClick={() => deleteItem(item.id)}>
-            x
-          </button>
+          
+            <BsTrashFill style={{fontSize:"20px"}} onClick={() => deleteItem(item.id)}/>
+          
         </div>
       </div>
     </div>
