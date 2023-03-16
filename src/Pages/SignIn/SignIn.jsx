@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import React from "react";
 import google from "../../images/google.png";
 import logo from "../../images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import { auth, signInWithGoogle } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -22,7 +22,7 @@ function SignIn() {
     <div>
       <h1>Welcome</h1>
       <img src={logo} alt="logo" className="signin-logo" />
-      <h1>Powered by AI</h1>
+
       <div className="sign-in-form-container">
         {/* sign in using the google pop up */}
         <button className="google-button" onClick={signInWithGoogle}>

@@ -1,5 +1,6 @@
 import "./Home.css";
-import { Link, useNavigate } from "react-router-dom";
+import logo from "../../images/logo.png";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";

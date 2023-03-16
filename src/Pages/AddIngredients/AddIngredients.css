@@ -1,39 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 body {
-  margin: auto;
+  font-family: "Poppins", sans-serif;
 }
 
+.ingredients-div {
+  width: 400px;
+  margin: auto;
+  /* border: 1px solid black; */
+}
 .ingredients-list-items {
   display: flex;
   align-items: center;
   padding: 0px;
-  text-align: center;
   margin: 0px;
-  width: 500px;
+  /* border: solid 1px black; */
 }
 
 ul {
   list-style: none;
   margin: auto;
-  width: 100px;
+  width: 200px;
   text-align: left;
 }
 
-p {
-  padding-left: 10px;
+.list-item-text {
+  width: 200px;
+  text-align: center;
+  font-size: 20px;
 }
+/* .checkbox-container {
+  padding: 20px;
+  border: solid 1px black;
+} */
 
 .checkbox {
-  height: 30px;
+  /* height: 30px; */
   margin: 0;
+  text-align: right;
 }
+
+/* .x-button-container {
+  padding: 20px;
+} */
 
 .x-button {
   width: 25px;
+  align-items: right;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 30px;
+}
+.add-btn {
+  height: 38px;
+  width: 75px;
+  border-radius: 100px;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   cursor: pointer;
-  margin: 30px;
+  border: none;
+  background-color: #fbe0b8;
+}
+.add-btn:hover {
+  background-color: #f09133;
+}
+.recipe {
+  margin: auto;
+  width: 400px;
+  font-size: 25px;
+  border-radius: 10px;
+  background: rgb(240, 145, 51);
+  background: linear-gradient(
+    0deg,
+    rgba(240, 145, 51, 1) 0%,
+    rgba(251, 224, 184, 1) 87%
+  );
 }
 
 .x-button:hover {

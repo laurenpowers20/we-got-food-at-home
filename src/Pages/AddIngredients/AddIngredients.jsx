@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemList from "../../Components/ItemList";
+import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
+import { Hearts } from "react-loading-icons";
 
 import {
   query,
@@ -19,10 +21,12 @@ import {
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [loading, setLoading] = useState(false);
+  const [user, error] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
+  const [visible, setVisible] = useState(false);
   const prompt = `give me a recipe using only ${selectedItems.toString(" ")}`;
 
   // Create ItemList
@@ -61,8 +65,6 @@ function AddIngredients() {
     });
     return () => unsubscribe();
   }, []);
-  console.log(selectedItems.toString(" "));
-  // const prompt = `give me a recipe using only ${selectedItems.toString(' ')}`;
 
   // Items in firebase
   const selectItem = async (item) => {
@@ -78,26 +80,32 @@ function AddIngredients() {
 
   // ////////////////////////////////////////
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const gptData = await // Send a request to the server with the prompt
+    axios.post("http://localhost:8080/chat", { prompt });
+    try {
+      const res = await axios.post("http://localhost:8080/chat", { prompt });
+      setLoading(false);
+      setResponse(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+    // Update the response state with the server's response
+  };
 
-    // Send a request to the server with the prompt
-    axios
-      .post("http://localhost:8080/chat", { prompt })
-      .then((res) => {
-        // Update the response state with the server's response
-        setResponse(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+  const handleClick = () => {
+    // setLoading(true)
+    setVisible(true);
   };
 
   return (
     <>
+      <div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
       <div>
-        <div>
-          <h3>Enter Ingredients</h3>
+        <div className="ingredients-div">
+          <h1>Enter Ingredients</h1>
           <form onSubmit={addItem}>
             <input
               className="custom-input add-items"
@@ -106,9 +114,9 @@ function AddIngredients() {
               type="text"
               placeholder="Add Item"
             />
-            <button>Add</button>
+            <button className="add-btn">Add</button>
           </form>
-          <ul>
+          <ul className="ingredients-div">
             {items.map((item, index) => (
               <ItemList
                 key={index}
@@ -118,24 +126,47 @@ function AddIngredients() {
               />
             ))}
           </ul>
-          {/* {items.length < 1 ? null : <p>{`You have ${items.length} items in your fridge`}</p>} */}
           {selectedItems.length < 1 ? null : (
             <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
           )}
         </div>
       </div>
       <div>
-        <div className="form">
+        <div>
+          {/* Submits the prompt with the selected items */}
+
           <form onSubmit={handleSubmit}>
-            <input
-              className="custom-input"
-              type="text"
-              value={prompttest}
-              onChange={(e) => setPrompt(e.target.value)}
-            />
-            <button type="submit">Submit</button>
+            <button
+              className="home-logout-button"
+              onClick={handleClick}
+              type="submit"
+            >
+              Submit
+            </button>
           </form>
-          <p>{response}</p>
+          {loading ? (
+            <Hearts
+              stroke="#f09133"
+              fill="#ed7f12"
+              strokeOpacity={0.1}
+              fillOpacity={1}
+              speed={0.75}
+            />
+          ) : (
+            " "
+          )}
+          <div className="recipe">
+            <Recipes response={response} />
+          </div>
+        </div>
+        <div>
+          {visible ? (
+            <button className="home-logout-button">
+              I Cooked this Recipe!
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
