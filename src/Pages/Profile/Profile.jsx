@@ -27,7 +27,7 @@ function Profile() {
 	}, [user, loading]);
 
 	const levelImages = [
-    { level: 0, src: `${bronze}`, status: "bronze" },
+		{ level: 0, src: `${bronze}`, status: 'bronze' },
 		{ level: 1, src: `${bronze}`, status: 'bronze' },
 		{ level: 2, src: `${bronze}`, status: 'bronze' },
 		{ level: 3, src: `${bronze}`, status: 'bronze' },
@@ -45,14 +45,21 @@ function Profile() {
 		setProgressBar(progressBar + 10);
 	};
 
-  const handleLevelDown = () => {
-    setCurrentLevel(currentLevel - 1);
-    setProgressBar(progressBar - 10);
-  };
-  return (
-    <div>
-      <div className="profile-top">
-        <div className="profile-photo">Photo</div>
+	const handleLevelDown = () => {
+		setCurrentLevel(currentLevel - 1);
+		setProgressBar(progressBar - 10);
+	};
+	return (
+		<div>
+			<div className='profile-top'>
+				<div className='profile-photo'>
+					<img
+						src={photoURL}
+						alt='google-photo'
+						className='google-photo'
+						referrerPolicy='no-referrer'
+					/>
+				</div>
 
 				<div className='profile-level container'>
 					<div>
@@ -63,25 +70,11 @@ function Profile() {
 							</div>
 						</div>
 
-            <div className="profile-bar-div bottom">
-              {/* <GiLightningShield style={{ padding: "10px" }} />
-              <div className="profile-level-bar two"></div> */}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="profile-bottom">
-        {" "}
-        <h2>Your Achievement</h2>
-        <div className="achievement-image">
-          {" "}
-          <div>
-            <img src={currentImage} alt={`Level ${currentLevel}`} />
 						<div className='profile-bar-div bottom'>
-							{/* <GiLightningShield style={{ padding: '10px' }} /> */}
+							{/* <GiLightningShield style={{ padding: '10px' }} />
 							<div className='profile-level-bar two'>
 								<div></div>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>
@@ -105,7 +98,7 @@ function Profile() {
 				</button>
 				<button
 					className='profile-btn'
-					disabled={currentLevel === 0}
+					disabled={currentLevel === 1}
 					onClick={handleLevelDown}>
 					Oops, no I didn't!
 				</button>
