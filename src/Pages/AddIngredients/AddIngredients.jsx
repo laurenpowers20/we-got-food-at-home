@@ -129,10 +129,19 @@ function AddIngredients() {
 			) : (
 				<div className='ingredients-div'>
 					<div>
-						<div >
-							
-							
-							<h1> <Link to="/home"><IoChevronBackOutline style={{marginRight:"30px", color:'gray', fontSize:"40px"}}  /></Link> Enter Ingredients</h1>
+						<div>
+							{' '}
+							<Link to='/home'>
+								<IoChevronBackOutline
+									style={{
+										paddingTop: '10px',
+										marginRight: '330px',
+										color: 'gray',
+										fontSize: '40px',
+									}}
+								/>
+							</Link>{' '}
+							<h1>Enter Ingredients</h1>
 							<form onSubmit={addItem}>
 								<input
 									className='custom-input'
@@ -164,7 +173,7 @@ function AddIngredients() {
 
 							<form onSubmit={handleSubmit}>
 								<button
-									className='home-logout-button'
+									className='home-create-recipe-button'
 									onClick={handleClick}
 									type='submit'>
 									Create a recipe
@@ -220,18 +229,15 @@ function AddIngredients() {
 						''
 					)}
 				</div> */}
-				
-
-				
 
 				<div>
 					{recipe ? (
-						<><div className="recipe">
-					<h1>Recipe</h1>
-					{response}</div>
-							<button className='recipe-button'>
-								I Cooked this Recipe!
-							</button>
+						<>
+							<div className='recipe'>
+								<h1>Recipe</h1>
+								{response}
+							</div>
+							<button className='recipe-button'>I Cooked this Recipe!</button>
 							<button className='recipe-button' onClick={handleNewPrompt}>
 								Make a new recipe!{' '}
 							</button>
