@@ -13,7 +13,9 @@ ul {
 }
 
   
-
+p {
+  margin: 9px;
+}
 
 
 
@@ -117,8 +119,9 @@ ul {
 }
 
 .ingredients-div{
+  padding: 0;
   margin: auto;
-  width: 400px;
+  width: 100%;
   height: auto;
   /* background-color: #f09133; */
   display: flex;
