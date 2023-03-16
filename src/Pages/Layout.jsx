@@ -5,14 +5,15 @@ function Layout() {
   return (
     <div>
       <>
+
+        <Outlet /> 
+        
         <Link to="/home">
           Home
         </Link> 
         <Link to="/ingredients">
           Ingredients
         </Link> 
-
-        <Outlet />
       </>
     </div>
   )

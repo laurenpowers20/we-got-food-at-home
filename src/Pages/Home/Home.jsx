@@ -21,15 +21,13 @@ function Home() {
   const pfp = user.photoURL;
   return (
     <>
-      <div>
-        <Link to="/ingredients"></Link>
-      </div>
-      <h1 className="home-heading">{`Welcome, ${user.displayName}`}</h1>
+     
+      
       <Profile pfp={pfp} />
 
       <div>
         <Link to="/ingredients">
-          <button className="home-ingredients-button">Find Recipe</button>
+          <button className="home-ingredients-button">I am ready to cook</button>
         </Link>
       </div>
 

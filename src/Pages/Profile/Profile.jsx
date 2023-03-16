@@ -1,12 +1,15 @@
-import { AiFillHeart } from "react-icons/ai";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { useState } from "react";
 // import { GiLightningShield } from "react-icons/gi";
 import "./Profile.css";
 import bronze from "../../images/bronze.png";
 import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
+import { auth } from "../../services/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Profile(props) {
+  const [user, loading, error] = useAuthState(auth);
   const [currentLevel, setCurrentLevel] = useState(0);
   const [progressBar, setProgressBar] = useState(0);
 
@@ -34,28 +37,27 @@ function Profile(props) {
     setProgressBar(progressBar - 10);
   };
   return (
-    <div>
+    <div className="wrapper" >
+      
       <div className="profile-top">
-        <div>
-          <img src={props.pfp} className="profile-photo" />
-        </div>
-
-        <div className="profile-level container">
-          <div>
-            <div className="profile-bar-div top">
-              <AiFillHeart style={{ padding: "10px" }} />{" "}
+        
+          <img src={props.pfp} className="pfpdiv" />
+        
+        <div className="leftcontainer">
+        <div className="displayname">{`Chef ${user.displayName}`}</div>
+        
+        <div className="profile-bar-div top">
+              
+              <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"large" }} />{" "}
               <div>
                 <progress value={progressBar} max="64"></progress>
               </div>
-            </div>
-
-            <div className="profile-bar-div bottom">
-              {/* <GiLightningShield style={{ padding: "10px" }} />
-              <div className="profile-level-bar two"></div> */}
-            </div>
-          </div>
-        </div>
+            </div></div>
       </div>
+          
+        
+
+       
       <div className="profile-bottom">
         {" "}
         <h2>Your Achievement</h2>
