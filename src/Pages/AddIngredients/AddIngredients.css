@@ -4,11 +4,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
 
 ul {
   list-style: none;
@@ -16,6 +11,11 @@ ul {
   width: 200px;
   text-align: right;
 }
+
+  
+
+
+
 
 .add-btn {
   height: 38px;
@@ -117,7 +117,8 @@ ul {
 }
 
 .ingredients-div{
-  padding: 0;
+  margin: auto;
+  width: 400px;
   height: auto;
   /* background-color: #f09133; */
   display: flex;

@@ -6,9 +6,8 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
-import { Hearts } from "react-loading-icons";
-
-
+import { Hearts} from "react-loading-icons";
+import { IoChevronBackOutline } from "react-icons/io5";
 import {
 	query,
 	collection,
@@ -131,7 +130,9 @@ function AddIngredients() {
 				<div className='ingredients-div'>
 					<div>
 						<div >
-							<h1>Enter Ingredients</h1>
+							
+							
+							<h1> <Link to="/home"><IoChevronBackOutline style={{marginRight:"30px", color:'gray', fontSize:"40px"}}  /></Link> Enter Ingredients</h1>
 							<form onSubmit={addItem}>
 								<input
 									className='custom-input'

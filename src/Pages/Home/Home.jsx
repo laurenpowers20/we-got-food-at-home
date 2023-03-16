@@ -45,13 +45,15 @@ function Home() {
 
 	return (
 		<>
+			
 			<Profile />
 
 			<div>
 				<Link to='/ingredients'>
-					<button className='home-ingredients-button'>Ready to cook?</button>
+					<button className='home-ingredients-button'>I am ready to cook</button>
 				</Link>
 			</div>
+
 			<div>
 				<button className='home-logout-button' onClick={logout}>
 					Logout
