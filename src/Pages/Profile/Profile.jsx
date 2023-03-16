@@ -1,4 +1,4 @@
-import { AiFillHeart } from "react-icons/ai";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { useState } from "react";
 // import { GiLightningShield } from "react-icons/gi";
 import "./Profile.css";
@@ -64,8 +64,7 @@ function Profile() {
 				<div className='profile-level container'>
 					<div>
 						<div className='profile-bar-div top'>
-							<AiFillHeart style={{ padding: '10px' }} />{' '}
-							<div>
+            <GiForkKnifeSpoon style={{ paddingRight: "10px",paddingLeft:"0", color:'#f09133',fontSize:"large" }} />{" "}							<div>
 								<progress value={progressBar} max='64'></progress>
 							</div>
 						</div>

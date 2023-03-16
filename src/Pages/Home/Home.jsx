@@ -48,11 +48,11 @@ function Home() {
 			<h1 className='home-heading'>{`Welcome, ${displayName}! `}</h1>
 			<Profile />
 
-			<div>
-				<Link to='/ingredients'>
-					<button className='home-ingredients-button'>Find Recipe</button>
-				</Link>
-			</div>
+      <div>
+        <Link to="/ingredients">
+          <button className="home-ingredients-button">I am ready to cook</button>
+        </Link>
+      </div>
 
 			<div>
 				<button className='home-logout-button' onClick={logout}>
