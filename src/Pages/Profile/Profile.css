@@ -1,28 +1,9 @@
-.wrapper{
-  /* background-color: red; */
+.wrapper {
   min-width: 350px;
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
-  
 }
 
-
-/* .profile-photo {
-.google-photo {
-  height: 150px;
-  width: 150px;
-  border: solid 1px black;
-  border-radius: 10%;
-  align-items: center;
-} */
-
-/* .profile-top {
-  
- 
-  
-  align-items: center;
-  justify-content: center;
-} */
 .profile-bar-div {
   display: flex;
   align-items: center;
@@ -84,68 +65,60 @@
 }
 
 /* @media only screen and (max-width: 700px) { */
-  progress {
-    accent-color: #eb4335;
-    width: 200px;
-    height: 50px;
-    margin-right: 20px;
-  }
-  .profile-photo {
-    height: 100px;
-    width: 100px;
-    border: solid 1px black;
-    border-radius: 10%;
-    margin-left: 5%;
-  }
+progress {
+  accent-color: #f09133;
+  width: 200px;
+  height: 50px;
+  margin-right: 20px;
+}
+.profile-photo {
+  height: 100px;
+  width: 100px;
+  border: solid 1px black;
+  border-radius: 10%;
+  margin-left: 5%;
+}
 
-  .profile-top {
-    width: 350px;
-    display: flex;
-    height:100px;
-    
-    margin: auto;
-    margin-top:50px;
-    margin-bottom:50px ;
-    
-    
-  }
+.profile-top {
+  width: 350px;
+  display: flex;
+  height: 100px;
 
-  .pfpdiv{
-    justify-content:flex-end;
-    border: 1px black solid;
-    border-radius: 10px;
-    height: 100px;
-    width: 100px;
-  }
-  .progressBar{
-    height: 50px;
-    width: 250px;
-    background-color: rgb(10, 107, 193);
-    justify-content: center;
-    
-  }
-  .displayname{
-    display: flex;
-    height: 50px;
-    width: 250px;
-    justify-content:flex-end;
-    align-items: center;
-   font-weight: bold;
-   font-size: 30px;
-    
-  }
-  .profile-level-bar {
-    margin: 20px;
-    height: 20px;
-    width: 200px;
-    background-color: #bfbfbf;
-  }
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
+.pfpdiv {
+  justify-content: flex-end;
+  border: 1px black solid;
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
+}
+.progressBar {
+  height: 50px;
+  width: 250px;
+  background-color: rgb(10, 107, 193);
+  justify-content: center;
+}
+.displayname {
+  display: flex;
+  height: 50px;
+  width: 250px;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.profile-level-bar {
+  margin: 20px;
+  height: 20px;
+  width: 200px;
+  background-color: #bfbfbf;
+}
 
-button:disabled:hover
- {
+button:disabled:hover {
   background-color: #aac4cf;
   cursor: default;
- 
-  
 }
