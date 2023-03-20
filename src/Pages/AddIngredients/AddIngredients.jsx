@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -240,7 +239,7 @@ function AddIngredients() {
           {recipe ? (
             <>
               <div className="recipe">
-                <h1>Recipe</h1>
+                <h2>Recipe</h2>
                 <article>{response}</article>
               </div>
               <button className="recipe-button">I Cooked this Recipe!</button>
