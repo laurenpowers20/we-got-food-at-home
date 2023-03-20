@@ -95,12 +95,15 @@ ul {
   display: block;
 }
 .recipe {
-  width: 450px;
+  width: 500px;
   font-size: 22px;
 }
 
 article {
   white-space: pre-wrap;
+  text-align: left;
+  padding-left: 30px;
+  padding-bottom: 30px;
 }
 /* Style the checkmark/indicator */
 .container .checkmark:after {
