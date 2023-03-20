@@ -98,6 +98,10 @@ ul {
   width: 450px;
   font-size: 22px;
 }
+
+article {
+  white-space: pre-wrap;
+}
 /* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 9px;
