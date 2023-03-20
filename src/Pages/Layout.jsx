@@ -1,6 +1,5 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
-import "./Layout.css";
+import React from 'react'
+import {Outlet, Link} from "react-router-dom"
 
 function Layout() {
   return (
@@ -12,7 +11,7 @@ function Layout() {
       
       </>
     </div>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
