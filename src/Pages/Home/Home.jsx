@@ -14,7 +14,6 @@ import {
   deleteDoc,
   where,
 } from "firebase/firestore";
-// import Test from "../Test";
 
 function Home() {
   const [user, loading, error] = useAuthState(auth);
@@ -43,7 +42,6 @@ function Home() {
 
   return (
     <>
-      {/* <Test /> */}
       <Profile />
 
       <div>

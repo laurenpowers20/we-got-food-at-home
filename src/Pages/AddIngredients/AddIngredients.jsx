@@ -8,6 +8,7 @@ import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
 import { Hearts } from "react-loading-icons";
 import { IoChevronBackOutline } from "react-icons/io5";
+
 import {
   query,
   collection,
@@ -36,10 +37,8 @@ function AddIngredients() {
   )} respond your answer in a clean format`;
   const navigate = useNavigate();
 
-  const API_KEY = "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";
-
   const configuration = new Configuration({
-    apiKey: API_KEY,
+    apiKey: process.env.REACT_APP_OPEN_API_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
