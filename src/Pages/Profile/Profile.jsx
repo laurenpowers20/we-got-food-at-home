@@ -14,10 +14,12 @@ import {
   onSnapshot,
   doc,
   addDoc,
+  setDoc,
   deleteDoc,
   where,
   updateDoc,
   serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
 
@@ -27,47 +29,68 @@ function Profile() {
   const [user, loading, error] = useAuthState(auth);
   const [displayName, setDisplayName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
-
+  const [progressBarNumber, setProgressBarNumber] = useState()
   const [uId, setUId] = useState("");
 
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
 
-  // const progressUpdate = async (e) => {
-  // 	e.preventDefault();
+  // custom Id for when DOC is created so it can called using it
+  const docId = "doc" + user.uid + "Food@Home"
 
-  // 	// if (progress?.hasOwnProperty("id")) {
-  // 		const docRef = doc(db, 'progressBar', progress.id, 'AknCONUnYZUNgCp4ps2b' );
-  // 		const updatedProgress = { progressBarNumber: progress };
-  // 		await updateDoc(docRef, updatedProgress);
 
-  // 	} else {
-  // 		const collectionRef = collection(db, 'progressBar')
 
-  // 		await addDoc(collectionRef, {
-  // 			userName: user.displayName,
-  // 			user: user.uid,
-  // 			progressBarNumber: progress,
-  // 		})
+ 
 
-  // 	};
+  
+  
 
-  // }
 
-  // const progressUpdate = async (e) => {
-  // 	e.preventDefault(e);
-  // 	if (progress?.hasOwnProperty("id")) {
-  // 		alert('Please enter a valid food item');
-  // 		return;
-  // 	}
-  // 	await addDoc(collection(db, 'progressBar'), {
-  // 		user: user.uid,
-  // 		progressNumber: progress
+  // updates or adds the progress bar number in the database when chnanged
+  useEffect(() => {
+const progressUpdate = async (e) => {
+   
 
-  // 	});
+    const docRef = doc(db, 'progressBar', docId);
+    const docSnap = await getDoc(docRef)
+   
 
-  // };
+    if (docSnap.exists()) {
+      const updatedProgress = { progressBarNumber: progress };
+      await updateDoc(docRef, updatedProgress);
+      setProgressBarNumber(progressBarNumber)
 
+    } else {
+      await setDoc(doc(db, "progressBar", docId), {
+        userName: user.displayName,
+        userId: user.uid,
+        progressBarNumber: progress
+      })
+
+    };
+
+  };
+		progressUpdate()
+		
+	}, [progress]);
+  
+  
+   // pulls the progressBar data from the database when the user loads
+
+  useEffect(()=>{
+    const docRef = doc(db,"progressBar", docId)
+    
+    const unsubscribe = onSnapshot((docRef),(doc)=>{
+      
+    })
+  },[user,loading])
+    
+
+
+console.log(progress);
+
+
+	
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
   useEffect(() => {
@@ -104,10 +127,9 @@ function Profile() {
   const handleLevelUp = async (e) => {
     setCurrentLevel(currentLevel + 1);
     setProgress(progress + 10);
+    
+    
 
-    const docRef = doc(db, "progressBar", progress.id, "AknCONUnYZUNgCp4ps2b");
-    const updatedProgress = { progressBarNumber: progress };
-    await updateDoc(docRef, updatedProgress);
   };
 
   // level down progress bar
@@ -115,11 +137,10 @@ function Profile() {
     setCurrentLevel(currentLevel - 1);
     setProgress(progress - 10);
 
-    const docRef = doc(db, "progressBar", progress.id, "AknCONUnYZUNgCp4ps2b");
-    const updatedProgress = { progressBarNumber: progress };
-    await updateDoc(docRef, updatedProgress);
+
   };
-  console.log(progress);
+  
+
   return (
     <div className="wrapper">
       <div className="profile-top">
@@ -157,6 +178,8 @@ function Profile() {
             <h3>{`You're a ${currentStatus}-level cook!`}</h3>
           </div>
         </div>
+
+        {/* <button onClick={progressUpdate}>TEs</button> */}
         {/* the progress bar btn plus */}
         <button
           className="profile-btn"
