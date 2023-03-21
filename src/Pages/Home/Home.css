@@ -2,6 +2,10 @@ body {
   text-align: center;
 }
 
+.loading {
+  margin-top: 320px;
+}
+
 .google-photo {
   height: 200px;
   border-radius: 50%;
