@@ -7,7 +7,6 @@ import gold from "../../images/gold.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 import { logout, auth, db } from "../../services/firebase";
-
 import {
   query,
   collection,
@@ -29,68 +28,46 @@ function Profile() {
   const [user, loading, error] = useAuthState(auth);
   const [displayName, setDisplayName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
-  const [progressBarNumber, setProgressBarNumber] = useState()
+  const [progressBarNumber, setProgressBarNumber] = useState();
   const [uId, setUId] = useState("");
 
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
 
   // custom Id for when DOC is created so it can called using it
-  const docId = "doc" + user.uid + "Food@Home"
-
-
-
- 
-
-  
-  
-
+  const docId = "doc" + user.uid + "Food@Home";
 
   // updates or adds the progress bar number in the database when chnanged
   useEffect(() => {
-const progressUpdate = async (e) => {
-   
+    const progressUpdate = async (e) => {
+      const docRef = doc(db, "progressBar", docId);
+      const docSnap = await getDoc(docRef);
 
-    const docRef = doc(db, 'progressBar', docId);
-    const docSnap = await getDoc(docRef)
-   
-
-    if (docSnap.exists()) {
-      const updatedProgress = { progressBarNumber: progress };
-      await updateDoc(docRef, updatedProgress);
-      setProgressBarNumber(progressBarNumber)
-
-    } else {
-      await setDoc(doc(db, "progressBar", docId), {
-        userName: user.displayName,
-        userId: user.uid,
-        progressBarNumber: progress
-      })
-
+      if (docSnap.exists()) {
+        const updatedProgress = { progressBarNumber: progress };
+        await updateDoc(docRef, updatedProgress);
+        setProgressBarNumber(progressBarNumber);
+      } else {
+        await setDoc(doc(db, "progressBar", docId), {
+          userName: user.displayName,
+          userId: user.uid,
+          progressBarNumber: progress,
+        });
+      }
     };
+    progressUpdate();
+  }, [progress]);
 
-  };
-		progressUpdate()
-		
-	}, [progress]);
-  
-  
-   // pulls the progressBar data from the database when the user loads
+  // pulls the progressBar data from the database when the user loads
 
-  useEffect(()=>{
-    const docRef = doc(db,"progressBar", docId)
-    
-    const unsubscribe = onSnapshot((docRef),(doc)=>{
-      
-    })
-  },[user,loading])
-    
+  useEffect(() => {
+    const docRef = doc(db, "progressBar", docId);
 
+    const unsubscribe = onSnapshot(docRef, (doc) => {});
+  }, [user, loading]);
 
-console.log(progress);
+  console.log(progress);
 
-
-	
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
   useEffect(() => {
@@ -127,24 +104,18 @@ console.log(progress);
   const handleLevelUp = async (e) => {
     setCurrentLevel(currentLevel + 1);
     setProgress(progress + 10);
-    
-    
-
   };
 
   // level down progress bar
   const handleLevelDown = async (e) => {
     setCurrentLevel(currentLevel - 1);
     setProgress(progress - 10);
-
-
   };
-  
 
   return (
     <div className="wrapper">
       <div className="profile-top">
-        <img src={user.photoURL} className="pfpdiv" />
+        <img src={user.photoURL} className="pfpdiv" alt="user profile" />
 
         <div className="leftcontainer">
           <div className="displayname">{`Chef ${user.displayName}`}</div>
@@ -162,6 +133,9 @@ console.log(progress);
               <progress value={progress} max="60"></progress>
             </div>
           </div>
+          <p className="profile-day-count">
+            You cooked {currentLevel}/7 days this week
+          </p>
         </div>
       </div>
 
@@ -178,7 +152,6 @@ console.log(progress);
             <h3>{`You're a ${currentStatus}-level cook!`}</h3>
           </div>
         </div>
-
         {/* <button onClick={progressUpdate}>TEs</button> */}
         {/* the progress bar btn plus */}
         <button
@@ -190,7 +163,7 @@ console.log(progress);
         </button>
         {/* the progress bar btn minus */}
         <button
-          className="profile-btn"
+          className="profile-btn small"
           disabled={currentLevel === 1}
           onClick={handleLevelDown}
         >

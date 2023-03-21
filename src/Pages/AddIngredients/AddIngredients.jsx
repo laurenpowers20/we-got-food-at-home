@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -6,243 +5,230 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
-import { Hearts} from "react-loading-icons";
+import { Hearts } from "react-loading-icons";
 import { IoChevronBackOutline } from "react-icons/io5";
+import { Configuration, OpenAIApi } from "openai";
 import {
-	query,
-	collection,
-	onSnapshot,
-	updateDoc,
-	doc,
-	addDoc,
-	deleteDoc,
-	where,
-} from 'firebase/firestore';
+  query,
+  collection,
+  onSnapshot,
+  updateDoc,
+  doc,
+  addDoc,
+  deleteDoc,
+  where,
+} from "firebase/firestore";
+
 function AddIngredients() {
-	const [prompttest, setPrompt] = useState('');
-	const [response, setResponse] = useState('');
-	const [load, setLoad] = useState(false);
-	const [user, loading, error] = useAuthState(auth);
-	const [items, setItems] = useState([]);
-	const [input, setInput] = useState('');
-	const [selectedItems, setSelectedItems] = useState([]);
-	const [visible, setVisible] = useState(false);
-	const [uId, setUId] = useState('');
-	const [recipe, setRecipe] = useState(false);
-	const prompt = `give me a recipe that can be made using only ${selectedItems.toString(
-		' ',
-	)} respond your answer in a clean format`;
-	const navigate = useNavigate();
+  const [prompttest, setPrompt] = useState("");
+  const [response, setResponse] = useState("");
+  const [load, setLoad] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
+  const [items, setItems] = useState([]);
+  const [input, setInput] = useState("");
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const [uId, setUId] = useState("");
+  const [recipe, setRecipe] = useState(false);
+  const prompt = `give me a recipe that can be made using only ${selectedItems.toString(
+    " "
+  )} respond your answer in a clean format`;
+  const navigate = useNavigate();
 
-	// Create ItemList
-	useEffect(() => {
-		if (!loading) {
-			setUId(user.uid);
-		}
-	}, [loading, user]);
+  const configuration = new Configuration({
+    apiKey: process.env.REACT_APP_OPEN_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
 
-	const addItem = async (e) => {
-		e.preventDefault(e);
-		if (input === '') {
-			alert('Please enter a valid food item');
-			return;
-		}
-		await addDoc(collection(db, 'items'), {
-			user: uId,
-			text: input,
-			selected: false,
-		});
-		setInput('');
-	};
+  // Create ItemList
+  useEffect(() => {
+    if (!loading) {
+      setUId(user.uid);
+    }
+  }, [loading, user]);
 
-	// Read item from firebase
+  const addItem = async (e) => {
+    e.preventDefault(e);
+    if (input === "") {
+      alert("Please enter a valid food item");
+      return;
+    }
+    await addDoc(collection(db, "items"), {
+      user: uId,
+      text: input,
+      selected: false,
+    });
+    setInput("");
+  };
 
-	useEffect(() => {
-		const collectionRef = collection(db, 'items');
-		const q = query(collectionRef, where('user', '==', uId));
+  // Read item from firebase
 
-		const unsubscribe = onSnapshot(q, (querySnapshot) => {
-			let itemsArr = [];
+  useEffect(() => {
+    const collectionRef = collection(db, "items");
+    const q = query(collectionRef, where("user", "==", uId));
 
-			querySnapshot.forEach((doc) => {
-				itemsArr.push({ ...doc.data(), id: doc.id });
-			});
-			console.log(itemsArr);
-			setItems(itemsArr);
-			let newArr = [];
-			for (let i = 0; i < itemsArr.length; i++) {
-				if (itemsArr[i].selected === true) {
-					newArr.push(itemsArr[i].text);
-				}
-			}
-			setSelectedItems(newArr);
-		});
-		return () => unsubscribe();
-	}, [uId, loading]);
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let itemsArr = [];
 
-	// Items in firebase
-	const selectItem = async (item) => {
-		await updateDoc(doc(db, 'items', item.id), {
-			selected: !item.selected,
-		});
-	};
+      querySnapshot.forEach((doc) => {
+        itemsArr.push({ ...doc.data(), id: doc.id });
+      });
+      setItems(itemsArr);
+      let newArr = [];
+      for (let i = 0; i < itemsArr.length; i++) {
+        if (itemsArr[i].selected === true) {
+          newArr.push(itemsArr[i].text);
+        }
+      }
+      setSelectedItems(newArr);
+    });
+    return () => unsubscribe();
+  }, [uId, loading]);
 
-	// Delete item
-	const deleteItem = async (id) => {
-		await deleteDoc(doc(db, 'items', id));
-	};
+  // Items in firebase
+  const selectItem = async (item) => {
+    await updateDoc(doc(db, "items", item.id), {
+      selected: !item.selected,
+    });
+  };
 
-	// ////////////////////////////////////////
-	const handleNewPrompt = async (e) => {
-		e.preventDefault();
-		setResponse('');
-		setRecipe(false);
-	};
+  // Delete item
+  const deleteItem = async (id) => {
+    await deleteDoc(doc(db, "items", id));
+  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setLoad(true);
-		const gptData = await // Send a request to the server with the prompt
-		axios.post('http://localhost:8080/chat', { prompt });
-		try {
-			const res = await axios.post('http://localhost:8080/chat', { prompt });
-			setLoad(false);
-			setRecipe(true);
-			console.log(res.data);
-			setResponse(res.data);
-		} catch (error) {
-			console.error(error);
-		}
-		// Update the response state with the server's response
-	};
+  // ////////////////////////////////////////
+  const handleNewPrompt = async (e) => {
+    e.preventDefault();
+    setResponse("");
+    setRecipe(false);
+  };
 
-	const handleClick = () => {
-		// setLoading(true)
-		setVisible(true);
-	};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoad(true);
+    try {
+      const res = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: prompt,
+        max_tokens: 2000,
+        temperature: 0,
+      });
+      setLoad(false);
+      setRecipe(true);
+      setResponse(res.data.choices[0].text);
+    } catch (error) {
+      console.error(error);
+    }
+    // Update the response state with the server's response
+  };
 
-	return (
-		<>
-			<div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
-			{recipe ? (
-				true
-			) : (
-				<div className='ingredients-div'>
-					<div>
-						<div >
-							
-							
-							<h1> <Link to="/home"><IoChevronBackOutline style={{marginRight:"30px", color:'gray', fontSize:"40px"}}  /></Link> Enter Ingredients</h1>
-							<form onSubmit={addItem}>
-								<input
-									className='custom-input'
-									value={input}
-									onChange={(e) => setInput(e.target.value)}
-									type='text'
-									placeholder='Add Item'
-								/>
-								<button className='add-btn'>Add</button>
-							</form>
-							<ul className='ingredients-div'>
-								{items.map((item, index) => (
-									<ItemList
-										key={index}
-										item={item}
-										selectItem={selectItem}
-										deleteItem={deleteItem}
-									/>
-								))}
-							</ul>
-							{selectedItems.length < 1 ? null : (
-								<p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
-							)}
-						</div>
-					</div>
-					<div>
-						<div>
-							{/* Submits the prompt with the selected items */}
+  const handleClick = () => {
+    // setLoading(true)
+    setVisible(true);
+  };
 
-							<form onSubmit={handleSubmit}>
-								<button
-									className='home-logout-button'
-									onClick={handleClick}
-									type='submit'>
-									Create a recipe
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			)}
+  return (
+    <>
+      <div>
+        <div>
+          <Link to="/home">
+            <IoChevronBackOutline
+              style={{
+                alignItems: "center",
+                color: "gray",
+                display: "flex",
+                marginTop: "20px",
+                marginLeft: "10px",
+                fontSize: "40px",
+              }}
+            />
+          </Link>{" "}
+        </div>
+      </div>
+      {recipe ? (
+        true
+      ) : (
+        <div className="ingredients-div">
+          <div>
+            <div>
+              <h1>Enter Ingredients</h1>
+              <form onSubmit={addItem}>
+                <input
+                  className="custom-input"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  type="text"
+                  placeholder="Add Item"
+                />
+                <button className="add-btn">Add</button>
+              </form>
+              <ul className="ingredients-div">
+                {items.map((item, index) => (
+                  <ItemList
+                    key={index}
+                    item={item}
+                    selectItem={selectItem}
+                    deleteItem={deleteItem}
+                  />
+                ))}
+              </ul>
+              {selectedItems.length < 1 ? null : (
+                <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
+              )}
+            </div>
+          </div>
+          <div>
+            <div>
+              {/* Submits the prompt with the selected items */}
 
-			{load ? (
-				<Hearts
-					stroke='#f09133'
-					fill='#ed7f12'
-					strokeOpacity={0.1}
-					fillOpacity={1}
-					speed={0.75}
-				/>
-			) : (
-				' '
-			)}
+              <form onSubmit={handleSubmit}>
+                <button
+                  className="home-logout-button"
+                  onClick={handleClick}
+                  type="submit"
+                >
+                  Create a recipe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
-			<div>
-				{/* <div>
-					{recipe ? (
-						<div className='recipe'>
-							<h1>{response.name}</h1>
+      {load ? (
+        <Hearts
+          stroke="#f09133"
+          fill="#ed7f12"
+          strokeOpacity={0.1}
+          fillOpacity={1}
+          speed={0.75}
+        />
+      ) : (
+        " "
+      )}
 
-							<div>
-								<h2>Ingredients</h2>
-								<ol>
-									{response.ingredients.map((ingredient, index) => (
-										<li key={index}>{ingredient}</li>
-									))}
-								</ol>
-							</div>
-							<div>
-								<h2>Instructions</h2>
-								<ol>
-                  {
-                    
-                    
-                    response.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}
-                    
-                    
-                    </li>
-									))}
-								</ol>
-							</div>
-						</div>
-					) : (
-						''
-					)}
-				</div> */}
-				
-
-				
-
-				<div>
-					{recipe ? (
-						<><div className="recipe">
-					<h1>Recipe</h1>
-					{response}</div>
-							<button className='recipe-button'>
-								I Cooked this Recipe!
-							</button>
-							<button className='recipe-button' onClick={handleNewPrompt}>
-								Make a new recipe!{' '}
-							</button>
-						</>
-					) : (
-						''
-					)}
-				</div>
-			</div>
-		</>
-	);
+      <div>
+        <div>
+          {recipe ? (
+            <>
+              <div className="recipe">
+                <article>{response}</article>
+              </div>{" "}
+              <Link to="/home">
+                <button className="recipe-button">I Cooked this Recipe!</button>
+              </Link>
+              <button className="recipe-button" onClick={handleNewPrompt}>
+                Make something else!{" "}
+              </button>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default AddIngredients;
