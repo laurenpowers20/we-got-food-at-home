@@ -10,6 +10,7 @@ body {
 .home-ingredients-button {
   height: 38px;
   width: 204px;
+  color: black;
   border-radius: 100px;
   justify-content: center;
   align-items: center;
