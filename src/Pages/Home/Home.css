@@ -2,12 +2,17 @@ body {
   text-align: center;
 }
 
+.loading {
+  margin-top: 320px;
+}
+
 .google-photo {
   height: 200px;
   border-radius: 50%;
 }
+
 .home-logout-button,
-.home-ingredients-button {
+.home-ingredients-button, .home-create-recipe-button {
   height: 38px;
   width: 204px;
   color: black;
@@ -17,13 +22,22 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   cursor: pointer;
-  margin: 30px;
+  margin: 17px;
   border: none;
   background-color: #fbe0b8;
 }
 
+.home-logout-button {
+  margin-top: 0px;
+}
+
+.home-create-recipe-button {
+  margin-top: 10px;
+}
+
+
 .home-logout-button:hover,
-.home-ingredients-button:hover {
+.home-ingredients-button:hover, .home-create-recipe-button:hover {
   background-color: #f09133;
 }
 

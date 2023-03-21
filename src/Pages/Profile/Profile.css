@@ -27,7 +27,7 @@
   color: black;
   cursor: pointer;
   border: none;
-  margin-top: 20px;
+  margin-top: 15px;
   background-color: #aac4cf;
 }
 
@@ -63,8 +63,8 @@ progress {
   display: flex;
   height: 100px;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .pfpdiv {
