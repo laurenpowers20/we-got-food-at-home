@@ -206,101 +206,52 @@ function AddIngredients() {
 				' '
 			)}
 
-			<div>
-				<div>
-					{recipe ? (
-						<div className='recipe'>
-							<h1>{response.name}</h1>
+      <div>
+        {/* <div>
+          {recipe ? (
+            <div className="recipe">
+              <h1>{response.name}</h1>
+ 
+              <div>
+                <h2>Ingredients</h2>
+                <ol>
+                  {response.ingredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ol>
+              </div>
+              <div>
+                <h2>Instructions</h2>
+                <ol>
+                  {response.instructions.map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          ) : (
+            ""
+          )} */}
+        {/* </div> */}
 
-							<div>
-								<h2>Ingredients</h2>
-								<ol>
-									{response.ingredients.map((ingredient, index) => (
-										<li key={index}>{ingredient}</li>
-									))}
-								</ol>
-							</div>
-							<div>
-								<h2>Instructions</h2>
-								<ol>
-									{response.instructions.map((instruction, index) => (
-										<li key={index}>{instruction}</li>
-									))}
-								</ol>
-							</div>
-						</div>
-					) : (
-						''
-					)}
-				</div>
-
-				<div>
-					{recipe ? (
-						<>
-							<div className='recipe'>
-								<h2>Recipe</h2>
-								<article>{response}</article>
-							</div>
-							<button className='recipe-button'>I Cooked this Recipe!</button>
-							<button className='recipe-button' onClick={handleNewPrompt}>
-								Make a new recipe!{' '}
-							</button>
-						</>
-					) : (
-						''
-					)}
-				</div>
-			</div>
-		</>
-	);
-};
-//       <div>
-// 								<h2>Ingredients</h2>
-// 								<ol>
-// 									{response.ingredients.map((ingredient, index) => (
-// 										<li key={index}>{ingredient}</li>
-// 									))}
-// 								</ol>
-// 							</div>
-// 							<div>
-// 								<h2>Instructions</h2>
-// 								<ol>
-//                   {
-                    
-                    
-//                     response.instructions.map((instruction, index) => (
-//                     <li key={index}>{instruction}
-                    
-                    
-//                     </li>
-// 									))}
-// 								</ol>
-// 							</div>
-// 						</div>
-// 					) : (
-// 						''
-// 					)}
-// 				</div>
-
-// 				<div>
-// 					{recipe ? (
-// 						<>
-// 							<div className='recipe'>
-// 								<h1>Recipe</h1>
-// 								{response}
-// 							</div>
-// 							<button className='recipe-button'>I Cooked this Recipe!</button>
-// 							<button className='recipe-button' onClick={handleNewPrompt}>
-// 								Make a new recipe!{' '}
-// 							</button>
-// 						</>
-// 					) : (
-// 						''
-// 					)}
-// 				</div>
-// 			</div>
-// 		</>
-// 	);
-// }
+        <div>
+          {recipe ? (
+            <>
+              <div className="recipe">
+                <article>{response}</article>
+              </div>
+              <button className="recipe-button">I Cooked this Recipe!</button>
+              <button className="recipe-button" onClick={handleNewPrompt}>
+                Make a new recipe!{" "}
+              </button>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
 
 export default AddIngredients;
