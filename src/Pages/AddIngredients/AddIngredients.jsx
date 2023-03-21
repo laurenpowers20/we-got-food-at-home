@@ -7,7 +7,7 @@ import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
 import { Hearts } from "react-loading-icons";
 import { IoChevronBackOutline } from "react-icons/io5";
-
+import { Configuration, OpenAIApi } from "openai";
 import {
   query,
   collection,
@@ -18,7 +18,6 @@ import {
   deleteDoc,
   where,
 } from "firebase/firestore";
-import { Configuration, OpenAIApi } from "openai";
 
 function AddIngredients() {
   const [prompttest, setPrompt] = useState("");
@@ -132,26 +131,29 @@ function AddIngredients() {
 
   return (
     <>
-      <div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
+      <div>
+        <div>
+          <Link to="/home">
+            <IoChevronBackOutline
+              style={{
+                alignItems: "center",
+                color: "gray",
+                display: "flex",
+                marginTop: "20px",
+                marginLeft: "10px",
+                fontSize: "40px",
+              }}
+            />
+          </Link>{" "}
+        </div>
+      </div>
       {recipe ? (
         true
       ) : (
         <div className="ingredients-div">
           <div>
             <div>
-              <h1>
-                {" "}
-                <Link to="/home">
-                  <IoChevronBackOutline
-                    style={{
-                      marginRight: "30px",
-                      color: "gray",
-                      fontSize: "40px",
-                    }}
-                  />
-                </Link>{" "}
-                Enter Ingredients
-              </h1>
+              <h1>Enter Ingredients</h1>
               <form onSubmit={addItem}>
                 <input
                   className="custom-input"
@@ -208,42 +210,17 @@ function AddIngredients() {
       )}
 
       <div>
-        {/* <div>
-          {recipe ? (
-            <div className="recipe">
-              <h1>{response.name}</h1>
- 
-              <div>
-                <h2>Ingredients</h2>
-                <ol>
-                  {response.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ol>
-              </div>
-              <div>
-                <h2>Instructions</h2>
-                <ol>
-                  {response.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}</li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          ) : (
-            ""
-          )} */}
-        {/* </div> */}
-
         <div>
           {recipe ? (
             <>
               <div className="recipe">
                 <article>{response}</article>
-              </div>
-              <button className="recipe-button">I Cooked this Recipe!</button>
+              </div>{" "}
+              <Link to="/home">
+                <button className="recipe-button">I Cooked this Recipe!</button>
+              </Link>
               <button className="recipe-button" onClick={handleNewPrompt}>
-                Make a new recipe!{" "}
+                Make something else!{" "}
               </button>
             </>
           ) : (
