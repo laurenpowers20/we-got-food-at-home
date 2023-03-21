@@ -116,7 +116,6 @@ function AddIngredients() {
       });
       setLoad(false);
       setRecipe(true);
-      console.log(res.data.choices[0].text);
       setResponse(res.data.choices[0].text);
     } catch (error) {
       console.error(error);

@@ -9,6 +9,11 @@
   margin: 10px;
   border: none;
 }
+.ai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .google-logo {
   padding: 20px;
