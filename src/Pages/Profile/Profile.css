@@ -103,6 +103,7 @@ progress {
   align-items: center;
   font-weight: bold;
   font-size: 30px;
+  margin-bottom: 10px;
 }
 .profile-level-bar {
   margin: 20px;
