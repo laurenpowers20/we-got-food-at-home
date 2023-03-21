@@ -34,26 +34,11 @@ function Profile() {
   const [progressBarNumber, setProgressBarNumber] = useState()
   const [uId, setUId] = useState("");
 
-  // /////////////////////////////////////////////////////////// //
-  // /////////////////////////////////////////////////////////// //
 
   // custom Id for when DOC is created so it can called using it
   const docId = "doc" + user.uid + "Food@Home"
 
-
-
- 
-
-  
-  
-
-
- 
-  
-  
    // pulls the progressBar data from the database when the user loads
-
-  useEffect(()=>{
     const docRef = doc(db,"progressBar", docId)
     
     const unsubscribe = onSnapshot((docRef),(doc)=>{
@@ -64,64 +49,9 @@ function Profile() {
     
     )
     
-  },[user,loading])
-    
-
-
-
-
-
-	
-  // /////////////////////////////////////////////////////////// //
-  // /////////////////////////////////////////////////////////// //
-  useEffect(() => {
-    if (loading) {
-      // loading screen
-      return;
-    }
-    if (user) {
-      setDisplayName(user.displayName);
-      setPhotoURL(user.photoURL);
-    }
-  }, [user, loading]);
-
-  const levelImages = [
-    { level: 0, src: `${bronze}`, status: "bronze" },
-    { level: 1, src: `${bronze}`, status: "bronze" },
-    { level: 2, src: `${bronze}`, status: "bronze" },
-    { level: 3, src: `${bronze}`, status: "bronze" },
-    { level: 4, src: `${silver}`, status: "silver" },
-    { level: 5, src: `${silver}`, status: "silver" },
-    { level: 6, src: `${silver}`, status: "silver" },
-    { level: 7, src: `${gold}`, status: "gold" },
-  ];
-
-  const currentImage = levelImages.find(
-    (image) => image.level === currentLevel
-  ).src;
-
-  const currentStatus = levelImages.find(
-    (status) => status.level === currentLevel
-  ).status;
-
-  // level up progress bar
-  const handleLevelUp = async (e) => {
-    setCurrentLevel(currentLevel + 1);
-    setProgress(progressBarNumber + 10);
-    
    
-
-  };
-
-  // level down progress bar
-  const handleLevelDown = async (e) => {
-    setCurrentLevel(currentLevel - 1);
-    setProgress(progressBarNumber - 10);
-    
-
-
-  };
-   // updates or adds the progress bar number in the database when chnanged
+   
+  // updates or adds the progress bar number in the database when chnanged
   // useEffect(() => {
     
 const progressUpdate = async (e) => {
@@ -152,6 +82,70 @@ const progressUpdate = async (e) => {
 		
 	// });
 // console.log("data",progress);
+
+
+
+
+	
+  // /////////////////////////////////////////////////////////// //
+  // /////////////////////////////////////////////////////////// //
+  useEffect(() => {
+    if (loading) {
+      // loading screen
+      return;
+    }
+    if (user) {
+
+      setDisplayName(user.displayName);
+      setPhotoURL(user.photoURL);
+      unsubscribe()
+    }
+  }, [user, loading]);
+
+  const levelImages = [
+    { level: 0, src: `${bronze}`, status: "bronze" },
+    { level: 1, src: `${bronze}`, status: "bronze" },
+    { level: 2, src: `${bronze}`, status: "bronze" },
+    { level: 3, src: `${bronze}`, status: "bronze" },
+    { level: 4, src: `${silver}`, status: "silver" },
+    { level: 5, src: `${silver}`, status: "silver" },
+    { level: 6, src: `${silver}`, status: "silver" },
+    { level: 7, src: `${gold}`, status: "gold" },
+  ];
+
+  const currentImage = levelImages.find(
+    (image) => image.level === currentLevel
+  ).src;
+
+  const currentStatus = levelImages.find(
+    (status) => status.level === currentLevel
+  ).status;
+
+  // level up progress bar
+  const handleLevelUp = async (e) => {
+    
+    setCurrentLevel(currentLevel + 1);
+    setProgress(progressBarNumber + 10);
+
+    
+   
+
+  };
+
+  // level down progress bar
+  const handleLevelDown = async (e) => {
+    setCurrentLevel(currentLevel - 1);
+    setProgress(progressBarNumber - 10);
+    
+
+
+  };
+
+
+
+
+
+
   return (
     <div className="wrapper">
       <div className="profile-top">
@@ -176,7 +170,6 @@ const progressUpdate = async (e) => {
         </div>
       </div>
 
-      <button onClick={progressUpdate}>TESTUP</button>
  
       <div className="profile-bottom">
         {" "}
@@ -190,7 +183,7 @@ const progressUpdate = async (e) => {
           </div>
         </div>
 
-        {/* <button onClick={progressUpdate}>TEs</button> */}
+        <button onClick={progressUpdate}>TEST</button>
         {/* the progress bar btn plus */}
         <button
           className="profile-btn"
