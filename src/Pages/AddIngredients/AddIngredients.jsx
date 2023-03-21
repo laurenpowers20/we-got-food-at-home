@@ -131,27 +131,31 @@ function AddIngredients() {
   };
 
   return (
-		<>
-			<div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
+		<div>
+			<div>
+				{/* <Link to="/ingredients/recipes">Recipes</Link> */}
+				<Link to='/home'>
+					<IoChevronBackOutline
+						style={{
+							alignItems: 'center',
+							color: 'gray',
+							display: 'flex',
+							marginTop: '20px',
+							marginLeft: '20px',
+							fontSize: '40px',
+						}}
+					/>
+				</Link>{' '}
+			</div>
 			{recipe ? (
 				true
 			) : (
 				<div className='ingredients-div'>
+					<div id='ingredients-header'>
+						<h1>Enter Ingredients</h1>
+					</div>
 					<div>
 						<div>
-							<h1>
-								{' '}
-								<Link to='/home'>
-									<IoChevronBackOutline
-										style={{
-											marginRight: '30px',
-											color: 'gray',
-											fontSize: '40px',
-										}}
-									/>
-								</Link>{' '}
-								Enter Ingredients
-							</h1>
 							<form onSubmit={addItem}>
 								<input
 									className='custom-input'
@@ -191,24 +195,22 @@ function AddIngredients() {
 							</form>
 						</div>
 					</div>
-				</div>
-			)}
 
-			{load ? (
-				<Hearts
-					stroke='#f09133'
-					fill='#ed7f12'
-					strokeOpacity={0.1}
-					fillOpacity={1}
-					speed={0.75}
-				/>
-			) : (
-				' '
-			)}
+					{load ? (
+						<Hearts
+							stroke='#f09133'
+							fill='#ed7f12'
+							strokeOpacity={0.1}
+							fillOpacity={1}
+							speed={0.75}
+						/>
+					) : (
+						' '
+					)}
 
-      <div>
-        {/* <div>
-          {recipe ? (
+					{/* <div> */}
+					{/* <div> */}
+					{/* {recipe ? (
             <div className="recipe">
               <h1>{response.name}</h1>
  
@@ -232,26 +234,28 @@ function AddIngredients() {
           ) : (
             ""
           )} */}
-        {/* </div> */}
+					{/* </div> */}
 
-        <div>
-          {recipe ? (
-            <>
-              <div className="recipe">
-                <article>{response}</article>
-              </div>
-              <button className="recipe-button">I Cooked this Recipe!</button>
-              <button className="recipe-button" onClick={handleNewPrompt}>
-                Make a new recipe!{" "}
-              </button>
-            </>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    </>
-  );
+					<div>
+						{recipe ? (
+							<>
+								<div className='recipe'>
+									<article>{response}</article>
+								</div>
+								<button className='recipe-button'>I Cooked this Recipe!</button>
+								<button className='recipe-button' onClick={handleNewPrompt}>
+									Make a new recipe!{' '}
+								</button>
+							</>
+						) : (
+							''
+						)}
+					</div>
+				</div>
+			)}
+		</div>
+	);
+
 }
 
 export default AddIngredients;
