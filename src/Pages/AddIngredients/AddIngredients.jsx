@@ -141,7 +141,7 @@ function AddIngredients() {
 							color: 'gray',
 							display: 'flex',
 							marginTop: '20px',
-							marginLeft: '20px',
+							marginLeft: '10px',
 							fontSize: '40px',
 						}}
 					/>
@@ -154,32 +154,30 @@ function AddIngredients() {
 					<div id='ingredients-header'>
 						<h1>Enter Ingredients</h1>
 					</div>
-					<div>
-						<div>
-							<form onSubmit={addItem}>
-								<input
-									className='custom-input'
-									value={input}
-									onChange={(e) => setInput(e.target.value)}
-									type='text'
-									placeholder='Add Item'
+					<div className='ingredients-form'>
+						<form onSubmit={addItem}>
+							<input
+								className='custom-input'
+								value={input}
+								onChange={(e) => setInput(e.target.value)}
+								type='text'
+								placeholder='Add Item'
+							/>
+							<button className='add-btn'>Add</button>
+						</form>
+						<ul className='ingredients-div'>
+							{items.map((item, index) => (
+								<ItemList
+									key={index}
+									item={item}
+									selectItem={selectItem}
+									deleteItem={deleteItem}
 								/>
-								<button className='add-btn'>Add</button>
-							</form>
-							<ul className='ingredients-div'>
-								{items.map((item, index) => (
-									<ItemList
-										key={index}
-										item={item}
-										selectItem={selectItem}
-										deleteItem={deleteItem}
-									/>
-								))}
-							</ul>
-							{selectedItems.length < 1 ? null : (
-								<p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
-							)}
-						</div>
+							))}
+						</ul>
+						{selectedItems.length < 1 ? null : (
+							<p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
+						)}
 					</div>
 					<div>
 						<div>
