@@ -22,8 +22,10 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
+import e from "cors";
 
 function Profile() {
+  
   const [currentLevel, setCurrentLevel] = useState(1);
   const [progress, setProgress] = useState(0);
   const [user, loading, error] = useAuthState(auth);
@@ -32,22 +34,27 @@ function Profile() {
   const [progressBarNumber, setProgressBarNumber] = useState()
   const [uId, setUId] = useState("");
 
-  // /////////////////////////////////////////////////////////// //
-  // /////////////////////////////////////////////////////////// //
+
 
   // custom Id for when DOC is created so it can called using it
   const docId = "doc" + user.uid + "Food@Home"
 
-
-
- 
-
-  
-  
-
-
+   // pulls the progressBar data from the database when the user loads
+    const docRef = doc(db,"progressBar", docId)
+    
+    const unsubscribe = onSnapshot((docRef),(doc)=>{
+      const docData =doc.data().progressBarNumber
+      setProgressBarNumber (docData)
+      
+    }
+    
+    )
+    
+   
+   
   // updates or adds the progress bar number in the database when chnanged
-  useEffect(() => {
+  // useEffect(() => {
+    
 const progressUpdate = async (e) => {
    
 
@@ -58,37 +65,29 @@ const progressUpdate = async (e) => {
     if (docSnap.exists()) {
       const updatedProgress = { progressBarNumber: progress };
       await updateDoc(docRef, updatedProgress);
-      setProgressBarNumber(progressBarNumber)
+      
 
     } else {
       await setDoc(doc(db, "progressBar", docId), {
         userName: user.displayName,
         userId: user.uid,
-        progressBarNumber: progress
+        progressBarNumber: progressBarNumber
       })
+      
 
     };
 
   };
-		progressUpdate()
+		// progressUpdate()
+  //   console.log(progress)
 		
-	}, [progress]);
-  
-  
-   // pulls the progressBar data from the database when the user loads
-
-  useEffect(()=>{
-    const docRef = doc(db,"progressBar", docId)
-    
-    const unsubscribe = onSnapshot((docRef),(doc)=>{
-      
-    })
-  },[user,loading])
-    
+	// });
+// console.log("data",progress);
 
 
-console.log(progress);
 
+
+=======
 
 	
   // /////////////////////////////////////////////////////////// //
@@ -99,8 +98,10 @@ console.log(progress);
       return;
     }
     if (user) {
+
       setDisplayName(user.displayName);
       setPhotoURL(user.photoURL);
+      unsubscribe()
     }
   }, [user, loading]);
 
@@ -125,21 +126,35 @@ console.log(progress);
 
   // level up progress bar
   const handleLevelUp = async (e) => {
+    
     setCurrentLevel(currentLevel + 1);
-    setProgress(progress + 10);
+
+    setProgress(progressBarNumber + 10);
+
     
-    
+   
+=======
+
 
   };
 
   // level down progress bar
   const handleLevelDown = async (e) => {
     setCurrentLevel(currentLevel - 1);
-    setProgress(progress - 10);
+    setProgress(progressBarNumber - 10);
+    
+
 
 
   };
-  
+
+
+
+
+
+=======
+
+
 
   return (
     <div className="wrapper">
@@ -159,14 +174,13 @@ console.log(progress);
               }}
             />{" "}
             <div>
-              <progress value={progress} max="60"></progress>
+              <progress value={progressBarNumber} max="60"></progress>
             </div>
           </div>
         </div>
       </div>
 
-      {/* <button onClick={progressUpdate}>TESTUP</button> */}
-
+ 
       <div className="profile-bottom">
         {" "}
         <h2>Your Achievement</h2>
@@ -179,7 +193,10 @@ console.log(progress);
           </div>
         </div>
 
-        {/* <button onClick={progressUpdate}>TEs</button> */}
+
+        <button onClick={progressUpdate}>TEST</button>
+=======
+
         {/* the progress bar btn plus */}
         <button
           className="profile-btn"
