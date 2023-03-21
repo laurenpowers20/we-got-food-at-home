@@ -35,10 +35,19 @@
   background-color: #568a9f;
 }
 
+.profile-btn.small {
+  height: 20px;
+  width: 100px;
+  margin: 50px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
 .profile-bottom {
   border: solid 1px black;
   width: 350px;
   height: 400px;
+  margin-top: 100px;
   margin: auto;
   border-radius: 10px;
 }
@@ -46,10 +55,14 @@
 progress {
   accent-color: #f09133;
   width: 220px;
-  height: 50px;
+  height: 30px;
   margin-right: 20px;
 }
-
+.profile-day-count {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
 .profile-photo {
   height: 100px;
   width: 100px;
@@ -113,6 +126,6 @@ button:disabled:hover {
   progress {
     accent-color: #f09133;
     width: 190px;
-    height: 50px;
+    height: 30px;
   }
 }
