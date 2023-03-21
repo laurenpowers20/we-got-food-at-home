@@ -14,6 +14,7 @@ ul {
   height: 38px;
   width: 75px;
   border-radius: 100px;
+  color: black;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -38,14 +39,9 @@ ul {
   );
 }
 
-.x-button:hover {
-  background-color: #f09133;
-}
-
 .container {
   display: block;
   position: relative;
-  /* padding-left: 35px; */
   margin-bottom: 10%;
   cursor: pointer;
   font-size: 22px;
