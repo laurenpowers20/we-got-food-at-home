@@ -15,6 +15,7 @@ ul {
   width: 75px;
   border-radius: 100px;
   color: black;
+  font-family: "Poppins", sans-serif;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -101,6 +102,7 @@ article {
   padding-left: 30px;
   padding-bottom: 30px;
 }
+
 /* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 9px;
@@ -108,7 +110,6 @@ article {
   width: 5px;
   height: 10px;
   border: solid white;
-
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -119,11 +120,11 @@ article {
   margin: auto;
   width: 400px;
   height: auto;
-  /* background-color: #f09133; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .ingredients-list-items {
   display: flex;
   align-items: center;
@@ -136,14 +137,20 @@ article {
   height: 38px;
   width: 204px;
   border-radius: 100px;
+  font-family: "Poppins", sans-serif;
+  color: black;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
   margin-top: 10px;
   margin: 10px;
   border: none;
   background-color: #fbe0b8;
+}
+
+.recipe-button:hover {
+  background-color: #f09133;
 }
 
 @media only screen and (max-width: 700px) {
