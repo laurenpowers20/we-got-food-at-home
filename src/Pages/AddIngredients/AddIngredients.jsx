@@ -133,7 +133,6 @@ function AddIngredients() {
     <>
       <div>
         <div>
-          
           <Link to="/home">
             <IoChevronBackOutline
               style={{
@@ -216,10 +215,12 @@ function AddIngredients() {
             <>
               <div className="recipe">
                 <article>{response}</article>
-              </div>
-              <button className="recipe-button">I Cooked this Recipe!</button>
+              </div>{" "}
+              <Link to="/home">
+                <button className="recipe-button">I Cooked this Recipe!</button>
+              </Link>
               <button className="recipe-button" onClick={handleNewPrompt}>
-                Make a new recipe!{" "}
+                Make something else!{" "}
               </button>
             </>
           ) : (
