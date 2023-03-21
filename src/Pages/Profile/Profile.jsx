@@ -35,6 +35,7 @@ function Profile() {
   const [uId, setUId] = useState("");
 
 
+
   // custom Id for when DOC is created so it can called using it
   const docId = "doc" + user.uid + "Food@Home"
 
@@ -86,6 +87,8 @@ const progressUpdate = async (e) => {
 
 
 
+=======
+
 	
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
@@ -125,10 +128,13 @@ const progressUpdate = async (e) => {
   const handleLevelUp = async (e) => {
     
     setCurrentLevel(currentLevel + 1);
+
     setProgress(progressBarNumber + 10);
 
     
    
+=======
+
 
   };
 
@@ -139,10 +145,14 @@ const progressUpdate = async (e) => {
     
 
 
+
   };
 
 
 
+
+
+=======
 
 
 
@@ -183,7 +193,10 @@ const progressUpdate = async (e) => {
           </div>
         </div>
 
+
         <button onClick={progressUpdate}>TEST</button>
+=======
+
         {/* the progress bar btn plus */}
         <button
           className="profile-btn"
