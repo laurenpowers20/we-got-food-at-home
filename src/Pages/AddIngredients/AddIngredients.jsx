@@ -212,7 +212,7 @@ function AddIngredients() {
           {recipe ? (
             <div className="recipe">
               <h1>{response.name}</h1>
-
+ 
               <div>
                 <h2>Ingredients</h2>
                 <ol>
@@ -239,7 +239,6 @@ function AddIngredients() {
           {recipe ? (
             <>
               <div className="recipe">
-                <h2>Recipe</h2>
                 <article>{response}</article>
               </div>
               <button className="recipe-button">I Cooked this Recipe!</button>
