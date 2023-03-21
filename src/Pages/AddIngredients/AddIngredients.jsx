@@ -131,55 +131,55 @@ function AddIngredients() {
   };
 
   return (
-    <>
-      <div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
-      {recipe ? (
-        true
-      ) : (
-        <div className="ingredients-div">
-          <div>
-            <div>
-              <h1>
-                {" "}
-                <Link to="/home">
-                  <IoChevronBackOutline
-                    style={{
-                      marginRight: "30px",
-                      color: "gray",
-                      fontSize: "40px",
-                    }}
-                  />
-                </Link>{" "}
-                Enter Ingredients
-              </h1>
-              <form onSubmit={addItem}>
-                <input
-                  className="custom-input"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  type="text"
-                  placeholder="Add Item"
-                />
-                <button className="add-btn">Add</button>
-              </form>
-              <ul className="ingredients-div">
-                {items.map((item, index) => (
-                  <ItemList
-                    key={index}
-                    item={item}
-                    selectItem={selectItem}
-                    deleteItem={deleteItem}
-                  />
-                ))}
-              </ul>
-              {selectedItems.length < 1 ? null : (
-                <p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
-              )}
-            </div>
-          </div>
-          <div>
-            <div>
-              {/* Submits the prompt with the selected items */}
+		<>
+			<div>{/* <Link to="/ingredients/recipes">Recipes</Link> */}</div>
+			{recipe ? (
+				true
+			) : (
+				<div className='ingredients-div'>
+					<div>
+						<div>
+							<h1>
+								{' '}
+								<Link to='/home'>
+									<IoChevronBackOutline
+										style={{
+											marginRight: '30px',
+											color: 'gray',
+											fontSize: '40px',
+										}}
+									/>
+								</Link>{' '}
+								Enter Ingredients
+							</h1>
+							<form onSubmit={addItem}>
+								<input
+									className='custom-input'
+									value={input}
+									onChange={(e) => setInput(e.target.value)}
+									type='text'
+									placeholder='Add Item'
+								/>
+								<button className='add-btn'>Add</button>
+							</form>
+							<ul className='ingredients-div'>
+								{items.map((item, index) => (
+									<ItemList
+										key={index}
+										item={item}
+										selectItem={selectItem}
+										deleteItem={deleteItem}
+									/>
+								))}
+							</ul>
+							{selectedItems.length < 1 ? null : (
+								<p>{`You are including ${selectedItems.length} of the ${items.length} items in your recipe`}</p>
+							)}
+						</div>
+					</div>
+					<div>
+						<div>
+							{/* Submits the prompt with the selected items */}
 
 							<form onSubmit={handleSubmit}>
 								<button
@@ -194,65 +194,24 @@ function AddIngredients() {
 				</div>
 			)}
 
-      {load ? (
-        <Hearts
-          stroke="#f09133"
-          fill="#ed7f12"
-          strokeOpacity={0.1}
-          fillOpacity={1}
-          speed={0.75}
-        />
-      ) : (
-        " "
-      )}
+			{load ? (
+				<Hearts
+					stroke='#f09133'
+					fill='#ed7f12'
+					strokeOpacity={0.1}
+					fillOpacity={1}
+					speed={0.75}
+				/>
+			) : (
+				' '
+			)}
 
-      <div>
-        {/* <div>
-          {recipe ? (
-            <div className="recipe">
-              <h1>{response.name}</h1>
+			<div>
+				<div>
+					{recipe ? (
+						<div className='recipe'>
+							<h1>{response.name}</h1>
 
-              <div>
-                <h2>Ingredients</h2>
-                <ol>
-                  {response.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ol>
-              </div>
-              <div>
-                <h2>Instructions</h2>
-                <ol>
-                  {response.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}</li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          ) : (
-            ""
-          )} */}
-        {/* </div> */}
-
-        <div>
-          {recipe ? (
-            <>
-              <div className="recipe">
-                <h2>Recipe</h2>
-                <article>{response}</article>
-              </div>
-              <button className="recipe-button">I Cooked this Recipe!</button>
-              <button className="recipe-button" onClick={handleNewPrompt}>
-                Make a new recipe!{" "}
-              </button>
-            </>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    </>
-  );
 							<div>
 								<h2>Ingredients</h2>
 								<ol>
@@ -264,14 +223,8 @@ function AddIngredients() {
 							<div>
 								<h2>Instructions</h2>
 								<ol>
-                  {
-                    
-                    
-                    response.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}
-                    
-                    
-                    </li>
+									{response.instructions.map((instruction, index) => (
+										<li key={index}>{instruction}</li>
 									))}
 								</ol>
 							</div>
@@ -279,14 +232,14 @@ function AddIngredients() {
 					) : (
 						''
 					)}
-				</div> */}
+				</div>
 
 				<div>
 					{recipe ? (
 						<>
 							<div className='recipe'>
-								<h1>Recipe</h1>
-								{response}
+								<h2>Recipe</h2>
+								<article>{response}</article>
 							</div>
 							<button className='recipe-button'>I Cooked this Recipe!</button>
 							<button className='recipe-button' onClick={handleNewPrompt}>
@@ -300,6 +253,54 @@ function AddIngredients() {
 			</div>
 		</>
 	);
-}
+};
+//       <div>
+// 								<h2>Ingredients</h2>
+// 								<ol>
+// 									{response.ingredients.map((ingredient, index) => (
+// 										<li key={index}>{ingredient}</li>
+// 									))}
+// 								</ol>
+// 							</div>
+// 							<div>
+// 								<h2>Instructions</h2>
+// 								<ol>
+//                   {
+                    
+                    
+//                     response.instructions.map((instruction, index) => (
+//                     <li key={index}>{instruction}
+                    
+                    
+//                     </li>
+// 									))}
+// 								</ol>
+// 							</div>
+// 						</div>
+// 					) : (
+// 						''
+// 					)}
+// 				</div>
+
+// 				<div>
+// 					{recipe ? (
+// 						<>
+// 							<div className='recipe'>
+// 								<h1>Recipe</h1>
+// 								{response}
+// 							</div>
+// 							<button className='recipe-button'>I Cooked this Recipe!</button>
+// 							<button className='recipe-button' onClick={handleNewPrompt}>
+// 								Make a new recipe!{' '}
+// 							</button>
+// 						</>
+// 					) : (
+// 						''
+// 					)}
+// 				</div>
+// 			</div>
+// 		</>
+// 	);
+// }
 
 export default AddIngredients;

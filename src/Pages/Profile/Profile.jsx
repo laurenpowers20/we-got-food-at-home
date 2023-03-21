@@ -6,8 +6,7 @@ import silver from "../../images/silver.png";
 import gold from "../../images/gold.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
-import { logout, auth, db } from "../../services/firebase";
-
+import { logout, auth, db } from '../../services/firebase';
 import {
   query,
   collection,

@@ -6,6 +6,7 @@ body {
   height: 200px;
   border-radius: 50%;
 }
+
 .home-logout-button,
 .home-ingredients-button, .home-create-recipe-button {
   height: 38px;
@@ -15,9 +16,13 @@ body {
   align-items: center;
   font-size: 14px;
   cursor: pointer;
-  margin: 30px;
+  margin: 17px;
   border: none;
   background-color: #fbe0b8;
+}
+
+.home-logout-button {
+  margin-top: 0px;
 }
 
 .home-create-recipe-button {
