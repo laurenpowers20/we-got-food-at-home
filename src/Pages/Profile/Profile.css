@@ -1,3 +1,9 @@
+/* .achievement-image {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+} */
+
 .wrapper {
   min-width: 350px;
   max-width: 600px;
@@ -10,29 +16,6 @@
   margin-left: 20px;
 }
 
-.profile-bar-div.top {
-  color: #eb4335;
-}
-
-.profile-bar-div.bottom {
-  color: #e9c650;
-}
-
-.profile-level-bar {
-  margin: 10px;
-  height: 20px;
-  width: 500px;
-  display: flex;
-}
-
-.profile-level-bar.one {
-  background-color: #eb4335;
-}
-
-.profile-level-bar.two {
-  background-color: #e9c650;
-}
-
 .profile-btn {
   height: 38px;
   width: 204px;
@@ -40,6 +23,7 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  color: black;
   cursor: pointer;
   border: none;
   margin-top: 20px;
@@ -58,19 +42,13 @@
   border-radius: 10px;
 }
 
-.achievement-image {
-  width: 200px;
-  height: 200px;
-  margin: auto;
-}
-
-/* @media only screen and (max-width: 700px) { */
 progress {
   accent-color: #f09133;
-  width: 200px;
+  width: 220px;
   height: 50px;
   margin-right: 20px;
 }
+
 .profile-photo {
   height: 100px;
   width: 100px;
@@ -83,7 +61,6 @@ progress {
   width: 350px;
   display: flex;
   height: 100px;
-
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -96,16 +73,18 @@ progress {
   height: 100px;
   width: 100px;
 }
+
 .progressBar {
   height: 50px;
   width: 250px;
   background-color: rgb(10, 107, 193);
   justify-content: center;
 }
+
 .displayname {
   display: flex;
   height: 50px;
-  width: 250px;
+  width: 300px;
   justify-content: flex-end;
   align-items: center;
   font-weight: bold;
@@ -121,4 +100,18 @@ progress {
 button:disabled:hover {
   background-color: #aac4cf;
   cursor: default;
+}
+
+@media only screen and (max-width: 700px) {
+  .displayname {
+    font-size: 25px;
+    justify-content: center;
+    width: 260px;
+  }
+
+  progress {
+    accent-color: #f09133;
+    width: 190px;
+    height: 50px;
+  }
 }
