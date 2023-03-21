@@ -11,7 +11,6 @@
 }
 
 .google-logo {
-
   padding: 20px;
   margin-right: 10px;
 }
@@ -22,9 +21,10 @@
   border: none;
   height: 50px;
   width: 300px;
+  font-family: "Poppins", sans-serif;
   border-radius: 10px;
   cursor: pointer;
- font-size: 17px;
+  font-size: 17px;
   display: flex;
   align-items: center;
 }
