@@ -23,7 +23,7 @@ import {
 import { async } from "@firebase/util";
 
 function Profile() {
-  const [currentLevel, setCurrentLevel] = useState(1);
+  const [currentLevel, setCurrentLevel] = useState(0);
   const [progress, setProgress] = useState(0);
   const [user, loading, error] = useAuthState(auth);
   const [displayName, setDisplayName] = useState("");
@@ -130,7 +130,7 @@ function Profile() {
               }}
             />{" "}
             <div>
-              <progress value={progress} max="60"></progress>
+              <progress value={progress} max="70"></progress>
             </div>
           </div>
           <p className="profile-day-count">
