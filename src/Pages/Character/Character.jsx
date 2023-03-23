@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './DressUpGame.css';
+// import './DressUpGame.css';
 import images from './assets/CharacterAssets/CharacterAssets';
 
 function CharacterCustomizer() {
