@@ -66,7 +66,7 @@ function Profile() {
     const unsubscribe = onSnapshot(docRef, (doc) => {});
   }, [user, loading]);
 
-  console.log(progress);
+  // console.log(progress);
 
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
@@ -85,7 +85,7 @@ function Profile() {
     { level: 0, src: `${bronze}`, status: "bronze" },
     { level: 1, src: `${bronze}`, status: "bronze" },
     { level: 2, src: `${bronze}`, status: "bronze" },
-    { level: 3, src: `${bronze}`, status: "bronze" },
+    { level: 3, src: `${silver}`, status: "silver" },
     { level: 4, src: `${silver}`, status: "silver" },
     { level: 5, src: `${silver}`, status: "silver" },
     { level: 6, src: `${silver}`, status: "silver" },
