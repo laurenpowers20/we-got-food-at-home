@@ -9,7 +9,7 @@ ul {
   margin: auto;
   text-align: right;
   width: 200px;
-}  
+}
 
 p {
   margin: 9px;
@@ -27,6 +27,7 @@ h1 {
   border: none;
   color: black;
   cursor: pointer;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   height: 38px;
@@ -48,7 +49,6 @@ h1 {
   margin: auto;
   max-width: 500px;
   min-width: 350px;
-  
 }
 
 .container {
@@ -110,7 +110,9 @@ h1 {
 article {
   padding-bottom: 30px;
   padding-left: 30px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   text-align: left;
+  border-radius: 10px;
   white-space: pre-wrap;
 }
 
@@ -127,8 +129,8 @@ article {
   width: 5px;
 }
 
-.ingredients-div, #ingredients-header
-{
+.ingredients-div,
+#ingredients-header {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -155,6 +157,7 @@ article {
   align-items: center;
   background-color: #fbe0b8;
   border-radius: 100px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   border: none;
   color: black;
   cursor: pointer;
@@ -172,7 +175,6 @@ article {
 }
 
 @media only screen and (max-width: 700px) {
-  
   .recipe {
     font-size: 22px;
     text-align: left;
