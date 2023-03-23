@@ -139,8 +139,6 @@ function Profile() {
         </div>
       </div>
 
-      {/* <button onClick={progressUpdate}>TESTUP</button> */}
-
       <div className="profile-bottom">
         {" "}
         <h2>Your Achievement</h2>
@@ -164,7 +162,7 @@ function Profile() {
         {/* the progress bar btn minus */}
         <button
           className="profile-btn small"
-          disabled={currentLevel === 1}
+          disabled={currentLevel === 0}
           onClick={handleLevelDown}
         >
           Oops, no I didn't!

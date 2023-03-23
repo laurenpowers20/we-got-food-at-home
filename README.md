@@ -1,6 +1,8 @@
-# Title: We Got Food at Home
+# We Got Food at Home!
 
-[Live Site](https://we-got-food-at-home.netlify.app/)
+### [Live Site](https://we-got-food-at-home.netlify.app/)
+### [Figma Layout](https://www.figma.com/file/fPJsf2RvARy5zWy7LvlHYr/Food%40Home?node-id=92-475&t=dcNzCdV50c7E7YCK-0)
+
 
 ## 2023 Spring Hackathon hosted by General Assembly
 
@@ -38,4 +40,3 @@ Worked in a cross-functional team of UX designers and software engineers and pit
 - [Mikayla Salyer](https://www.mikaylasalyer.com/)
 - [Robin Ong](https://www.robinong.com/)
 
-[Figma Layout](https://www.figma.com/file/fPJsf2RvARy5zWy7LvlHYr/Food%40Home?node-id=92-475&t=dcNzCdV50c7E7YCK-0)
