@@ -66,7 +66,7 @@ function Profile() {
     const unsubscribe = onSnapshot(docRef, (doc) => {});
   }, [user, loading]);
 
-  console.log(progress);
+  // console.log(progress);
 
   // /////////////////////////////////////////////////////////// //
   // /////////////////////////////////////////////////////////// //
@@ -85,7 +85,7 @@ function Profile() {
     { level: 0, src: `${bronze}`, status: "bronze" },
     { level: 1, src: `${bronze}`, status: "bronze" },
     { level: 2, src: `${bronze}`, status: "bronze" },
-    { level: 3, src: `${bronze}`, status: "bronze" },
+    { level: 3, src: `${silver}`, status: "silver" },
     { level: 4, src: `${silver}`, status: "silver" },
     { level: 5, src: `${silver}`, status: "silver" },
     { level: 6, src: `${silver}`, status: "silver" },
@@ -139,8 +139,6 @@ function Profile() {
         </div>
       </div>
 
-      {/* <button onClick={progressUpdate}>TESTUP</button> */}
-
       <div className="profile-bottom">
         {" "}
         <h2>Your Achievement</h2>
@@ -164,7 +162,7 @@ function Profile() {
         {/* the progress bar btn minus */}
         <button
           className="profile-btn small"
-          disabled={currentLevel === 1}
+          disabled={currentLevel === 0}
           onClick={handleLevelDown}
         >
           Oops, no I didn't!
