@@ -24,7 +24,7 @@ function SignIn() {
       <h1 style={{ color: "#31444e" }}>Welcome</h1>
       <img src={logo} alt="logo" className="signin-logo" />
       <div className="ai">
-        <h3 style={{ color: "#31444e" }}>Powered by</h3>{" "}
+        <h3>Powered by</h3>{" "}
         <img src={openai} style={{ height: "25px", paddingLeft: "5px" }} />
       </div>
       <div className="sign-in-form-container">

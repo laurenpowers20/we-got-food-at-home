@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../../Components/ItemList";
 import Recipes from "../../Components/Recipes";
 import "../AddIngredients/AddIngredients.css";
-import { Hearts } from "react-loading-icons";
+import { BallTriangle } from "react-loading-icons";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { Configuration, OpenAIApi } from "openai";
 import {
@@ -197,7 +197,7 @@ function AddIngredients() {
       )}
 
       {load ? (
-        <Hearts
+        <BallTriangle
           stroke="#f09133"
           fill="#ed7f12"
           strokeOpacity={0.1}
