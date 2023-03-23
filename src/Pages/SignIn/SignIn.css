@@ -26,12 +26,16 @@
   border: none;
   height: 50px;
   width: 300px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
   cursor: pointer;
   font-size: 17px;
   display: flex;
   align-items: center;
+}
+.google-button:hover {
+  background-color: rgb(65, 64, 64);
 }
 
 .signin-logo {

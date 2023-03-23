@@ -35,7 +35,7 @@ function Home() {
   }, [user, loading]);
 
   if (loading) {
-    return <h1 className='loading'>Loading...</h1>;
+    return <h1 className="loading">Loading...</h1>;
   } else if (!user) {
     navigate("/");
   }
@@ -46,9 +46,7 @@ function Home() {
 
       <div>
         <Link to="/ingredients">
-          <button className="home-ingredients-button">
-            I am ready to cook
-          </button>
+          <button className="home-ingredients-button">Give me a recipe!</button>
         </Link>
       </div>
 
