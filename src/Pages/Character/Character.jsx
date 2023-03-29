@@ -52,7 +52,62 @@ function Character() {
 					alt='default model'
 				/>
 			</div>
-			<div>
+			<div className='skintone-container'>
+				{skinToneUrls.map((stUrl, i) => (
+					<img
+						key={`hair-${i}`}
+						className='skin-tone-img'
+						src={stUrl}
+						alt='skin tone'
+						onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='skintone-container'>
+				{skinToneUrls.map((stUrl, i) => (
+					<img
+						key={`hair-${i}`}
+						className='skin-tone-img'
+						src={stUrl}
+						alt='skin tone'
+						onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='skintone-container'>
+				{skinToneUrls.map((stUrl, i) => (
+					<img
+						key={`hair-${i}`}
+						className='skin-tone-img'
+						src={stUrl}
+						alt='skin tone'
+						onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='skintone-container'>
+				{skinToneUrls.map((stUrl, i) => (
+					<img
+						key={`hair-${i}`}
+						className='skin-tone-img'
+						src={stUrl}
+						alt='skin tone'
+						onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='skintone-container'>
+				{skinToneUrls.map((stUrl, i) => (
+					<img
+						key={`hair-${i}`}
+						className='skin-tone-img'
+						src={stUrl}
+						alt='skin tone'
+						onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
