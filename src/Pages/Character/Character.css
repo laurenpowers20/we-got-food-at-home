@@ -1,4 +1,13 @@
+.skintone-container, .accessory-container {
+  display: flex;
+  align-content: stretch;
+  margin: 10px 20px 0px 20px
+}
 
-.skin-tone-img {  
+/* .accessory-img {
+} */
+
+.skintone-img, .accessory-img {  
   margin: 10px;
 }
+

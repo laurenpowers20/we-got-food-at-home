@@ -56,14 +56,25 @@ function Character() {
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
-						className='skin-tone-img'
+						className='skintone-img'
 						src={stUrl}
 						alt='skin tone'
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
 			</div>
-			<div className='skintone-container'>
+			<div className='accessory-container'>
+				{accessoryUrls.map((accUrl, i) => (
+					<img
+						// key={`hair-${i}`}
+						className='accessory-img'
+						src={accUrl}
+						alt='accessory'
+						// onClick={() => setModelIndex(i)}
+					/>
+				))}
+			</div>
+			{/* <div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
@@ -73,8 +84,8 @@ function Character() {
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
-			</div>
-			<div className='skintone-container'>
+			</div> */}
+			{/* <div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
@@ -84,8 +95,8 @@ function Character() {
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
-			</div>
-			<div className='skintone-container'>
+			</div> */}
+			{/* <div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
@@ -95,8 +106,8 @@ function Character() {
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
-			</div>
-			<div className='skintone-container'>
+			</div> */}
+			{/* <div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`hair-${i}`}
@@ -106,18 +117,7 @@ function Character() {
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
-			</div>
-			<div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
-					<img
-						key={`hair-${i}`}
-						className='skin-tone-img'
-						src={stUrl}
-						alt='skin tone'
-						onClick={() => setModelIndex(i)}
-					/>
-				))}
-			</div>
+			</div> */}
 		</div>
 	);
 }
