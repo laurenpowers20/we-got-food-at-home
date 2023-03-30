@@ -8,11 +8,16 @@ function Character() {
 	const [modelUrls, setModelUrls] = useState([]);
 	const [modelIndex, setModelIndex] = useState(0);
 	const [skinToneUrls, setSkinToneUrls] = useState([]);
-	const [accessoryUrls, setAccessoryUrls] = useState([]);
+  const [accessoryUrls, setAccessoryUrls] = useState([]);
+	const [accessoryIndex, setAccessoryIndex] = useState(0);
 	const [hairUrls, setHairUrls] = useState([]);
+	const [hairIndex, setHairIndex] = useState(0);
 	const [pantUrls, setPantUrls] = useState([]);
+	const [pantIndex, setPantIndex] = useState(0);
 	const [shirtUrls, setShirtUrls] = useState([]);
+	const [shirtIndex, setShirtIndex] = useState(0);
 	const [shoeUrls, setShoeUrls] = useState([]);
+	const [shoeIndex, setShoeIndex] = useState(0);
 
 	// TODO 1) Start by loading First Model image 2) Display icon with each skin tone useState for index
 
@@ -45,20 +50,25 @@ function Character() {
 
 	return (
 		<div>
-			<div>
+			<div className='character-container'>
 				<img
 					className='model-img'
 					src={modelUrls.length && modelUrls[modelIndex]}
 					alt='default model'
 				/>
+				<img
+					className='sel-accessory'
+					src={accessoryUrls.length && accessoryUrls[accessoryIndex]}
+					alt='default accessory'
+				/>
 			</div>
 			<div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img
-						key={`hair-${i}`}
+						key={`skintone-${i}`}
 						className='skintone-img'
 						src={stUrl}
-						alt='skin tone'
+						alt='skitone'
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
@@ -66,11 +76,11 @@ function Character() {
 			<div className='accessory-container'>
 				{accessoryUrls.map((accUrl, i) => (
 					<img
-						// key={`hair-${i}`}
+						key={`accessory-${i}`}
 						className='accessory-img'
 						src={accUrl}
 						alt='accessory'
-						// onClick={() => setModelIndex(i)}
+						onClick={() => setAccessoryIndex(i)}
 					/>
 				))}
 			</div>
