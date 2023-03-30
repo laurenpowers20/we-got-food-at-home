@@ -13,14 +13,13 @@ h1 {
   margin-bottom: 20px;
 }
 
-.accessory-container, .skintone-container{
+.accessory-container, .hair-container, .shirt-container, .pants-container, .shoes-container .skintone-container{
   align-content: space-evenly;
   margin: 10px 20px 0px 20px
 }
 
 .sel-hair, .sel-accessory {
   position:relative;
-  /* z-index: 1; */
   margin: 0 auto;
 }
 
