@@ -50,11 +50,17 @@ function Character() {
 
 	return (
 		<div>
+			<h1>Design Your Character</h1>
 			<div className='character-container'>
 				<img
 					className='model-img'
 					src={modelUrls.length && modelUrls[modelIndex]}
 					alt='default model'
+				/>
+				<img
+					className='sel-hair'
+					src={hairUrls.length && hairUrls[hairIndex]}
+					alt='default hair'
 				/>
 				<img
 					className='sel-accessory'
@@ -68,7 +74,7 @@ function Character() {
 						key={`skintone-${i}`}
 						className='skintone-img'
 						src={stUrl}
-						alt='skitone'
+						alt='skintone'
 						onClick={() => setModelIndex(i)}
 					/>
 				))}
@@ -84,17 +90,17 @@ function Character() {
 					/>
 				))}
 			</div>
-			{/* <div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
+			<div className='hair-container'>
+				{hairUrls.map((hUrl, i) => (
 					<img
 						key={`hair-${i}`}
-						className='skin-tone-img'
-						src={stUrl}
-						alt='skin tone'
-						onClick={() => setModelIndex(i)}
+						className='hair-img'
+						src={hUrl}
+						alt='hair'
+						onClick={() => setHairIndex(i)}
 					/>
 				))}
-			</div> */}
+			</div>
 			{/* <div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
 					<img

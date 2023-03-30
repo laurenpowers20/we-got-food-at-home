@@ -1,26 +1,40 @@
-.character-container {
-  position: relative;
-  width: 80px;
-  margin: 0 auto;
+h1 {
+  margin: 32.5px ;
+  font-weight: 500;
+  font-size: 25px;
 }
 
-.skintone-container, .accessory-container {
+.character-container {
+  position: relative;
+  height: 210px;
+  width: 80px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.accessory-container, .skintone-container{
   align-content: space-evenly;
   margin: 10px 20px 0px 20px
 }
 
-.sel-accessory {
+.sel-hair, .sel-accessory {
   position:relative;
-  z-index: 1;
+  /* z-index: 1; */
   margin: 0 auto;
-  top: -182px
+}
+
+.sel-hair {
+  top: -210px;
+  z-index: 0;
+}
+
+.sel-accessory {
+  top: -267px;
+  z-index: 1;
 }
 
 .skintone-img, .accessory-img {  
   margin: 10px;
   position: relative;
-}
-
-.model-img {
-  z-index: 0;
 }
