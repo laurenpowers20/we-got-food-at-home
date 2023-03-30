@@ -52,8 +52,8 @@ button {
 }
 
 .home-ingredients-button {
-  width: 270px;
-  display: inline-flex;
+  width: 300px;
+  display: flex;
   height: 45px;
   margin: auto;
   text-decoration: none;
