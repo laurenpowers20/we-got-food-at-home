@@ -3,6 +3,7 @@ import { Link, useNavigate, Outlet } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { logout, auth, db } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import openai from "../../images/openAI.png";
 import React, { useState, useEffect } from "react";
 import {
   query,
@@ -46,7 +47,19 @@ function Home() {
 
       <div>
         <Link to="/ingredients">
-          <button className="home-ingredients-button">Give me a recipe!</button>
+          <button className="home-ingredients-button">
+            Give me a recipe with{" "}
+            <img
+              src={openai}
+              style={{
+                height: "18px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+              alt="OpenAI logo"
+            />{" "}
+            !
+          </button>
         </Link>
       </div>
 

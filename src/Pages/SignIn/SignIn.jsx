@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import React from "react";
 import google from "../../images/google.png";
 import logo from "../../images/logo.png";
-import { Link, useNavigate, Outlet } from "react-router-dom";
+import openai from "../../images/openAI.png";
+import { useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import openai from "../../images/openAI.png";
 
 function SignIn() {
   const [user, loading, error] = useAuthState(auth);
@@ -17,7 +17,6 @@ function SignIn() {
       return;
     }
     if (user) navigate("/home");
-    console.log(user);
   }, [user, loading]);
   return (
     <div style={{ paddingTop: "30px" }}>
@@ -25,7 +24,11 @@ function SignIn() {
       <img src={logo} alt="logo" className="signin-logo" />
       <div className="ai">
         <h3>Powered by</h3>{" "}
-        <img src={openai} style={{ height: "25px", paddingLeft: "5px" }} />
+        <img
+          src={openai}
+          style={{ height: "25px", paddingLeft: "5px" }}
+          alt="OpenAI logo"
+        />
       </div>
       <div className="sign-in-form-container">
         {/* sign in using the google pop up */}
@@ -35,6 +38,7 @@ function SignIn() {
             src={google}
             className="google-logo"
             style={{ height: "25px" }}
+            alt="google logo"
           />
           Continue with Google
         </button>

@@ -153,6 +153,7 @@ function AddIngredients() {
           <div>
             <div>
               <h1>Enter Ingredients</h1>
+              <h3>Check the ingredients you want to include in recipe</h3>
               <form onSubmit={addItem}>
                 <input
                   className="custom-input"
