@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import './Character.css';
 // import accessories from './CharacterAssets/accessories';
-import { storage } from '../../services/firebase';
+import { auth, storage, addUserAvatar } from '../../services/firebase';
 import { ref, listAll, getDownloadURL } from 'firebase/storage';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Character() {
+	const [user, loading, error] = useAuthState(auth);
 	const [modelUrls, setModelUrls] = useState([]);
 	const [modelIndex, setModelIndex] = useState(0);
 	const [skinToneUrls, setSkinToneUrls] = useState([]);
-  const [accessoryUrls, setAccessoryUrls] = useState([]);
+	const [accessoryUrls, setAccessoryUrls] = useState([]);
 	const [accessoryIndex, setAccessoryIndex] = useState(0);
 	const [hairUrls, setHairUrls] = useState([]);
 	const [hairIndex, setHairIndex] = useState(0);
@@ -47,6 +49,17 @@ function Character() {
 
 		loadImages();
 	}, []);
+
+	const submitAvatar = async () => {
+		let avatar = {
+			avatarUrl: modelUrls[modelIndex],
+			skinUrl: skinToneUrls[modelIndex],
+			accessoryUrl: accessoryUrls[accessoryIndex],
+			hairUrl: hairUrls[hairIndex],
+		};
+
+		await addUserAvatar(user, avatar);
+	};
 
 	return (
 		<div>
@@ -134,6 +147,9 @@ function Character() {
 					/>
 				))}
 			</div> */}
+			<button className='submit-avatar' onClick={submitAvatar}>
+				Submit
+			</button>
 		</div>
 	);
 }
