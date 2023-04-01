@@ -111,13 +111,46 @@ function Character() {
 				))}
 			</div>
 			<div className='hair-container'>
-				{hairUrls.map((hUrl, i) => (
+				{hairUrls.map((hairUrl, i) => (
 					<img
 						key={`hair-${i}`}
 						className='hair-img'
-						src={hUrl}
+						src={hairUrl}
 						alt='hair'
 						onClick={() => setHairIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='shirt-container'>
+				{shirtUrls.map((shirtUrl, i) => (
+					<img
+						key={`shirt-${i}`}
+						className='shirt-img'
+						src={shirtUrl}
+						alt='shirt'
+						onClick={() => setShirtIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='pants-container'>
+				{pantUrls.map((pantUrl, i) => (
+					<img
+						key={`pants-${i}`}
+						className='pants-img'
+						src={pantUrl}
+						alt='pants'
+						onClick={() => setPantIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='shoe-container'>
+				{shoeUrls.map((shoeUrl, i) => (
+					<img
+						key={`shoes-${i}`}
+						className='shoe-img'
+						src={shoeUrl}
+						alt='shoes'
+						onClick={() => setShoeIndex(i)}
 					/>
 				))}
 			</div>
@@ -132,39 +165,6 @@ function Character() {
 					/>
 				))}
 			</div>
-			{/* <div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
-					<img
-						key={`hair-${i}`}
-						className='skin-tone-img'
-						src={stUrl}
-						alt='skin tone'
-						onClick={() => setModelIndex(i)}
-					/>
-				))}
-			</div> */}
-			{/* <div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
-					<img
-						key={`hair-${i}`}
-						className='skin-tone-img'
-						src={stUrl}
-						alt='skin tone'
-						onClick={() => setModelIndex(i)}
-					/>
-				))}
-			</div> */}
-			{/* <div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
-					<img
-						key={`hair-${i}`}
-						className='skin-tone-img'
-						src={stUrl}
-						alt='skin tone'
-						onClick={() => setModelIndex(i)}
-					/>
-				))}
-			</div> */}
 			<button className='submit-avatar' onClick={submitAvatar}>
 				Submit
 			</button>
