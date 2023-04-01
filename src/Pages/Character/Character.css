@@ -4,36 +4,44 @@ h1 {
   font-size: 25px;
 }
 
+img {
+  max-width: fit-content;
+  height: auto;
+}
+
+.model-img {
+  z-index: -1;
+}
+
 .character-container {
-  position: relative;
   height: 210px;
   width: 80px;
   margin: 0 auto;
   margin-top: 30px;
-  margin-bottom: 20px;
 }
 
-.accessory-container, .hair-container, .shirt-container, .pants-container, .shoes-container .skintone-container{
+.skintone-container, .accessory-container, .hair-container, .shirt-container, .pants-container, .shoe-container {
   align-content: space-evenly;
   margin: 10px 20px 0px 20px
 }
 
-.sel-hair, .sel-accessory {
+.sel-hair, .sel-accessory, .sel-shirt, .sel-pants, .sel-shoes {
   position:relative;
   margin: 0 auto;
-}
-
-.sel-hair {
-  top: -210px;
   z-index: 0;
 }
 
+/* .sel-hair {
+  top: -210px;
+  z-index: 0;
+} */
+
 .sel-accessory {
   top: -267px;
-  z-index: 1;
+  z-index: 0;
 }
 
-.skintone-img, .accessory-img {  
+.skintone-img, .accessory-img, .shirt-img, .pants-img, .shoe-img {  
   margin: 10px;
   position: relative;
 }
