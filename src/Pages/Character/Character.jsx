@@ -56,6 +56,9 @@ function Character() {
 			skinUrl: skinToneUrls[modelIndex],
 			accessoryUrl: accessoryUrls[accessoryIndex],
 			hairUrl: hairUrls[hairIndex],
+			pantUrl: pantUrls[pantIndex],
+			shirtUrls: shirtUrls[shirtIndex],
+			shoeUrls: shoeUrls[shoeIndex],
 		};
 
 		await addUserAvatar(user, avatar);
@@ -80,6 +83,21 @@ function Character() {
 					src={accessoryUrls.length && accessoryUrls[accessoryIndex]}
 					alt='default accessory'
 				/>
+				<img
+					className='sel-shirt'
+					src={shirtUrls.length && shirtUrls[shirtIndex]}
+					alt='default shirt'
+				/>
+				<img
+					className='sel-pants'
+					src={pantUrls.length && pantUrls[pantIndex]}
+					alt='default pants'
+				/>
+				<img
+					className='sel-shoes'
+					src={shoeUrls.length && shoeUrls[shoeIndex]}
+					alt='default shoes'
+				/>
 			</div>
 			<div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
@@ -92,17 +110,6 @@ function Character() {
 					/>
 				))}
 			</div>
-			<div className='accessory-container'>
-				{accessoryUrls.map((accUrl, i) => (
-					<img
-						key={`accessory-${i}`}
-						className='accessory-img'
-						src={accUrl}
-						alt='accessory'
-						onClick={() => setAccessoryIndex(i)}
-					/>
-				))}
-			</div>
 			<div className='hair-container'>
 				{hairUrls.map((hUrl, i) => (
 					<img
@@ -111,6 +118,17 @@ function Character() {
 						src={hUrl}
 						alt='hair'
 						onClick={() => setHairIndex(i)}
+					/>
+				))}
+			</div>
+			<div className='accessory-container'>
+				{accessoryUrls.map((accUrl, i) => (
+					<img
+						key={`accessory-${i}`}
+						className='accessory-img'
+						src={accUrl}
+						alt='accessory'
+						onClick={() => setAccessoryIndex(i)}
 					/>
 				))}
 			</div>

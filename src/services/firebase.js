@@ -73,19 +73,24 @@ const addUserAvatar = async (user, avatar) => {
 		const userQuerySnapshot = await getDocs(userQuery);
 
 		const userDocRef = doc(usersRef, userQuerySnapshot.docs[0].id);
-
 		console.log(avatar);
-		// Check each field and set it to a valid value if it's undefined
+		// check each field and set it to a valid value if it's undefined
 		const avatarUrl = avatar.avatarUrl || '';
 		const skinUrl = avatar.skinUrl || '';
 		const accessoryUrl = avatar.accessoryUrl || '';
 		const hairUrl = avatar.hairUrl || '';
+		const pantUrl = avatar.pantUrl || '';
+		const shirtUrl = avatar.shirtUrl || '';
+		const shoeUrl = avatar.shoeUrl || '';
 
 		await updateDoc(userDocRef, {
 			avatarUrl,
 			skinUrl,
 			accessoryUrl,
 			hairUrl,
+			pantUrl,
+			shirtUrl,
+			shoeUrl,
 		});
 
 		return true;
@@ -95,7 +100,7 @@ const addUserAvatar = async (user, avatar) => {
 	}
 };
 
-//logout function
+// logout function
 const logout = () => {
 	signOut(auth);
 };
