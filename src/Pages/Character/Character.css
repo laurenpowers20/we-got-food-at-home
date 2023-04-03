@@ -42,7 +42,6 @@ img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
   object-fit: contain;
   position: absolute;
   margin: 0 auto;
-  z-index: 0;
 }
 
 .character-container {
@@ -74,12 +73,16 @@ img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
 
 .character-wrapper img.sel-shirt.fourth {
   top: 31%;
+  /* transform: translateX(-92%); */
+  z-index: 2;
+  /* left: 100%; */
 }
 
 .character-wrapper img.sel-shirt {
-  /* position: absolute; */
   left: 50%;
-  transform: translateX(-51%);
+  top: 28%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .character-wrapper img.sel-pants {
