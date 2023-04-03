@@ -74,8 +74,7 @@ img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
 .character-wrapper img.sel-shirt.fourth {
   top: 31%;
   /* transform: translateX(-92%); */
-  z-index: 2;
-  /* left: 100%; */
+  left: 48%;
 }
 
 .character-wrapper img.sel-shirt {
