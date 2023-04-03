@@ -74,7 +74,7 @@ function Character() {
 						src={modelUrls.length && modelUrls[modelIndex]}
 						alt='default model'
 					/>
-					<img
+					{/* <img
 						className='sel-hair'
 						src={hairUrls.length && hairUrls[hairIndex]}
 						alt='default hair'
@@ -88,7 +88,7 @@ function Character() {
 						className='sel-shirt'
 						src={shirtUrls.length && shirtUrls[shirtIndex]}
 						alt='default shirt'
-					/>
+					/> */}
 					<img
 						className='sel-pants'
 						src={pantUrls.length && pantUrls[pantIndex]}
