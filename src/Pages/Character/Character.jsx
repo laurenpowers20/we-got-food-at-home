@@ -78,12 +78,12 @@ function Character() {
 						className='sel-hair'
 						src={hairUrls.length && hairUrls[hairIndex]}
 						alt='default hair'
-					/>
+					/> */}
 					<img
 						className='sel-accessory'
 						src={accessoryUrls.length && accessoryUrls[accessoryIndex]}
 						alt='default accessory'
-					/> */}
+					/>
 					<img
 						className={`sel-shirt ${shirtIndex === 3 ? 'fourth' : ''}`}
 						src={shirtUrls.length && shirtUrls[shirtIndex]}

@@ -65,10 +65,9 @@ img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
 
 .character-wrapper img.sel-accessory {
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  transform: translate(-128%, -85%);
+  width: 65%;
+  height: 95%;
 }
 
 .character-wrapper img.sel-shirt.fourth {
