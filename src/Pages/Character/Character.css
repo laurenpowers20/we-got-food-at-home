@@ -13,28 +13,101 @@ img {
   z-index: -1;
 }
 
-.character-container {
-  height: 210px;
-  width: 80px;
+/* .character-container {
+  position: relative;
+  height: 100%;
+  width: auto;
   margin: 0 auto;
   margin-top: 30px;
-}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+} */
 
 .skintone-container, .accessory-container, .hair-container, .shirt-container, .pants-container, .shoe-container {
   align-content: space-evenly;
   margin: 10px 20px 0px 20px
 }
-
+/* 
 .sel-hair, .sel-accessory, .sel-shirt, .sel-pants, .sel-shoes {
   position:relative;
   margin: 0 auto;
   z-index: 0;
+} */
+
+.character-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-/* .sel-hair {
+.character-wrapper {
+  position: relative;
+}
+
+.character-wrapper img.sel-hair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.character-wrapper img.sel-accessory {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.character-wrapper img.sel-shirt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.character-wrapper img.sel-pants {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.character-wrapper img.sel-shoes {
+  position: absolute;
+  top: 45%;
+  left: 0%;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+.sel-hair {
   top: -210px;
   z-index: 0;
-} */
+}
 
 .sel-accessory {
   top: -267px;
@@ -44,4 +117,5 @@ img {
 .skintone-img, .accessory-img, .shirt-img, .pants-img, .shoe-img {  
   margin: 10px;
   position: relative;
+  align-content: center;
 }

@@ -68,36 +68,38 @@ function Character() {
 		<div>
 			<h1>Design Your Character</h1>
 			<div className='character-container'>
-				<img
-					className='model-img'
-					src={modelUrls.length && modelUrls[modelIndex]}
-					alt='default model'
-				/>
-				<img
-					className='sel-hair'
-					src={hairUrls.length && hairUrls[hairIndex]}
-					alt='default hair'
-				/>
-				<img
-					className='sel-accessory'
-					src={accessoryUrls.length && accessoryUrls[accessoryIndex]}
-					alt='default accessory'
-				/>
-				<img
-					className='sel-shirt'
-					src={shirtUrls.length && shirtUrls[shirtIndex]}
-					alt='default shirt'
-				/>
-				<img
-					className='sel-pants'
-					src={pantUrls.length && pantUrls[pantIndex]}
-					alt='default pants'
-				/>
-				<img
-					className='sel-shoes'
-					src={shoeUrls.length && shoeUrls[shoeIndex]}
-					alt='default shoes'
-				/>
+				<div className='character-wrapper'>
+					<img
+						className='model-img'
+						src={modelUrls.length && modelUrls[modelIndex]}
+						alt='default model'
+					/>
+					<img
+						className='sel-hair'
+						src={hairUrls.length && hairUrls[hairIndex]}
+						alt='default hair'
+					/>
+					<img
+						className='sel-accessory'
+						src={accessoryUrls.length && accessoryUrls[accessoryIndex]}
+						alt='default accessory'
+					/>
+					<img
+						className='sel-shirt'
+						src={shirtUrls.length && shirtUrls[shirtIndex]}
+						alt='default shirt'
+					/>
+					<img
+						className='sel-pants'
+						src={pantUrls.length && pantUrls[pantIndex]}
+						alt='default pants'
+					/>
+					<img
+						className='sel-shoes'
+						src={shoeUrls.length && shoeUrls[shoeIndex]}
+						alt='default shoes'
+					/>
+				</div>
 			</div>
 			<div className='skintone-container'>
 				{skinToneUrls.map((stUrl, i) => (
@@ -110,6 +112,7 @@ function Character() {
 					/>
 				))}
 			</div>
+
 			<div className='hair-container'>
 				{hairUrls.map((hairUrl, i) => (
 					<img
