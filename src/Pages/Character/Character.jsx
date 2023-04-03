@@ -75,7 +75,7 @@ function Character() {
 						alt='default model'
 					/>
 					<img
-						className='sel-hair'
+						className={`sel-hair ${hairIndex === 0 ? 'first' : ''}`}
 						src={hairUrls.length && hairUrls[hairIndex]}
 						alt='default hair'
 					/>
