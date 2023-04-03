@@ -6,25 +6,27 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddIngredients from "./Pages/AddIngredients/AddIngredients";
 import Home from "./Pages/Home/Home";
+import Character from './Pages/Character/Character';
 // import SeeRecipes from "./Pages/Recipes/SeeRecipes";
-import SignIn from "./Pages/SignIn/SignIn";
-import Profile from "./Pages/Profile/Profile";
-import Layout from "./Pages/Layout";
+import SignIn from './Pages/SignIn/SignIn';
+import Profile from './Pages/Profile/Profile';
+import Layout from './Pages/Layout';
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={ <SignIn />} />
-          <Route path="home" element={<Home />} />
-          <Route path="ingredients" element={<AddIngredients />} />
-          {/* <Route path="ingredients/recipes" element={<SeeRecipes />} /> */}
-          <Route path="profile" element={<Profile />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Layout />}>
+					<Route index element={<SignIn />} />
+					<Route path='home' element={<Home />} />
+					<Route path='ingredients' element={<AddIngredients />} />
+					{/* <Route path="ingredients/recipes" element={<SeeRecipes />} /> */}
+					<Route path='profile' element={<Profile />} />
+					<Route path='character' element={<Character />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
