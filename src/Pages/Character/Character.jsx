@@ -90,7 +90,7 @@ function Character() {
 						alt='default shirt'
 					/>
 					<img
-						className='sel-pants'
+						className={`sel-pants ${pantIndex === 0 ? 'first' : ''}`}
 						src={pantUrls.length && pantUrls[pantIndex]}
 						alt='default pants'
 					/>
