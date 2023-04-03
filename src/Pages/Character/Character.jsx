@@ -105,7 +105,7 @@ function Character() {
 				{skinToneUrls.map((stUrl, i) => (
 					<img
 						key={`skintone-${i}`}
-						className='skintone-img'
+						className={`skintone-img ${modelIndex === i ? 'selected' : ''}`}
 						src={stUrl}
 						alt='skintone'
 						onClick={() => setModelIndex(i)}
@@ -117,7 +117,7 @@ function Character() {
 				{hairUrls.map((hairUrl, i) => (
 					<img
 						key={`hair-${i}`}
-						className='hair-img'
+						className={`hair-img ${hairIndex === i ? 'selected' : ''}`}
 						src={hairUrl}
 						alt='hair'
 						onClick={() => setHairIndex(i)}
@@ -128,7 +128,7 @@ function Character() {
 				{shirtUrls.map((shirtUrl, i) => (
 					<img
 						key={`shirt-${i}`}
-						className='shirt-img'
+						className={`shirt-img ${shirtIndex === i ? 'selected' : ''}`}
 						src={shirtUrl}
 						alt='shirt'
 						onClick={() => setShirtIndex(i)}
@@ -139,7 +139,7 @@ function Character() {
 				{pantUrls.map((pantUrl, i) => (
 					<img
 						key={`pants-${i}`}
-						className='pants-img'
+						className={`pants-img ${pantIndex === i ? 'selected' : ''}`}
 						src={pantUrl}
 						alt='pants'
 						onClick={() => setPantIndex(i)}
@@ -150,7 +150,7 @@ function Character() {
 				{shoeUrls.map((shoeUrl, i) => (
 					<img
 						key={`shoes-${i}`}
-						className='shoe-img'
+						className={`shoe-img ${shoeIndex === i ? 'selected' : ''}`}
 						src={shoeUrl}
 						alt='shoes'
 						onClick={() => setShoeIndex(i)}
@@ -161,7 +161,9 @@ function Character() {
 				{accessoryUrls.map((accUrl, i) => (
 					<img
 						key={`accessory-${i}`}
-						className='accessory-img'
+						className={`accessory-img ${
+							accessoryIndex === i ? 'selected' : ''
+						}`}
 						src={accUrl}
 						alt='accessory'
 						onClick={() => setAccessoryIndex(i)}

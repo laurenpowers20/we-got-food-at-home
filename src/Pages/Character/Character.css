@@ -113,23 +113,14 @@ height: 50%; */
 .character-wrapper img.sel-shoes {
   top: 91%;
   left: 4%;
-  /* width: 100%;
-  height: 100%; */
 }
 
-
-.sel-hair {
-  top: -210px;
-  z-index: 0;
-}
-
-.sel-accessory {
-  top: -267px;
-  z-index: 0;
-}
-
-.skintone-img, .accessory-img, .shirt-img, .pants-img, .shoe-img {  
+.skintone-img, .accessory-img, .shirt-img, .pants-img, .shoe-img, .hair-img {  
   margin: 10px;
   position: relative;
   align-content: center;
+}
+
+.selected {
+  border: 2px solid blue;
 }
