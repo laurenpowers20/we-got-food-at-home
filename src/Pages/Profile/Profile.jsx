@@ -21,6 +21,7 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { async } from "@firebase/util";
+import { Link } from 'react-router-dom';
 
 function Profile() {
 	const [currentLevel, setCurrentLevel] = useState(0);
@@ -137,6 +138,12 @@ function Profile() {
 						You cooked {currentLevel}/7 days this week
 					</p>
 				</div>
+			</div>
+
+			<div className='character-div'>
+				<Link to='/character'>
+					<button className='character-button'>Customize your Chef</button>
+				</Link>
 			</div>
 
 			<div className='profile-bottom'>

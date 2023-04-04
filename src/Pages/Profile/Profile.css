@@ -4,6 +4,27 @@
   margin: auto;
 } */
 
+.character-button {
+  height: 38px;
+  width: 200px;
+  color: black;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
+  cursor: pointer;
+  margin: 15px;
+  border: none;
+  background-color: #fbe0b8;
+}
+
+.character-button:hover {
+  background-color: #f09133;
+}
+
 .wrapper {
   min-width: 350px;
   max-width: 600px;
@@ -66,6 +87,7 @@ progress {
   margin: 0;
   font-size: 15px;
 }
+
 .profile-photo {
   height: 100px;
   width: 100px;
@@ -80,7 +102,6 @@ progress {
   height: 100px;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .pfpdiv {
