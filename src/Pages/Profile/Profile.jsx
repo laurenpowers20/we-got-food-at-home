@@ -116,12 +116,12 @@ function Profile() {
 	return (
 		<div className='wrapper'>
 			<div className='profile-top'>
-				<img src={user.photoURL} className='pfpdiv' alt='user profile' />
+				<img src={user.photoURL} className='pfp-div' alt='user profile' />
 
-				<div className='leftcontainer'>
-					<div className='displayname'>{`Chef ${user.displayName}`}</div>
+				<div className='left-container'>
+					<div className='display-name'>{`Chef ${user.displayName}`}</div>
 
-					<div className='profile-bar-div top'>
+					<div className='profile-bar-div'>
 						<GiForkKnifeSpoon
 							style={{
 								paddingRight: '10px',
