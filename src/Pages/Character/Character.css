@@ -25,6 +25,8 @@ img {
 .shirt-container,
 .pants-container,
 .shoe-container {
+  border: 1px solid gray;
+  margin-top: 5px;
   /* align-content: space-evenly; */
   /* margin: 0 20px; */
 }
