@@ -1,24 +1,24 @@
 /* .achievement-image {
-  width: 200px;
   height: 200px;
   margin: auto;
+  width: 200px;
 } */
 
 .character-button {
-  height: 38px;
-  width: 200px;
-  color: black;
-  border-radius: 100px;
-  justify-content: center;
   align-items: center;
-  text-decoration: none;
+  background-color: #fbe0b8;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
+  color: black;
+  cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
-  cursor: pointer;
+  height: 38px;
+  justify-content: center;
   margin: 15px;
-  border: none;
-  background-color: #fbe0b8;
+  text-decoration: none;
+  width: 200px;
 }
 
 .character-button:hover {
@@ -26,31 +26,32 @@
 }
 
 .wrapper {
-  min-width: 350px;
-  max-width: 600px;
   margin: auto;
+  margin-top: 20px;
+  max-width: 600px;
+  min-width: 350px;
 }
 
 .profile-bar-div {
-  display: flex;
   align-items: center;
+  display: flex;
   margin-left: 20px;
 }
 
 .profile-btn {
-  height: 38px;
-  width: 204px;
-  border-radius: 100px;
-  justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  background-color: #aac4cf;
+  border-radius: 100px;
+  border: none;
   box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   color: black;
   cursor: pointer;
-  border: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  height: 38px;
+  justify-content: center;
   margin-top: 15px;
-  background-color: #aac4cf;
+  width: 204px;
 }
 
 .profile-btn:hover {
@@ -58,81 +59,80 @@
 }
 
 .profile-btn.small {
-  height: 30px;
-  width: 100px;
-  margin: 50px;
-  font-size: 10px;
   box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   cursor: pointer;
+  font-size: 10px;
+  height: 30px;
+  margin: 50px;
+  width: 100px;
 }
 
 .profile-bottom {
+  border-radius: 10px;
   border: solid 1px black;
-  width: 350px;
+  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
   height: 400px;
   margin-top: 100px;
   margin: auto;
-  box-shadow: 4px 6px 5px -1px rgba(191, 191, 191, 1);
-  border-radius: 10px;
+  width: 350px;
 }
 
 progress {
   accent-color: #f09133;
-  width: 220px;
   height: 30px;
   margin-right: 20px;
+  width: 220px;
 }
 .profile-day-count {
-  padding: 0;
-  margin: 0;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .profile-photo {
-  height: 100px;
-  width: 100px;
-  border: solid 1px black;
   border-radius: 10%;
+  border: solid 1px black;
+  height: 100px;
   margin-left: 5%;
+  width: 100px;
 }
 
 .profile-top {
-  width: 350px;
   display: flex;
   height: 100px;
   margin: auto;
-  margin-top: 20px;
+  width: 350px;
 }
 
 .pfpdiv {
-  justify-content: flex-end;
-  border: 1px black solid;
   border-radius: 10px;
+  border: 1px black solid;
   height: 100px;
+  justify-content: flex-end;
   width: 100px;
 }
 
 .progressBar {
-  height: 50px;
-  width: 250px;
   background-color: rgb(10, 107, 193);
+  height: 50px;
   justify-content: center;
+  width: 250px;
 }
 
 .displayname {
-  display: flex;
-  height: 50px;
-  width: 300px;
-  justify-content: flex-end;
   align-items: center;
-  font-weight: bold;
+  display: flex;
   font-size: 30px;
+  font-weight: bold;
+  height: 50px;
+  justify-content: flex-end;
+  width: 300px;
 }
 .profile-level-bar {
-  margin: 20px;
-  height: 20px;
-  width: 200px;
   background-color: #bfbfbf;
+  height: 20px;
+  margin: 20px;
+  width: 200px;
 }
 
 button:disabled:hover {
@@ -141,6 +141,7 @@ button:disabled:hover {
 }
 
 @media only screen and (max-width: 700px) {
+  
   .displayname {
     font-size: 25px;
     justify-content: center;
@@ -149,7 +150,7 @@ button:disabled:hover {
 
   progress {
     accent-color: #f09133;
-    width: 190px;
     height: 30px;
+    width: 190px;
   }
 }
