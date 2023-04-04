@@ -101,74 +101,77 @@ function Character() {
 					/>
 				</div>
 			</div>
-			<div className='skintone-container'>
-				{skinToneUrls.map((stUrl, i) => (
-					<img
-						key={`skintone-${i}`}
-						className={`skintone-img ${modelIndex === i ? 'selected' : ''}`}
-						src={stUrl}
-						alt='skintone'
-						onClick={() => setModelIndex(i)}
-					/>
-				))}
-			</div>
 
-			<div className='hair-container'>
-				{hairUrls.map((hairUrl, i) => (
-					<img
-						key={`hair-${i}`}
-						className={`hair-img ${hairIndex === i ? 'selected' : ''}`}
-						src={hairUrl}
-						alt='hair'
-						onClick={() => setHairIndex(i)}
-					/>
-				))}
-			</div>
-			<div className='shirt-container'>
-				{shirtUrls.map((shirtUrl, i) => (
-					<img
-						key={`shirt-${i}`}
-						className={`shirt-img ${shirtIndex === i ? 'selected' : ''}`}
-						src={shirtUrl}
-						alt='shirt'
-						onClick={() => setShirtIndex(i)}
-					/>
-				))}
-			</div>
-			<div className='pants-container'>
-				{pantUrls.map((pantUrl, i) => (
-					<img
-						key={`pants-${i}`}
-						className={`pants-img ${pantIndex === i ? 'selected' : ''}`}
-						src={pantUrl}
-						alt='pants'
-						onClick={() => setPantIndex(i)}
-					/>
-				))}
-			</div>
-			<div className='shoe-container'>
-				{shoeUrls.map((shoeUrl, i) => (
-					<img
-						key={`shoes-${i}`}
-						className={`shoe-img ${shoeIndex === i ? 'selected' : ''}`}
-						src={shoeUrl}
-						alt='shoes'
-						onClick={() => setShoeIndex(i)}
-					/>
-				))}
-			</div>
-			<div className='accessory-container'>
-				{accessoryUrls.map((accUrl, i) => (
-					<img
-						key={`accessory-${i}`}
-						className={`accessory-img ${
-							accessoryIndex === i ? 'selected' : ''
-						}`}
-						src={accUrl}
-						alt='accessory'
-						onClick={() => setAccessoryIndex(i)}
-					/>
-				))}
+			<div className='img-containers'>
+				<div className='skintone-container'>
+					{skinToneUrls.map((stUrl, i) => (
+						<img
+							key={`skintone-${i}`}
+							className={`skintone-img ${modelIndex === i ? 'selected' : ''}`}
+							src={stUrl}
+							alt='skintone'
+							onClick={() => setModelIndex(i)}
+						/>
+					))}
+				</div>
+
+				<div className='hair-container'>
+					{hairUrls.map((hairUrl, i) => (
+						<img
+							key={`hair-${i}`}
+							className={`hair-img ${hairIndex === i ? 'selected' : ''}`}
+							src={hairUrl}
+							alt='hair'
+							onClick={() => setHairIndex(i)}
+						/>
+					))}
+				</div>
+				<div className='shirt-container'>
+					{shirtUrls.map((shirtUrl, i) => (
+						<img
+							key={`shirt-${i}`}
+							className={`shirt-img ${shirtIndex === i ? 'selected' : ''}`}
+							src={shirtUrl}
+							alt='shirt'
+							onClick={() => setShirtIndex(i)}
+						/>
+					))}
+				</div>
+				<div className='pants-container'>
+					{pantUrls.map((pantUrl, i) => (
+						<img
+							key={`pants-${i}`}
+							className={`pants-img ${pantIndex === i ? 'selected' : ''}`}
+							src={pantUrl}
+							alt='pants'
+							onClick={() => setPantIndex(i)}
+						/>
+					))}
+				</div>
+				<div className='shoe-container'>
+					{shoeUrls.map((shoeUrl, i) => (
+						<img
+							key={`shoes-${i}`}
+							className={`shoe-img ${shoeIndex === i ? 'selected' : ''}`}
+							src={shoeUrl}
+							alt='shoes'
+							onClick={() => setShoeIndex(i)}
+						/>
+					))}
+				</div>
+				<div className='accessory-container'>
+					{accessoryUrls.map((accUrl, i) => (
+						<img
+							key={`accessory-${i}`}
+							className={`accessory-img ${
+								accessoryIndex === i ? 'selected' : ''
+							}`}
+							src={accUrl}
+							alt='accessory'
+							onClick={() => setAccessoryIndex(i)}
+						/>
+					))}
+				</div>
 			</div>
 			<button className='submit-avatar' onClick={submitAvatar}>
 				Submit

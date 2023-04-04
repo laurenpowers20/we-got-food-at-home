@@ -1,5 +1,5 @@
 h1 {
-  margin: 32.5px ;
+  margin: 32.5px;
   font-weight: 500;
   font-size: 25px;
 }
@@ -9,36 +9,31 @@ img {
   height: auto;
 }
 
-/* .model-img {
-  z-index: 0;
-  position: relative;
-} */
-
-/* .character-container {
-  position: relative;
-  height: 100%;
-  width: auto;
-  margin: 0 auto;
-  margin-top: 30px;
-
+.container {
   display: flex;
-  justify-content: center;
+  overflow-x: scroll;
+  width: 100%;
+  white-space: nowrap;
   align-items: center;
-  margin: 0 auto;
-  position: relative;
-
-  display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-} */
-
-.skintone-container, .accessory-container, .hair-container, .shirt-container, .pants-container, .shoe-container {
-  align-content: space-evenly;
-  margin: 10px 20px 0px 20px
+  margin: 10px 0;
 }
 
-img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
+.skintone-container,
+.accessory-container,
+.hair-container,
+.shirt-container,
+.pants-container,
+.shoe-container {
+  /* align-content: space-evenly; */
+  /* margin: 0 20px; */
+}
+
+img.sel-hair,
+img.sel-accessory,
+img.sel-shirt,
+img.sel-pants,
+img.sel-shoes {
   object-fit: contain;
   position: absolute;
   margin: 0 auto;
@@ -69,12 +64,6 @@ img.sel-hair, img.sel-accessory, img.sel-shirt, img.sel-pants, img.sel-shoes {
   width: 85%;
 }
 
-/* top: 18%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 88%;
-height: 50%; */
-
 .character-wrapper img.sel-accessory {
   top: 50%;
   transform: translate(-128%, -85%);
@@ -84,7 +73,6 @@ height: 50%; */
 
 .character-wrapper img.sel-shirt.fourth {
   top: 31%;
-  /* transform: translateX(-92%); */
   left: 48%;
 }
 
@@ -106,21 +94,48 @@ height: 50%; */
   top: 74%;
   left: 48%;
   transform: translate(-50%, -50%);
-
 }
-
 
 .character-wrapper img.sel-shoes {
   top: 91%;
   left: 4%;
 }
 
-.skintone-img, .accessory-img, .shirt-img, .pants-img, .shoe-img, .hair-img {  
+.skintone-img,
+.accessory-img,
+.shirt-img,
+.pants-img,
+.shoe-img,
+.hair-img {
   margin: 10px;
   position: relative;
   align-content: center;
+  padding: 2px;
 }
 
 .selected {
-  border: 2px solid blue;
+  border: 2px solid black;
 }
+
+@media only screen and (min-width: 768px) {
+  .container {
+    overflow-x: visible;
+    white-space: normal;
+  }
+}
+
+.img-containers {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.img-containers img {
+  display: inline-block;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+  height: auto;
+}
+
