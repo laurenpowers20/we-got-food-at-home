@@ -32,7 +32,6 @@ function Home() {
       setDisplayName(user.displayName);
       setPhotoURL(user.photoURL);
     }
-    console.log(user);
   }, [user, loading]);
 
   if (loading) {

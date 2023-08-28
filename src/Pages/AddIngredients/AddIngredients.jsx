@@ -109,9 +109,9 @@ function AddIngredients() {
     setLoad(true);
     try {
       const res = await openai.createCompletion({
-        model: "text-davinci-003",
+        model: "gpt-3.5-turbo",
         prompt: prompt,
-        max_tokens: 2000,
+        max_tokens: 4096,
         temperature: 0,
       });
       setLoad(false);
